@@ -13,27 +13,25 @@ import java.io.IOException;
  * IDE menubar
  *
  */
+
 public class IDEMenuBar extends JMenuBar{
 
+    private Action open, quit, save, saveAs;
     private JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
-    public String currentFile = "Untitled";
-    public Action open, quit, save, saveAs;
     private IDEPanel idePanel;
-    public boolean changed;
-
 
     IDEMenuBar(IDEPanel idePanel){
         this.idePanel = idePanel;
         createActions();
         mkOptions();
+
+        idePanel.add(this);
     }//..
 
-
-
     protected void createActions(){
-      open = new AbstractAction("open", new ImageIcon("open.gif")) {
+       open = new AbstractAction("Open", new ImageIcon("open.gif")) {
             public void actionPerformed(ActionEvent e) {
-                saveOld();
+                comfirmSave();
                 if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
                     readInFile(dialog.getSelectedFile().getAbsolutePath());
                 }
@@ -41,31 +39,31 @@ public class IDEMenuBar extends JMenuBar{
             }
         };
 
-        quit = new AbstractAction("quit") {
+        quit = new AbstractAction("Exit") {
             public void actionPerformed(ActionEvent e) {
-                saveOld();
+                comfirmSave();
                 System.exit(0);
             }
         };
 
-        saveAs = new AbstractAction("save as...") {
+        saveAs = new AbstractAction("Save As...") {
             public void actionPerformed(ActionEvent e) {
                 saveFileAs();
             }
         };
 
-        save = new AbstractAction("save", new ImageIcon("save.gif")) {
+        save = new AbstractAction("Save", new ImageIcon("save.gif")) {
             public void actionPerformed(ActionEvent e) {
-                if(!currentFile.equals("Untitled"))
-                    saveFile(currentFile);
+                if(!idePanel.editor.getCurrentFile().equals("Untitled"))
+                    saveFile(idePanel.editor.getCurrentFile());
                 else
                     saveFileAs();
             }
         };
+
     }//..
 
     protected void mkOptions(){
-
         JMenu file = new JMenu("File");
         JMenu edit = new JMenu("Edit");
 
@@ -81,20 +79,21 @@ public class IDEMenuBar extends JMenuBar{
     public void saveFile(String fileName) {
             try {
                 FileWriter w = new FileWriter(fileName);
-                idePanel.editor.textArea.write(w);
+                idePanel.editor.getTextArea().write(w);
                 w.close();
-                currentFile = fileName;
-                idePanel.ide.setTitle(currentFile);
-                changed = false;
+                idePanel.editor.setCurrentFile(fileName);
+                idePanel.ide.setTitle(idePanel.editor.getCurrentFile());
+                idePanel.editor.setFileChanged(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
     }//..
 
-    private void saveOld() {
-        if(changed)
-        if(JOptionPane.showConfirmDialog(this, "Would you like to save "+ currentFile +" ?","save",JOptionPane.YES_NO_OPTION)== JOptionPane.YES_OPTION)
-            saveFile(currentFile);
+    private void comfirmSave() {
+        if(idePanel.editor.getFileChanged())
+            if (JOptionPane.showConfirmDialog(this, "Would you like to save " + idePanel.editor.getCurrentFile() + " ?", "save", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+                saveFile(idePanel.editor.getCurrentFile());
+
     }//..
 
     private void saveFileAs() {
@@ -105,11 +104,11 @@ public class IDEMenuBar extends JMenuBar{
     private void readInFile(String fileName) {
         try {
             FileReader r = new FileReader(fileName);
-            idePanel.editor.textArea.read(r, null);
+            idePanel.editor.getTextArea().read(r, null);
             r.close();
-            currentFile = fileName;
-            idePanel.ide.setTitle(currentFile);
-            changed = false;
+            idePanel.editor.setCurrentFile(fileName);
+            idePanel.ide.setTitle(idePanel.editor.getCurrentFile());
+            idePanel.editor.setFileChanged(false);
         }
         catch(IOException e) {
             Toolkit.getDefaultToolkit().beep();

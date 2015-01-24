@@ -7,7 +7,6 @@ import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.text.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -19,14 +18,15 @@ import java.awt.event.KeyEvent;
  */
 public class Editor extends JPanel{
 
-    public JTextArea textArea;
-
+    private JTextArea textArea;
     private IDEPanel idePanel;
     private ActionMap actionMap;
     private JTextArea lineNumbers;
     private JScrollPane scrollPane;
+    private String currentFile = "Untitled";
     private boolean keyBuffer[] = new boolean[256],
-                    addedLine;
+                    addedLine,
+                    fileChanged;
     private int w = 600,
                 h = 500,
                 rows = 35,
@@ -138,7 +138,7 @@ public class Editor extends JPanel{
             @Override
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
-                idePanel.ideMenuBar.changed = true;
+                fileChanged = true;
             }
 
             @Override
@@ -157,17 +157,15 @@ public class Editor extends JPanel{
                         actionMap.get(DefaultEditorKit.pasteAction);
                     }
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('s')]){
-                        idePanel.ideMenuBar.save.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null) {
-                            //Nothing need go here, the actionPerformed method (with the
-                            //above arguments) will trigger the respective listener
-                        });
+                        idePanel.ideMenuBar.saveFile(currentFile);
                     }
-                }
+                }//
 
                 if(keyBuffer[KeyEvent.VK_ENTER]) {
                     lines++;
                     addedLine = true;
                 }
+
             }//
 
             @Override
@@ -178,4 +176,21 @@ public class Editor extends JPanel{
         };
     }//..
 
+    public JTextArea getTextArea() {
+        return textArea;
+    }//..
+
+    public void setFileChanged(boolean fileChanged) {
+        this.fileChanged = fileChanged;
+    }//..
+
+    public  boolean getFileChanged(){return fileChanged;}//..
+
+    public String getCurrentFile() {
+        return currentFile;
+    }//..
+
+    public void setCurrentFile(String currentFile) {
+        this.currentFile = currentFile;
+    }
 }// Editor

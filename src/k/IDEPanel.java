@@ -22,14 +22,8 @@ public class IDEPanel extends JPanel{
         setLayout(null);
         setBackground(Color.darkGray);
         editor = new Editor(this);
-        add(ideMenuBar = new IDEMenuBar(this));
+        ideMenuBar = new IDEMenuBar(this);
 
-//        Utils.startThreadLoop(new Logic() {
-//            @Override
-//            public void apply() throws Exception {
-//                repaint();
-//            }
-//        }, 20);
     }//..
 
 }// IDEPanel
