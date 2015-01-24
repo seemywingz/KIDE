@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -16,7 +17,7 @@ public class IDEMenuBar extends JMenuBar{
 
     private JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
     private String currentFile = "Untitled";
-    private Action Open,Quit;
+    private Action Open,Quit,Save,SaveAs;
     private IDEPanel idePanel;
 
     IDEMenuBar(IDEPanel idePanel){
@@ -44,6 +45,22 @@ public class IDEMenuBar extends JMenuBar{
                 System.exit(0);
             }
         };
+
+        SaveAs = new AbstractAction("Save as...") {
+            public void actionPerformed(ActionEvent e) {
+                saveFileAs();
+            }
+        };
+
+        Save = new AbstractAction("Save", new ImageIcon("save.gif")) {
+            public void actionPerformed(ActionEvent e) {
+                if(!currentFile.equals("Untitled"))
+                    saveFile(currentFile);
+                else
+                    saveFileAs();
+            }
+        };
+
     }//..
 
     protected void mkOptions(){
@@ -56,14 +73,35 @@ public class IDEMenuBar extends JMenuBar{
         file.add(Open);
 
 //        file.add(New);
-//        file.add(Save);
-        file.add(Quit);
-//        file.add(SaveAs);
-
+        file.add(Save);
+        file.add(SaveAs);
         file.addSeparator();
+        file.add(Quit);
 
 //        for(int i=0; i<4; i++)
 //            file.getItem(i).setIcon(null);
+    }//..
+
+
+    private void saveFile(String fileName) {
+        try {
+            FileWriter w = new FileWriter(fileName);
+            idePanel.editor.editor.write(w);
+            w.close();
+            currentFile = fileName;
+            idePanel.ide.setTitle(currentFile);
+//            changed = false;
+//            Save.setEnabled(false);
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void saveFileAs() {
+        if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION)
+            saveFile(dialog.getSelectedFile().getAbsolutePath());
     }//..
 
     private void readInFile(String fileName) {
