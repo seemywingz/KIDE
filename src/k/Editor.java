@@ -1,40 +1,87 @@
 package k;
 
+
 import javax.swing.*;
 import javax.swing.text.DefaultEditorKit;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
  * Created by kevin on 1/23/15.
  *
- * The editor for the IDE
+ * The textArea for the IDE
  *
  */
-public class Editor{
+public class Editor extends JPanel{
 
     private IDEPanel idePanel;
     private ActionMap actionMap;
-    public JTextArea editor;
+    public JTextArea textArea,lineNumbers;
     private JScrollPane scrollPane;
     private boolean keyBuffer[] = new boolean[256];
     private int w = 700,
-                h = 500;
+                h = 500,
+                rows = 35;
+    private int lines =1;
 
     Editor(IDEPanel idepanel){
-
         this.idePanel = idepanel;
-        editor = new JTextArea(w,h);
-        editor.setLineWrap(true);
-        editor.setWrapStyleWord(true);
-        editor.setFocusable(true);
-        editor.addKeyListener(mkKeyAdapter());
-        actionMap = editor.getActionMap();
+        setSize(w,h);
+//        setLayout(null);
+        setBackground(Color.darkGray);
 
-        scrollPane = new JScrollPane(editor,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setBounds(10,10,w,h);
+        initLineNUmbers();
+        initTextArea();
+//        add(new TextLineNumber(textArea));
+        add(textArea);
+
+        actionMap = textArea.getActionMap();
+
+        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBounds(10, 10, w, h);
         idepanel.add(scrollPane);
-        editor.requestFocus();
+        textArea.requestFocus();
+
+        Utils.startThreadLoop(new Logic() {
+            @Override
+            public void apply() throws Exception {
+
+                setLineNUmbers();
+                repaint();
+            }
+        }, 100);
+    }//..
+
+    protected void setLineNUmbers(){
+        String lineNuberString = "";
+        lineNumbers.setText(lineNuberString);
+
+        for (int i=1;i<=lines;i++){
+            lineNuberString += "    "+String.valueOf(i)+"\n";
+        }
+        lineNumbers.setText(lineNuberString);
+
+    }//..
+
+    protected void initTextArea(){
+        textArea = new JTextArea(rows,50);
+
+//        textArea.setBounds(1,1,1,1);
+//        textArea.setLocation(2,2);
+        textArea.setAlignmentX(50f);
+//        textArea.setLineWrap(true);
+//        textArea.setWrapStyleWord(true);
+        textArea.setFocusable(true);
+        textArea.addKeyListener(mkKeyAdapter());
+
+    }//..
+
+    protected void initLineNUmbers(){
+        lineNumbers = new JTextArea(rows,1);
+        lineNumbers.setEditable(false);
+        lineNumbers.setBackground(Color.lightGray);
+        add(lineNumbers);
     }//..
 
     protected KeyAdapter mkKeyAdapter(){
@@ -65,7 +112,11 @@ public class Editor{
                         actionMap.get(DefaultEditorKit.pasteAction);
                     }
                 }
-            }
+                if(keyBuffer[KeyEvent.VK_ENTER]){
+                    lines++;
+
+                }
+            }//
 
             @Override
             public void keyReleased(KeyEvent e) {

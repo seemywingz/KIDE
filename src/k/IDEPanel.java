@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by Kevin Jayne on 1/23/15.
  *
- * the IDE Panel with a text editor
+ * the IDE Panel with a text textArea
  *
  */
 public class IDEPanel extends JPanel{

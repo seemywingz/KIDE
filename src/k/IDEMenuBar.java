@@ -80,7 +80,7 @@ public class IDEMenuBar extends JMenuBar{
     private void saveFile(String fileName) {
         try {
             FileWriter w = new FileWriter(fileName);
-            idePanel.editor.editor.write(w);
+            idePanel.editor.textArea.write(w);
             w.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);
@@ -105,7 +105,7 @@ public class IDEMenuBar extends JMenuBar{
     private void readInFile(String fileName) {
         try {
             FileReader r = new FileReader(fileName);
-            idePanel.editor.editor.read(r, null);
+            idePanel.editor.textArea.read(r, null);
             r.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);

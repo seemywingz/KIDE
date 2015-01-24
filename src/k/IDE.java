@@ -7,6 +7,9 @@ import javax.swing.*;
  *
  * An IDE for Alen's language
  *
+ * some source help from
+ * http://forum.codecall.net/forum/126-java/?utm_source=codecall&utm_medium=menu&utm_campaign=link
+ *
  */
 
 public class IDE extends JFrame{
@@ -18,6 +21,7 @@ public class IDE extends JFrame{
         setLayout(null);
         setSize(800, 600);
         setTitle("KIDE");
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setContentPane(idePanel = new IDEPanel(this));
         setJMenuBar(new IDEMenuBar(idePanel));
