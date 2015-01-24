@@ -2,10 +2,12 @@ package k;
 
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.text.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -23,28 +25,22 @@ public class Editor extends JPanel{
     private ActionMap actionMap;
     private JTextArea lineNumbers;
     private JScrollPane scrollPane;
-    private boolean keyBuffer[] = new boolean[256];
+    private boolean keyBuffer[] = new boolean[256],
+                    addedLine;
     private int w = 600,
                 h = 500,
                 rows = 35,
                 lines = 1,
                 currentLine = 0;
 
-    Editor(IDEPanel idepanel){
-        this.idePanel = idepanel;
+    Editor(IDEPanel idePanel){
+        this.idePanel = idePanel;
         setSize(w,h);
         setBackground(Color.darkGray);
 
         initLineNumbers();
         initTextArea();
-        add(textArea);
-
-        actionMap = textArea.getActionMap();
-
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setBounds(10, 10, w, h);
-        idepanel.add(scrollPane);
-        textArea.requestFocus();
+        initScrollPane();
 
         Utils.startThreadLoop(new Logic() {
             @Override
@@ -64,36 +60,62 @@ public class Editor extends JPanel{
             e.printStackTrace();
         }
 
-        if(lines < currentLine) {
+        if(lines < currentLine ) {
             lines = currentLine;
-            String lineNuberString = "";
-            for (int i = 1; i <= lines; i++) {
-                if(i<10)
-                    lineNuberString += "   " + String.valueOf(i) + " \n";
-                else
-                    lineNuberString += " " + String.valueOf(i) + " \n";
-            }
-            lineNumbers.setText(lineNuberString);
-            textArea.setRows(lineNumbers.getRows());
+        }
+        if(addedLine){
+            drawLines();
+            addedLine=false;
         }
 
+    }//..
+
+    protected void drawLines(){
+        String lineNuberString = "   1";
+        for (int i = 2; i <= lines; i++) {
+            if(i<10)
+                lineNuberString += "\n   " + String.valueOf(i)+" ";
+            else
+                lineNuberString += "\n " + String.valueOf(i)+" ";
+        }
+        lineNumbers.setText(lineNuberString);
+    }//..
+
+    public void open(){
+        lines=0;
+        int len = textArea.getDocument().getLength();
+        textArea.setCaretPosition(len);
+        addedLine=true;
+        drawLines();
+    }//..
+
+    protected void initScrollPane(){
+        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBounds(10, 10, w, h);
+        Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
+        scrollPane.setBorder( border );
+        idePanel.add(scrollPane);
     }//..
 
     protected void initTextArea(){
         textArea = new JTextArea();
 
         textArea.setRows(35);
-        textArea.setColumns(55);
+        textArea.setColumns(49);
         textArea.setAlignmentX(50f);
         textArea.setFocusable(true);
+        textArea.requestFocus();
         textArea.setCaretPosition(textArea.getSelectionStart());
         textArea.addKeyListener(mkKeyAdapter());
         textArea.addCaretListener(mkCaretListener());
+        add(textArea);
 
+        actionMap = textArea.getActionMap();
     }//..
 
     protected void initLineNumbers(){
         lineNumbers = new JTextArea();
+
         lineNumbers.setRows(rows);
         lineNumbers.setColumns(1);
         lineNumbers.setText("   1 ");
@@ -124,27 +146,28 @@ public class Editor extends JPanel{
                 super.keyPressed(e);
                 keyBuffer[e.getKeyCode()]=true;
 
-                if(keyBuffer[KeyEvent.VK_CONTROL]){
+                if(keyBuffer[KeyEvent.VK_CONTROL]){// CTRL+
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('x')]){
                         actionMap.get(DefaultEditorKit.cutAction);
                     }
-                }
-                if(keyBuffer[KeyEvent.VK_CONTROL]){
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('c')]){
                         actionMap.get(DefaultEditorKit.copyAction);
                     }
-                }
-                if(keyBuffer[KeyEvent.VK_CONTROL]){
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('v')]){
                         actionMap.get(DefaultEditorKit.pasteAction);
                     }
+                    if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('s')]){
+                        idePanel.ideMenuBar.save.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null) {
+                            //Nothing need go here, the actionPerformed method (with the
+                            //above arguments) will trigger the respective listener
+                        });
+                    }
                 }
 
-                if(keyBuffer[KeyEvent.VK_ENTER])
-                    if(lines > currentLine){
-                        lines++;
-                    }
-
+                if(keyBuffer[KeyEvent.VK_ENTER]) {
+                    lines++;
+                    addedLine = true;
+                }
             }//
 
             @Override

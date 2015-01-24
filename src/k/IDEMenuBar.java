@@ -16,8 +16,8 @@ import java.io.IOException;
 public class IDEMenuBar extends JMenuBar{
 
     private JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
-    private String currentFile = "Untitled";
-    private Action open, quit, save, saveAs;
+    public String currentFile = "Untitled";
+    public Action open, quit, save, saveAs;
     private IDEPanel idePanel;
     public boolean changed;
 
@@ -37,6 +37,7 @@ public class IDEMenuBar extends JMenuBar{
                 if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
                     readInFile(dialog.getSelectedFile().getAbsolutePath());
                 }
+                idePanel.editor.open();
             }
         };
 
@@ -77,18 +78,17 @@ public class IDEMenuBar extends JMenuBar{
         file.add(quit);
     }//..
 
-    private void saveFile(String fileName) {
-        try {
-            FileWriter w = new FileWriter(fileName);
-            idePanel.editor.textArea.write(w);
-            w.close();
-            currentFile = fileName;
-            idePanel.ide.setTitle(currentFile);
-            changed = false;
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
+    public void saveFile(String fileName) {
+            try {
+                FileWriter w = new FileWriter(fileName);
+                idePanel.editor.textArea.write(w);
+                w.close();
+                currentFile = fileName;
+                idePanel.ide.setTitle(currentFile);
+                changed = false;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }//..
 
     private void saveOld() {
