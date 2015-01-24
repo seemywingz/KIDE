@@ -2,7 +2,9 @@ package k;
 
 
 import javax.swing.*;
-import javax.swing.text.DefaultEditorKit;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -15,25 +17,26 @@ import java.awt.event.KeyEvent;
  */
 public class Editor extends JPanel{
 
+    public JTextArea textArea;
+
     private IDEPanel idePanel;
     private ActionMap actionMap;
-    public JTextArea textArea,lineNumbers;
+    private JTextArea lineNumbers;
     private JScrollPane scrollPane;
     private boolean keyBuffer[] = new boolean[256];
-    private int w = 700,
+    private int w = 600,
                 h = 500,
-                rows = 35;
-    private int lines =1;
+                rows = 35,
+                lines = 1,
+                currentLine = 0;
 
     Editor(IDEPanel idepanel){
         this.idePanel = idepanel;
         setSize(w,h);
-//        setLayout(null);
         setBackground(Color.darkGray);
 
-        initLineNUmbers();
+        initLineNumbers();
         initTextArea();
-//        add(new TextLineNumber(textArea));
         add(textArea);
 
         actionMap = textArea.getActionMap();
@@ -47,41 +50,65 @@ public class Editor extends JPanel{
             @Override
             public void apply() throws Exception {
 
-                setLineNUmbers();
-                repaint();
+                setLineNumbers();
             }
-        }, 100);
+        }, 20);
     }//..
 
-    protected void setLineNUmbers(){
-        String lineNuberString = "";
-        lineNumbers.setText(lineNuberString);
+    protected void setLineNumbers(){
 
-        for (int i=1;i<=lines;i++){
-            lineNuberString += "    "+String.valueOf(i)+"\n";
+        try {
+            int caretpos = textArea.getCaretPosition();
+            currentLine = textArea.getLineOfOffset(caretpos) + 1;
+        } catch (BadLocationException e) {
+            e.printStackTrace();
         }
-        lineNumbers.setText(lineNuberString);
+
+        if(lines < currentLine) {
+            lines = currentLine;
+            String lineNuberString = "";
+            for (int i = 1; i <= lines; i++) {
+                if(i<10)
+                    lineNuberString += "   " + String.valueOf(i) + " \n";
+                else
+                    lineNuberString += " " + String.valueOf(i) + " \n";
+            }
+            lineNumbers.setText(lineNuberString);
+            textArea.setRows(lineNumbers.getRows());
+        }
 
     }//..
 
     protected void initTextArea(){
-        textArea = new JTextArea(rows,50);
+        textArea = new JTextArea();
 
-//        textArea.setBounds(1,1,1,1);
-//        textArea.setLocation(2,2);
+        textArea.setRows(35);
+        textArea.setColumns(55);
         textArea.setAlignmentX(50f);
-//        textArea.setLineWrap(true);
-//        textArea.setWrapStyleWord(true);
         textArea.setFocusable(true);
+        textArea.setCaretPosition(textArea.getSelectionStart());
         textArea.addKeyListener(mkKeyAdapter());
+        textArea.addCaretListener(mkCaretListener());
 
     }//..
 
-    protected void initLineNUmbers(){
-        lineNumbers = new JTextArea(rows,1);
+    protected void initLineNumbers(){
+        lineNumbers = new JTextArea();
+        lineNumbers.setRows(rows);
+        lineNumbers.setColumns(1);
+        lineNumbers.setText("   1 ");
         lineNumbers.setEditable(false);
         lineNumbers.setBackground(Color.lightGray);
         add(lineNumbers);
+    }//..
+
+    protected CaretListener mkCaretListener(){
+        return new CaretListener() {
+            @Override
+            public void caretUpdate(CaretEvent e) {
+
+            }
+        };
     }//..
 
     protected KeyAdapter mkKeyAdapter(){
@@ -112,10 +139,12 @@ public class Editor extends JPanel{
                         actionMap.get(DefaultEditorKit.pasteAction);
                     }
                 }
-                if(keyBuffer[KeyEvent.VK_ENTER]){
-                    lines++;
 
-                }
+                if(keyBuffer[KeyEvent.VK_ENTER])
+                    if(lines > currentLine){
+                        lines++;
+                    }
+
             }//
 
             @Override

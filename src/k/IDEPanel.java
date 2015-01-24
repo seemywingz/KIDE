@@ -24,14 +24,12 @@ public class IDEPanel extends JPanel{
         editor = new Editor(this);
         add(ideMenuBar = new IDEMenuBar(this));
 
-
-
-        Utils.startThreadLoop(new Logic() {
-            @Override
-            public void apply() throws Exception {
-                repaint();
-            }
-        }, 20);
+//        Utils.startThreadLoop(new Logic() {
+//            @Override
+//            public void apply() throws Exception {
+//                repaint();
+//            }
+//        }, 20);
     }//..
 
 }// IDEPanel
