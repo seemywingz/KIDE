@@ -47,7 +47,6 @@ public class Editor extends JPanel{
         Utils.startThreadLoop(new Logic() {
             @Override
             public void apply() throws Exception {
-
                 setLineNumbers();
             }
         }, 20);
