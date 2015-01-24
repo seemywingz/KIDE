@@ -23,6 +23,7 @@ public class IDE extends JFrame{
         setTitle("KIDE");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setContentPane(idePanel = new IDEPanel(this));
         setJMenuBar(new IDEMenuBar(idePanel));
         setVisible(true);

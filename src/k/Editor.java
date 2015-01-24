@@ -24,10 +24,11 @@ public class Editor extends JPanel{
     private JTextArea lineNumbers;
     private JScrollPane scrollPane;
     private String currentFile = "Untitled";
+    private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
     private boolean keyBuffer[] = new boolean[256],
                     addedLine,
                     fileChanged;
-    private int w = 600,
+    private int w = 900,
                 h = 500,
                 rows = 35,
                 lines = 1,
@@ -35,8 +36,9 @@ public class Editor extends JPanel{
 
     Editor(IDEPanel idePanel){
         this.idePanel = idePanel;
+        w = Utils.graphicsDevice.getDisplayMode().getWidth()/2;
+        setBackground(Color.lightGray);
         setSize(w,h);
-        setBackground(Color.darkGray);
 
         initLineNumbers();
         initTextArea();
@@ -91,8 +93,8 @@ public class Editor extends JPanel{
 
     protected void initScrollPane(){
         scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setBounds(10, 10, w, h);
-        Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
+
+        scrollPane.setBounds(1,2, w, h);
         scrollPane.setBorder( border );
         idePanel.add(scrollPane);
     }//..
@@ -101,10 +103,11 @@ public class Editor extends JPanel{
         textArea = new JTextArea();
 
         textArea.setRows(35);
-        textArea.setColumns(49);
+        textArea.setColumns(w / 11);
         textArea.setAlignmentX(50f);
         textArea.setFocusable(true);
         textArea.requestFocus();
+        textArea.setBorder(border);
         textArea.setCaretPosition(textArea.getSelectionStart());
         textArea.addKeyListener(mkKeyAdapter());
         textArea.addCaretListener(mkCaretListener());
@@ -120,6 +123,7 @@ public class Editor extends JPanel{
         lineNumbers.setColumns(1);
         lineNumbers.setText("   1 ");
         lineNumbers.setEditable(false);
+        lineNumbers.setBorder(border);
         lineNumbers.setBackground(Color.lightGray);
         add(lineNumbers);
     }//..

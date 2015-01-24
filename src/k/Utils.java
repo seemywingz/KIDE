@@ -17,6 +17,8 @@ interface Logic {
 
 public final class Utils {
 
+    static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
     public static Clip mkClip(String soundFile){
         Clip clip = null;
         try{

@@ -12,6 +12,7 @@ import java.awt.*;
 public class IDEPanel extends JPanel{
 
     IDE ide;
+    Lex lex;
     Editor editor;
     IDEMenuBar ideMenuBar;
 
@@ -23,6 +24,7 @@ public class IDEPanel extends JPanel{
         setBackground(Color.darkGray);
         editor = new Editor(this);
         ideMenuBar = new IDEMenuBar(this);
+        lex = new Lex(this);
 
     }//..
 
