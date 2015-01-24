@@ -31,17 +31,16 @@ public class IDEMenuBar extends JMenuBar{
     protected void createActions(){
       Open  = new AbstractAction("Open", new ImageIcon("open.gif")) {
             public void actionPerformed(ActionEvent e) {
-//                saveOld();
+                saveOld();
                 if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
                     readInFile(dialog.getSelectedFile().getAbsolutePath());
                 }
-//                SaveAs.setEnabled(true);
             }
         };
 
         Quit = new AbstractAction("Quit") {
             public void actionPerformed(ActionEvent e) {
-//                saveOld();
+                saveOld();
                 System.exit(0);
             }
         };
@@ -71,17 +70,11 @@ public class IDEMenuBar extends JMenuBar{
         add(file); add(edit);
 
         file.add(Open);
-
-//        file.add(New);
         file.add(Save);
         file.add(SaveAs);
         file.addSeparator();
         file.add(Quit);
-
-//        for(int i=0; i<4; i++)
-//            file.getItem(i).setIcon(null);
     }//..
-
 
     private void saveFile(String fileName) {
         try {
@@ -90,14 +83,16 @@ public class IDEMenuBar extends JMenuBar{
             w.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);
-//            changed = false;
-//            Save.setEnabled(false);
         }
         catch(IOException e) {
             e.printStackTrace();
         }
-    }
+    }//..
 
+    private void saveOld() {
+        if(JOptionPane.showConfirmDialog(this, "Would you like to save "+ currentFile +" ?","Save",JOptionPane.YES_NO_OPTION)== JOptionPane.YES_OPTION)
+            saveFile(currentFile);
+    }//..
 
     private void saveFileAs() {
         if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION)
@@ -111,13 +106,11 @@ public class IDEMenuBar extends JMenuBar{
             r.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);
-//            changed = false;
         }
         catch(IOException e) {
             Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(this,"Editor can't find the file called "+fileName);
         }
-    }
-
+    }//..
 
 }// IDEMenuBar
