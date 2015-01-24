@@ -13,6 +13,7 @@ public class IDEPanel extends JPanel{
 
     IDE ide;
     Editor editor;
+    IDEMenuBar ideMenuBar;
 
     IDEPanel(IDE ide){
 
@@ -21,7 +22,7 @@ public class IDEPanel extends JPanel{
         setLayout(null);
         setBackground(Color.darkGray);
         editor = new Editor(this);
-        add(new IDEMenuBar(this));
+        add(ideMenuBar = new IDEMenuBar(this));
 
 
 

@@ -17,19 +17,21 @@ public class IDEMenuBar extends JMenuBar{
 
     private JFileChooser dialog = new JFileChooser(System.getProperty("user.dir"));
     private String currentFile = "Untitled";
-    private Action Open,Quit,Save,SaveAs;
+    private Action open, quit, save, saveAs;
     private IDEPanel idePanel;
+    public boolean changed;
+
 
     IDEMenuBar(IDEPanel idePanel){
         this.idePanel = idePanel;
         createActions();
         mkOptions();
+    }//..
 
 
-    }
 
     protected void createActions(){
-      Open  = new AbstractAction("Open", new ImageIcon("open.gif")) {
+      open = new AbstractAction("open", new ImageIcon("open.gif")) {
             public void actionPerformed(ActionEvent e) {
                 saveOld();
                 if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION) {
@@ -38,20 +40,20 @@ public class IDEMenuBar extends JMenuBar{
             }
         };
 
-        Quit = new AbstractAction("Quit") {
+        quit = new AbstractAction("quit") {
             public void actionPerformed(ActionEvent e) {
                 saveOld();
                 System.exit(0);
             }
         };
 
-        SaveAs = new AbstractAction("Save as...") {
+        saveAs = new AbstractAction("save as...") {
             public void actionPerformed(ActionEvent e) {
                 saveFileAs();
             }
         };
 
-        Save = new AbstractAction("Save", new ImageIcon("save.gif")) {
+        save = new AbstractAction("save", new ImageIcon("save.gif")) {
             public void actionPerformed(ActionEvent e) {
                 if(!currentFile.equals("Untitled"))
                     saveFile(currentFile);
@@ -59,7 +61,6 @@ public class IDEMenuBar extends JMenuBar{
                     saveFileAs();
             }
         };
-
     }//..
 
     protected void mkOptions(){
@@ -69,11 +70,11 @@ public class IDEMenuBar extends JMenuBar{
 
         add(file); add(edit);
 
-        file.add(Open);
-        file.add(Save);
-        file.add(SaveAs);
+        file.add(open);
+        file.add(save);
+        file.add(saveAs);
         file.addSeparator();
-        file.add(Quit);
+        file.add(quit);
     }//..
 
     private void saveFile(String fileName) {
@@ -83,6 +84,7 @@ public class IDEMenuBar extends JMenuBar{
             w.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);
+            changed = false;
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -90,7 +92,8 @@ public class IDEMenuBar extends JMenuBar{
     }//..
 
     private void saveOld() {
-        if(JOptionPane.showConfirmDialog(this, "Would you like to save "+ currentFile +" ?","Save",JOptionPane.YES_NO_OPTION)== JOptionPane.YES_OPTION)
+        if(changed)
+        if(JOptionPane.showConfirmDialog(this, "Would you like to save "+ currentFile +" ?","save",JOptionPane.YES_NO_OPTION)== JOptionPane.YES_OPTION)
             saveFile(currentFile);
     }//..
 
@@ -106,6 +109,7 @@ public class IDEMenuBar extends JMenuBar{
             r.close();
             currentFile = fileName;
             idePanel.ide.setTitle(currentFile);
+            changed = false;
         }
         catch(IOException e) {
             Toolkit.getDefaultToolkit().beep();
