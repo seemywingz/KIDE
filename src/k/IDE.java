@@ -3,19 +3,24 @@ package k;
 import javax.swing.*;
 
 /**
- * Created by kevin on 1/23/15.
+ * Created by Kevin Jayne on 1/23/15.
+ *
+ * An IDE for Alen's language
+ *
  */
 
 public class IDE extends JFrame{
 
 
+    static IDEPanel idePanel;
 
     IDE(){
         setLayout(null);
         setSize(800, 600);
         setTitle("KIDE");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new IDEPanel());
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setContentPane(idePanel = new IDEPanel(this));
+        setJMenuBar(new IDEMenuBar(idePanel));
         setVisible(true);
     }//..
 

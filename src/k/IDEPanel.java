@@ -4,17 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by kevin on 1/23/15.
+ * Created by Kevin Jayne on 1/23/15.
+ *
+ * the IDE Panel with a text editor
+ *
  */
 public class IDEPanel extends JPanel{
 
+    IDE ide;
     Editor editor;
 
-    IDEPanel(){
+    IDEPanel(IDE ide){
+
+        this.ide = ide;
 
         setLayout(null);
         setBackground(Color.darkGray);
         editor = new Editor(this);
+        add(new IDEMenuBar(this));
+
 
 
         Utils.startThreadLoop(new Logic() {
