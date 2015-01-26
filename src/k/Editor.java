@@ -54,19 +54,18 @@ public class Editor extends JPanel{
 
     protected void setLineNumbers(){
 
-        try {
-            int caretpos = textArea.getCaretPosition();
-            currentLine = textArea.getLineOfOffset(caretpos) + 1;
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
-
-        if(lines < currentLine ) {
-            lines = currentLine;
-        }
-        if(addedLine){
-            drawLines();
-            addedLine=false;
+        if(addedLine) {
+            try {
+                int caretpos = textArea.getCaretPosition();
+                currentLine = textArea.getLineOfOffset(caretpos) + 1;
+            } catch (BadLocationException e) {
+                e.printStackTrace();
+            }
+            if (lines < currentLine) {
+                lines = currentLine;
+            }
+                drawLines();
+                addedLine = false;
         }
 
     }//..
@@ -87,7 +86,7 @@ public class Editor extends JPanel{
         int len = textArea.getDocument().getLength();
         textArea.setCaretPosition(len);
         addedLine=true;
-        drawLines();
+        setLineNumbers();
     }//..
 
     protected void initScrollPane(){
