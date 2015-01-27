@@ -9,6 +9,7 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 /**
  * Created by kevin on 1/23/15.
@@ -27,14 +28,15 @@ public class Editor extends JPanel{
     private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
     private boolean keyBuffer[] = new boolean[256],
                     addedLine,
-                    fileChanged;
+                    fileChanged,
+                    analyzed;
     private int w = 900,
                 h = 500,
                 rows = 35,
                 lines = 1,
                 currentLine = 0;
 
-    Editor(IDEPanel idePanel){
+    Editor(final IDEPanel idePanel){
         this.idePanel = idePanel;
         w = Utils.graphicsDevice.getDisplayMode().getWidth()/2;
         setBackground(Color.lightGray);
@@ -48,6 +50,10 @@ public class Editor extends JPanel{
             @Override
             public void apply() throws Exception {
                 setLineNumbers();
+                if(!analyzed){
+                    idePanel.lex.analyze(textArea.getText());
+                    analyzed = true;
+                }
             }
         }, 20);
     }//..
@@ -71,12 +77,21 @@ public class Editor extends JPanel{
     }//..
 
     protected void drawLines(){
-        String lineNuberString = "   1";
-        for (int i = 2; i <= lines; i++) {
-            if(i<10)
-                lineNuberString += "\n   " + String.valueOf(i)+" ";
+        String lineNuberString = "";
+        String error;
+        ArrayList<Integer> errorLineNums = idePanel.lex.getErrorLineNums();
+        for (int i = 0; i <= lines-1; i++) {
+            if(errorLineNums.contains((i)))
+                error = "***";
             else
-                lineNuberString += "\n " + String.valueOf(i)+" ";
+                error = "";
+            if(i == 0)
+                lineNuberString += "   "+error + String.valueOf((i+1))+" ";
+            else
+            if(i<10)
+                lineNuberString += "\n   "+error + String.valueOf((i+1))+" ";
+            else
+                lineNuberString += "\n  "+error + String.valueOf((i+1))+" ";
         }
         lineNumbers.setText(lineNuberString);
     }//..
@@ -141,6 +156,7 @@ public class Editor extends JPanel{
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
                 fileChanged = true;
+                analyzed = false;
             }
 
             @Override
@@ -157,6 +173,12 @@ public class Editor extends JPanel{
                     }
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('v')]){
                         actionMap.get(DefaultEditorKit.pasteAction);
+                        int len = textArea.getDocument().getLength();
+                        textArea.setCaretPosition(len);
+                        addedLine=true;
+                        setLineNumbers();
+                        idePanel.lex.analyze(textArea.getText());
+                        drawLines();
                     }
                     if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('s')]){
                         idePanel.ideMenuBar.saveFile(currentFile);
@@ -166,6 +188,7 @@ public class Editor extends JPanel{
                 if(keyBuffer[KeyEvent.VK_ENTER]) {
                     lines++;
                     addedLine = true;
+                    analyzed = false;
                 }
 
             }//

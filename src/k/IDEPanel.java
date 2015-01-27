@@ -22,9 +22,9 @@ public class IDEPanel extends JPanel{
 
         setLayout(null);
         setBackground(Color.darkGray);
+        lex = new Lex(this);
         editor = new Editor(this);
         ideMenuBar = new IDEMenuBar(this);
-        lex = new Lex(this);
 
     }//..
 

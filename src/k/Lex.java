@@ -6,6 +6,7 @@ import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 /**
  * Created by kevin on 1/24/15.
@@ -15,6 +16,8 @@ import java.awt.event.KeyEvent;
  */
 public class Lex extends JPanel {
 
+    private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
+    private ArrayList<TokenType> tokens = new ArrayList<TokenType>();
     private IDEPanel idePanel;
     private JTextArea textArea;
     private ActionMap actionMap;
@@ -26,14 +29,41 @@ public class Lex extends JPanel {
 
     Lex(IDEPanel idePanel){
         this.idePanel = idePanel;
-//        setBounds(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 + 5, 2,
-//                  w= Utils.graphicsDevice.getDisplayMode().getWidth() / 4, 500);
-        w= Utils.graphicsDevice.getDisplayMode().getWidth() / 4;
+        w = Utils.graphicsDevice.getDisplayMode().getWidth() / 4;
         setSize(w,h);
         setBackground(Color.lightGray);
 
         initTextArea();
         initScrollPane();
+    }//..
+
+    public void analyze(String s){
+        textArea.setText("");
+        errorLineNums = new ArrayList<Integer>();
+        tokens = new ArrayList<TokenType>();
+        String lineSplit[] = s.split("[\\n]");
+        for(int i = 0; i < lineSplit.length;i++){
+            TokenType token;
+            // (?=[:;+=])|(?<=[:;+=]) equals to select an empty character before ; or after ;.
+            // + means the characters can be combined one or more times. to create one single delimiter
+            String[] tokenSplit = lineSplit[i].split("\\s|(?=[:;+=(\\)])|\\s|(?<=[:;+=(\\)])|\\s");
+            for (String tokenString:tokenSplit){
+                token = TokenType.getByValue(tokenString);
+                if(token != null){
+
+                    tokens.add(token);
+                    textArea.append("\nFound token: "+token+" : "+tokenString);
+                }else{
+                    errorLineNums.add(i);
+                    textArea.append("\nError on line "+(i+1)+": "+tokenString+" is not a token");
+                }
+            }
+        }
+        idePanel.editor.drawLines();
+    }//..
+
+    public ArrayList<Integer> getErrorLineNums() {
+        return errorLineNums;
     }//..
 
     private void initTextArea(){
