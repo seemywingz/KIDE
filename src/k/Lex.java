@@ -41,25 +41,37 @@ public class Lex extends JPanel {
         textArea.setText("");
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<TokenType>();
-        String lineSplit[] = s.split("[\\n]");
+        String lineSplit[] = s.split("[\\n+]");
         for(int i = 0; i < lineSplit.length;i++){
             TokenType token;
             // (?=[:;+=])|(?<=[:;+=]) equals to select an empty character before ; or after ;.
             // + means the characters can be combined one or more times. to create one single delimiter
-            String[] tokenSplit = lineSplit[i].split("\\s+|(?=[:;+=(\\)])|\\s+|(?<=[:;+=(\\)])|\\s+");
-            for (String tokenString:tokenSplit){
-                token = TokenType.getByValue(tokenString);
-                if(token != null){
-                    if(token == TokenType.ASSIGNMENT){
+            String[] tokenSplit = lineSplit[i].split("\\s+|(?=[;+=(\\)])|(?<=[;+=(\\)])");
+            for (int j =0;j<tokenSplit.length;j++){
 
+                token = TokenType.getByValue(tokenSplit[j]);
+                if(token != null){
+                    if(token == TokenType.ASSIGNMENT){// boolop
+                        if(TokenType.getByValue(tokenSplit[j+1]) == TokenType.ASSIGNMENT){
+                            token = TokenType.BOOLOP;
+                            j++;
+                            tokenSplit[j] = "==";
+                        }
+                    }
+                    if(token == TokenType.EXCLAMATION){
+                        if(TokenType.getByValue(tokenSplit[j+1]) == TokenType.ASSIGNMENT){
+                            token = TokenType.BOOLOP;
+                            j++;
+                            tokenSplit[j] = "!=";
+                        }
                     }
                     if(token!=TokenType.SPACE) {
                         tokens.add(token);
-                        textArea.append("\nFound token: " + token + " : " + tokenString);
+                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
                     }
-                }else{
+                }else{// token == null
                     errorLineNums.add(i);
-                    textArea.append("\nError on line "+(i+1)+": "+tokenString+" is not a token");
+                    textArea.append("\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token");
                 }
             }
         }
@@ -77,6 +89,7 @@ public class Lex extends JPanel {
         textArea.setAlignmentX(50f);
         textArea.setFocusable(true);
         textArea.setBorder(border);
+        textArea.setEditable(false);
         textArea.setCaretPosition(textArea.getSelectionStart());
         textArea.addKeyListener(mkKeyAdapter());
         add(textArea);

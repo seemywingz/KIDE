@@ -12,9 +12,12 @@ import java.util.List;
  */
 public enum TokenType {
 
-    DIGIT("integer"),
+    DIGIT("digit"),
+    STRING("string"),
+    ID("id"),
     INTOP("+","-","/","*"),
-    BOOLOP("==","!="),
+    BOOLOP("=="),
+    EXCLAMATION("!"),
     ASSIGNMENT("="),
     SPACE("\\ ",""),
     CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
@@ -24,15 +27,19 @@ public enum TokenType {
     ENDIF("endif"),
     THEN("then"),
     WHILE("while"),
-    BEGIN("begin"),
+    ENDWHILE("endwhile"),
+    BEGIN("begin:"),
     END("end."),
-    COLON(":"),
+    DO("do"),
+    PRINT("print"),
+    BOOLEAN("boolean"),
+    TRUE("true"),
+    FALSE("false"),
     SEMICOLON(";"),
     LEFTPAREN("("),
     RIGHTPAREN(")"),
     LEFTCURL("{"),
-    RIGHTCURL("}"),
-    WHITESPACE("\n");
+    RIGHTCURL("}");
 
     public final List<String> pattern;
 
@@ -51,7 +58,8 @@ public enum TokenType {
                 return c;
             }
         }
-        return null;
+
+        return TokenType.ID;
     }//..
 
     public List<String> getValues() {
