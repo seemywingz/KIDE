@@ -82,17 +82,18 @@ public class Editor extends JPanel{
         ArrayList<Integer> errorLineNums = idePanel.lex.getErrorLineNums();
         for (int i = 0; i <= lines-1; i++) {
             if(errorLineNums.contains((i)))
-                error = "***";
+                error = "*";
             else
                 error = "";
             if(i == 0)
-                lineNuberString += "   "+error + String.valueOf((i+1))+" ";
+                lineNuberString += "   "+error + String.valueOf((i+1))+error +" ";
             else
-            if(i<10)
-                lineNuberString += "\n   "+error + String.valueOf((i+1))+" ";
+            if(i<9)
+                lineNuberString += "\n   "+error + String.valueOf((i+1))+error +" ";
             else
-                lineNuberString += "\n  "+error + String.valueOf((i+1))+" ";
+                lineNuberString += "\n  "+error + String.valueOf((i+1))+error +" ";
         }
+
         lineNumbers.setText(lineNuberString);
     }//..
 

@@ -46,13 +46,17 @@ public class Lex extends JPanel {
             TokenType token;
             // (?=[:;+=])|(?<=[:;+=]) equals to select an empty character before ; or after ;.
             // + means the characters can be combined one or more times. to create one single delimiter
-            String[] tokenSplit = lineSplit[i].split("\\s|(?=[:;+=(\\)])|\\s|(?<=[:;+=(\\)])|\\s");
+            String[] tokenSplit = lineSplit[i].split("\\s+|(?=[:;+=(\\)])|\\s+|(?<=[:;+=(\\)])|\\s+");
             for (String tokenString:tokenSplit){
                 token = TokenType.getByValue(tokenString);
                 if(token != null){
+                    if(token == TokenType.ASSIGNMENT){
 
-                    tokens.add(token);
-                    textArea.append("\nFound token: "+token+" : "+tokenString);
+                    }
+                    if(token!=TokenType.SPACE) {
+                        tokens.add(token);
+                        textArea.append("\nFound token: " + token + " : " + tokenString);
+                    }
                 }else{
                     errorLineNums.add(i);
                     textArea.append("\nError on line "+(i+1)+": "+tokenString+" is not a token");

@@ -21,6 +21,16 @@ public final class Utils {
     // stringName.split(String.format(Utils.WITH_DELIMITER,";"));
     static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
+    static public boolean isInt(String s){
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch(NumberFormatException e) {
+            return false;
+        }
+    };
+
+
     public static Clip mkClip(String soundFile){
         Clip clip = null;
         try{

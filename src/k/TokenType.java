@@ -12,7 +12,7 @@ import java.util.List;
  */
 public enum TokenType {
 
-    DIGIT("0","1","2","3","4","5","6","7","8","9"),
+    DIGIT("integer"),
     INTOP("+","-","/","*"),
     BOOLOP("==","!="),
     ASSIGNMENT("="),
@@ -41,6 +41,11 @@ public enum TokenType {
     }//..
 
     public static TokenType getByValue(String val) {
+
+        if(Utils.isInt(val)){
+            return TokenType.DIGIT;
+        }
+
         for (TokenType c : values()) {
             if (c.getValues().contains(val)) {
                 return c;
@@ -51,7 +56,8 @@ public enum TokenType {
 
     public List<String> getValues() {
         return pattern;
-    }
+    }//..
+
 
 //    public static boolean isToken(String test){
 //        TokenType tokens[] = TokenType.values();
