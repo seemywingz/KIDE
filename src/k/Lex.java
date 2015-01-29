@@ -18,12 +18,13 @@ public class Lex extends JPanel {
 
     private String errorMsg = "";
     private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
-    private ArrayList<TokenType> tokens = new ArrayList<TokenType>();
+    private ArrayList<Token> tokens = new ArrayList<Token>();
     private IDEPanel idePanel;
     private JTextArea textArea;
     private ActionMap actionMap;
     private JScrollPane scrollPane;
-    private boolean keyBuffer[] = new boolean[256];
+    private String stringVal;
+    private boolean keyBuffer[] = new boolean[256], foundString;
     private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
     private int w,
                 h = 500;
@@ -42,18 +43,17 @@ public class Lex extends JPanel {
         errorMsg = "";
         textArea.setText("KIDE: Lexical Analysis...");
         errorLineNums = new ArrayList<Integer>();
-        tokens = new ArrayList<TokenType>();
+        tokens = new ArrayList<Token>();
         String lineSplit[] = s.split("\\n");
         for(int i = 0; i < lineSplit.length;i++){
             TokenType token;
-            // (?=[:;+=])|(?<=[:;+=]) equals to select an empty character before ; or after ;.
             String[] tokenSplit = lineSplit[i].split("(?<=[\\s])|(?=[\\s])"+
-                                                     "|(?<=[+;=])|(?=[+;=])"+        // + symbol
+                                                     "|(?<=[+;=\"])|(?=[+;=\"])"+        // + symbol
                                                      "|(?<=[(\\)])|(?=[(\\)])"+
                                                      "|(?<=[{}])|(?=[{}])");
             for (int j =0;j<tokenSplit.length;j++){
                 token = TokenType.getByValue(tokenSplit[j]);
-                if(token != null){
+                if(token != null && token != TokenType.NOTSUPPORTED){
                     if(j < tokenSplit.length-1) {// make sure not last token
                         if (token == TokenType.ASSIGNMENT) {// boolop
                             if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
@@ -69,17 +69,27 @@ public class Lex extends JPanel {
                                 tokenSplit[j] = "!=";
                             }
                         }
-                    }
 
-                    tokens.add(token);
-                    textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
-//                    if(token!=TokenType.SPACE) {
-//                        tokens.add(token);
-//                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
-//                    }
+                        if(token == TokenType.QUOTE ){
+                                stringVal="";
+                                int q = j+1;
+                                while(TokenType.getByValue(tokenSplit[q]) != TokenType.QUOTE){
+                                    stringVal+=tokenSplit[q++];
+                                }
+                                j=q;
+                                token=TokenType.STRING;
+                                tokenSplit[j]=stringVal;
+                        }
+
+                    }// endif not last token
+
+                    if(token != TokenType.SPACE) {
+                        tokens.add(new Token(token,tokenSplit[j]));
+                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
+                    }
                 }else{// token == null
                     errorLineNums.add(i);
-                    String error = "\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token";
+                    String error = "\nError on line " + (i + 1) + " " + tokenSplit[j] + " is not currently supported";
                     errorMsg += error;
                     textArea.append(error);
                 }

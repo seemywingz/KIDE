@@ -13,9 +13,10 @@ import java.util.List;
 public enum TokenType {
 
     DIGIT("digit"),
-    STRING("string"),
+    STRING("letters"),
     ID("id"),
     INTOP("+","-","/","*"),
+    QUOTE("\""),
     BOOLOP("boolop"),
     EXCLAMATION("!"),
     ASSIGNMENT("="),
@@ -40,7 +41,7 @@ public enum TokenType {
     RIGHTPAREN(")"),
     LEFTCURL("{"),
     RIGHTCURL("}"),
-    INOTSUPPORTED(",");
+    NOTSUPPORTED(",","<",">",":","-");
 
     public final List<String> pattern;
 
