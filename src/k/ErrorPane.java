@@ -23,7 +23,7 @@ public class ErrorPane extends JPanel{
             h = 500;
 
 
-    ErrorPane(IDEPanel idePanel) {
+    ErrorPane(final IDEPanel idePanel) {
         this.idePanel = idePanel;
         w = Utils.ScreenWidth;
         h = Utils.ScreenHeight;
@@ -32,6 +32,14 @@ public class ErrorPane extends JPanel{
 
         initTextArea();
         initScrollPane();
+
+        Utils.startThreadLoop(new Logic() {
+            @Override
+            public void apply() throws Exception {
+                textArea.setText("KIDE: Error Pane...");
+                textArea.append(idePanel.lex.getErrorMsg());
+            }
+        }, 20);
 
     }//..
 

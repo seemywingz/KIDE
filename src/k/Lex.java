@@ -39,8 +39,7 @@ public class Lex extends JPanel {
     }//..
 
     public void analyze(String s){
-        if(idePanel.errorPane.getTextArea() != null)
-        idePanel.errorPane.getTextArea().setText("KIDE: Error Pane...");
+        errorMsg = "";
         textArea.setText("KIDE: Lexical Analysis...");
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<TokenType>();
@@ -77,7 +76,7 @@ public class Lex extends JPanel {
                 }else{// token == null
                     errorLineNums.add(i);
                     String error = "\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token";
-                    idePanel.errorPane.getTextArea().append(error);
+                    errorMsg += error;
                     textArea.append(error);
                 }
             }
@@ -142,4 +141,7 @@ public class Lex extends JPanel {
         };
     }//..
 
+    public String getErrorMsg() {
+        return errorMsg;
+    }//..
 }// Lex
