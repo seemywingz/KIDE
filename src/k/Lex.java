@@ -43,14 +43,15 @@ public class Lex extends JPanel {
         textArea.setText("KIDE: Lexical Analysis...");
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<TokenType>();
-        String lineSplit[] = s.split("[\\n+]");
+        String lineSplit[] = s.split("\\n");
         for(int i = 0; i < lineSplit.length;i++){
             TokenType token;
             // (?=[:;+=])|(?<=[:;+=]) equals to select an empty character before ; or after ;.
-            // + means the characters can be combined one or more times. to create one single delimiter
-            String[] tokenSplit = lineSplit[i].split("\\s+|(?=[;+=(\\)])|(?<=[;+=(\\)])");
+            String[] tokenSplit = lineSplit[i].split("(?<=[\\s])|(?=[\\s])"+
+                                                     "|(?<=[+;=])|(?=[+;=])"+        // + symbol
+                                                     "|(?<=[(\\)])|(?=[(\\)])"+
+                                                     "|(?<=[{}])|(?=[{}])");
             for (int j =0;j<tokenSplit.length;j++){
-
                 token = TokenType.getByValue(tokenSplit[j]);
                 if(token != null){
                     if(j < tokenSplit.length-1) {// make sure not last token
@@ -69,10 +70,13 @@ public class Lex extends JPanel {
                             }
                         }
                     }
-                    if(token!=TokenType.SPACE) {
-                        tokens.add(token);
-                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
-                    }
+
+                    tokens.add(token);
+                    textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
+//                    if(token!=TokenType.SPACE) {
+//                        tokens.add(token);
+//                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
+//                    }
                 }else{// token == null
                     errorLineNums.add(i);
                     String error = "\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token";

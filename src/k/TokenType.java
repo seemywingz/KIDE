@@ -19,7 +19,7 @@ public enum TokenType {
     BOOLOP("boolop"),
     EXCLAMATION("!"),
     ASSIGNMENT("="),
-    SPACE("\\ ",""),
+    SPACE("\\ "," ",""),
 //    CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
 //         "n","o","p","q","r","s","t","u","v","w","x","y","z"),
     TYPE("int","string","boolean"),
@@ -39,7 +39,8 @@ public enum TokenType {
     LEFTPAREN("("),
     RIGHTPAREN(")"),
     LEFTCURL("{"),
-    RIGHTCURL("}");
+    RIGHTCURL("}"),
+    INOTSUPPORTED(",");
 
     public final List<String> pattern;
 
