@@ -20,6 +20,9 @@ public final class Utils {
     static public final String WITH_DELIMITER = "((?<=%1$s)|(?=%1$s))";
     // stringName.split(String.format(Utils.WITH_DELIMITER,";"));
     static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    static int ScreenWidth = graphicsDevice.getDisplayMode().getWidth();
+    static int ScreenHeight = graphicsDevice.getDisplayMode().getHeight();
+
 
     static public boolean isInt(String s){
         try {

@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 public class Lex extends JPanel {
 
+    private String errorMsg = "";
     private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
     private ArrayList<TokenType> tokens = new ArrayList<TokenType>();
     private IDEPanel idePanel;
@@ -38,7 +39,9 @@ public class Lex extends JPanel {
     }//..
 
     public void analyze(String s){
-        textArea.setText("");
+        if(idePanel.errorPane.getTextArea() != null)
+        idePanel.errorPane.getTextArea().setText("KIDE: Error Pane...");
+        textArea.setText("KIDE: Lexical Analysis...");
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<TokenType>();
         String lineSplit[] = s.split("[\\n+]");
@@ -51,18 +54,20 @@ public class Lex extends JPanel {
 
                 token = TokenType.getByValue(tokenSplit[j]);
                 if(token != null){
-                    if(token == TokenType.ASSIGNMENT){// boolop
-                        if(TokenType.getByValue(tokenSplit[j+1]) == TokenType.ASSIGNMENT){
-                            token = TokenType.BOOLOP;
-                            j++;
-                            tokenSplit[j] = "==";
+                    if(j < tokenSplit.length-1) {// make sure not last token
+                        if (token == TokenType.ASSIGNMENT) {// boolop
+                            if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
+                                token = TokenType.BOOLOP;
+                                j++;
+                                tokenSplit[j] = "==";
+                            }
                         }
-                    }
-                    if(token == TokenType.EXCLAMATION){
-                        if(TokenType.getByValue(tokenSplit[j+1]) == TokenType.ASSIGNMENT){
-                            token = TokenType.BOOLOP;
-                            j++;
-                            tokenSplit[j] = "!=";
+                        if (token == TokenType.EXCLAMATION) {
+                            if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
+                                token = TokenType.BOOLOP;
+                                j++;
+                                tokenSplit[j] = "!=";
+                            }
                         }
                     }
                     if(token!=TokenType.SPACE) {
@@ -71,7 +76,9 @@ public class Lex extends JPanel {
                     }
                 }else{// token == null
                     errorLineNums.add(i);
-                    textArea.append("\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token");
+                    String error = "\nError on line " + (i + 1) + ": " + tokenSplit[j] + " is not a token";
+                    idePanel.errorPane.getTextArea().append(error);
+                    textArea.append(error);
                 }
             }
         }
@@ -83,7 +90,7 @@ public class Lex extends JPanel {
     }//..
 
     private void initTextArea(){
-        textArea = new JTextArea("Lex:");
+        textArea = new JTextArea("KIDE: Lexical Analysis...");
         textArea.setRows(35);
         textArea.setColumns(w / 12);
         textArea.setAlignmentX(50f);
