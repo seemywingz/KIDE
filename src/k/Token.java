@@ -5,7 +5,7 @@ package k;
  */
 public class Token {
 
-    TokenType type;
+    private TokenType type;
     String data;
 
     Token(TokenType type, String data){

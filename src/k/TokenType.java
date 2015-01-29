@@ -20,7 +20,7 @@ public enum TokenType {
     BOOLOP("boolop"),
     EXCLAMATION("!"),
     ASSIGNMENT("="),
-    SPACE("\\ "," ",""),
+    SPACE("\n"," ",""),
 //    CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
 //         "n","o","p","q","r","s","t","u","v","w","x","y","z"),
     TYPE("int","string","boolean"),
@@ -50,18 +50,14 @@ public enum TokenType {
     }//..
 
     public static TokenType getByValue(String val) {
-
         if(Utils.isInt(val)){
             return TokenType.DIGIT;
         }
-
         for (TokenType c : values()) {
             if (c.getValues().contains(val)) {
                 return c;
             }
         }
-
-//        return null;
         return TokenType.ID;
     }//..
 

@@ -44,10 +44,10 @@ public class Lex extends JPanel {
         textArea.setText("KIDE: Lexical Analysis...");
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<Token>();
-        String lineSplit[] = s.split("\\n");
+        String lineSplit[] = s.split("\\n+");
         for(int i = 0; i < lineSplit.length;i++){
             TokenType token;
-            String[] tokenSplit = lineSplit[i].split("(?<=[\\s])|(?=[\\s])"+
+            String[] tokenSplit = lineSplit[i].split("(?<=[\\s+])|(?=[\\s+])"+
                                                      "|(?<=[+;=\"])|(?=[+;=\"])"+        // + symbol
                                                      "|(?<=[(\\)])|(?=[(\\)])"+
                                                      "|(?<=[{}])|(?=[{}])");
