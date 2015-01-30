@@ -15,33 +15,32 @@ public enum TokenType {
     DIGIT("digit"),
     STRING("letters"),
     ID("id"),
-    INTOP("+","-","/","*"),
+    INTOP("+"),
     QUOTE("\""),
     BOOLOP("boolop"),
+    BOOLVAL("true","false"),
     EXCLAMATION("!"),
     ASSIGNMENT("="),
     SPACE("\n"," ","","\t"),
-//    CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
-//         "n","o","p","q","r","s","t","u","v","w","x","y","z"),
     TYPE("int","string","boolean"),
     IF("if"),
-    ENDIF("endif"),
     THEN("then"),
+    ENDIF("endif"),
     WHILE("while"),
     ENDWHILE("endwhile"),
     BEGIN("begin:"),
     END("end."),
     DO("do"),
     PRINT("print"),
-    BOOLEAN("boolean"),
-    TRUE("true"),
-    FALSE("false"),
     SEMICOLON(";"),
     LEFTPAREN("("),
     RIGHTPAREN(")"),
     LEFTCURL("{"),
     RIGHTCURL("}"),
-    NOTSUPPORTED(",","<",">",":","-");
+    UNSUPPORTED(",","<",">",":","-","%",
+                 "@","#","^","&","-","/","*");
+//    CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
+//         "n","o","p","q","r","s","t","u","v","w","x","y","z"),
 
     public final List<String> pattern;
 
@@ -53,27 +52,15 @@ public enum TokenType {
         if(Utils.isInt(val)){
             return TokenType.DIGIT;
         }
-        for (TokenType c : values()) {
-            if (c.getValues().contains(val)) {
-                return c;
+        for (TokenType t : values()) {
+            if (t.getPattern().contains(val)) {
+                return t;
             }
         }
         return TokenType.ID;
     }//..
 
-    public List<String> getValues() {
+    public List<String> getPattern() {
         return pattern;
     }//..
-
-
-//    public static boolean isToken(String test){
-//        TokenType tokens[] = TokenType.values();
-//        for(TokenType t:tokens){
-//            if(t.pattern.equals(test)){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }//..
-
 }// TokenType

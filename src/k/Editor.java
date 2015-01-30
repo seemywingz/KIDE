@@ -2,9 +2,6 @@ package k;
 
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;

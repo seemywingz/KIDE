@@ -42,7 +42,7 @@ public class Lex extends ScrollableOutput {
                                                      "|(?<=[{}])|(?=[{}])");
             for (int j =0;j<tokenSplit.length;j++){
                 tokenType = TokenType.getByValue(tokenSplit[j]);
-                if(tokenType != null && tokenType != TokenType.NOTSUPPORTED){
+                if(tokenType != null && tokenType != TokenType.UNSUPPORTED){
                     if(j < tokenSplit.length-1) {// make sure not last tokenType
                         if (tokenType == TokenType.ASSIGNMENT) {// boolop
                             if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
