@@ -46,48 +46,50 @@ public class Lex extends JPanel {
         tokens = new ArrayList<Token>();
         String lineSplit[] = s.split("\\n+");
         for(int i = 0; i < lineSplit.length;i++){
-            TokenType token;
+            TokenType tokenType;
             String[] tokenSplit = lineSplit[i].split("(?<=[\\s+])|(?=[\\s+])"+
-                                                     "|(?<=[+;=\"])|(?=[+;=\"])"+        // + symbol
+                                                     "|(?<=[+;=\"])|(?=[+;=\"])"+
                                                      "|(?<=[(\\)])|(?=[(\\)])"+
                                                      "|(?<=[{}])|(?=[{}])");
             for (int j =0;j<tokenSplit.length;j++){
-                token = TokenType.getByValue(tokenSplit[j]);
-                if(token != null && token != TokenType.NOTSUPPORTED){
-                    if(j < tokenSplit.length-1) {// make sure not last token
-                        if (token == TokenType.ASSIGNMENT) {// boolop
+                tokenType = TokenType.getByValue(tokenSplit[j]);
+                if(tokenType != null && tokenType != TokenType.NOTSUPPORTED){
+                    if(j < tokenSplit.length-1) {// make sure not last tokenType
+                        if (tokenType == TokenType.ASSIGNMENT) {// boolop
                             if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
-                                token = TokenType.BOOLOP;
+                                tokenType = TokenType.BOOLOP;
                                 j++;
                                 tokenSplit[j] = "==";
                             }
                         }
-                        if (token == TokenType.EXCLAMATION) {
+                        if (tokenType == TokenType.EXCLAMATION) {
                             if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
-                                token = TokenType.BOOLOP;
+                                tokenType = TokenType.BOOLOP;
                                 j++;
                                 tokenSplit[j] = "!=";
                             }
                         }
 
-                        if(token == TokenType.QUOTE ){
+                        if(tokenType == TokenType.QUOTE ){
                                 stringVal="";
                                 int q = j+1;
-                                while(TokenType.getByValue(tokenSplit[q]) != TokenType.QUOTE){
-                                    stringVal+=tokenSplit[q++];
+                                if(q<tokenSplit.length-1) {
+                                    while (TokenType.getByValue(tokenSplit[q]) != TokenType.QUOTE) {
+                                        stringVal += tokenSplit[q++];
+                                    }
+                                    j = q;
+                                    tokenType = TokenType.STRING;
+                                    tokenSplit[j] = stringVal;
                                 }
-                                j=q;
-                                token=TokenType.STRING;
-                                tokenSplit[j]=stringVal;
                         }
 
-                    }// endif not last token
+                    }// endif not last tokenType
 
-                    if(token != TokenType.SPACE) {
-                        tokens.add(new Token(token,tokenSplit[j]));
-                        textArea.append("\nFound token: <" + token + "> " + tokenSplit[j]);
+                    if(tokenType != TokenType.SPACE) {
+                        tokens.add(new Token(tokenType,tokenSplit[j]));
+                        textArea.append("\nFound tokenType: <" + tokenType + "> " + tokenSplit[j]);
                     }
-                }else{// token == null
+                }else{// tokenType == null
                     errorLineNums.add(i);
                     String error = "\nError on line " + (i + 1) + " " + tokenSplit[j] + " is not currently supported";
                     errorMsg += error;
