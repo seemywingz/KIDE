@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Lex.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Lex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Lex$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Lex$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Lex.java" afterPath="$PROJECT_DIR$/src/k/Lex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -59,15 +58,15 @@
       <file leaf-file-name="Lex.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30409357" vertical-offset="694" max-vertical-offset="2873">
-              <caret line="50" column="82" selection-start-line="50" selection-start-column="82" selection-end-line="50" selection-end-column="82" />
+            <state vertical-scroll-proportion="0.6354776" vertical-offset="1204" max-vertical-offset="2890">
+              <caret line="90" column="48" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#511#518#0" expanded="true" />
-                <element signature="e#4189#4190#0" expanded="true" />
-                <element signature="e#4225#4226#0" expanded="true" />
-                <element signature="e#6136#6137#0" expanded="true" />
-                <element signature="e#6167#6168#0" expanded="true" />
+                <element signature="e#4226#4227#0" expanded="true" />
+                <element signature="e#4262#4263#0" expanded="true" />
+                <element signature="e#6173#6174#0" expanded="true" />
+                <element signature="e#6204#6205#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -595,7 +594,7 @@
       <workItem from="1422550188103" duration="82000" />
       <workItem from="1422550447975" duration="513000" />
       <workItem from="1422567619742" duration="39000" />
-      <workItem from="1422568937422" duration="10482000" />
+      <workItem from="1422568937422" duration="10739000" />
     </task>
     <task id="LOCAL-00001" summary="Editor">
       <created>1422075426640</created>
@@ -693,11 +692,17 @@
       <option name="project" value="LOCAL" />
       <updated>1422575615676</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Token Class">
+      <created>1422581150273</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1422581150273</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81573000" />
+    <option name="totallyTimeSpent" value="81830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1456" height="886" extended-state="6" />
@@ -765,7 +770,8 @@
     <MESSAGE value="Working Lex (boolop and id)" />
     <MESSAGE value="Working Lex (+)" />
     <MESSAGE value="STRINGS WORKING!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="STRINGS WORKING!!" />
+    <MESSAGE value="Token Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Token Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -822,10 +828,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -895,10 +901,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -947,10 +953,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -987,10 +993,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1039,10 +1045,10 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1295,15 +1301,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30409357" vertical-offset="694" max-vertical-offset="2873">
-          <caret line="50" column="82" selection-start-line="50" selection-start-column="82" selection-end-line="50" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.6354776" vertical-offset="1204" max-vertical-offset="2890">
+          <caret line="90" column="48" selection-start-line="90" selection-start-column="48" selection-end-line="90" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#6136#6137#0" expanded="true" />
-            <element signature="e#6167#6168#0" expanded="true" />
+            <element signature="e#4226#4227#0" expanded="true" />
+            <element signature="e#4262#4263#0" expanded="true" />
+            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>

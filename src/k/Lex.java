@@ -73,13 +73,14 @@ public class Lex extends JPanel {
                         if(tokenType == TokenType.QUOTE ){
                                 stringVal="";
                                 int q = j+1;
-                                if(q<tokenSplit.length-1) {
+                                try {
                                     while (TokenType.getByValue(tokenSplit[q]) != TokenType.QUOTE) {
                                         stringVal += tokenSplit[q++];
                                     }
                                     j = q;
                                     tokenType = TokenType.STRING;
                                     tokenSplit[j] = stringVal;
+                                }catch (ArrayIndexOutOfBoundsException ae){
                                 }
                         }
 
@@ -87,7 +88,7 @@ public class Lex extends JPanel {
 
                     if(tokenType != TokenType.SPACE) {
                         tokens.add(new Token(tokenType,tokenSplit[j]));
-                        textArea.append("\nFound tokenType: <" + tokenType + "> " + tokenSplit[j]);
+                        textArea.append("\nFound: <" + tokenType + "> " + tokenSplit[j]);
                     }
                 }else{// tokenType == null
                     errorLineNums.add(i);
