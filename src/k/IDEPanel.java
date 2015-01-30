@@ -22,7 +22,7 @@ public class IDEPanel extends JPanel{
         this.ide = ide;
 
         setLayout(null);
-        setBackground(Color.darkGray);
+        setBackground(Color.black);
         lex = new Lex(this);
         editor = new Editor(this);
         errorPane = new ErrorPane(this);

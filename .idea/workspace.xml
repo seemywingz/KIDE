@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TokenType.java" afterPath="$PROJECT_DIR$/src/k/TokenType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/k/ScrollableOutput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Editor.java" afterPath="$PROJECT_DIR$/src/k/Editor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/ErrorPane.java" afterPath="$PROJECT_DIR$/src/k/ErrorPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDEPanel.java" afterPath="$PROJECT_DIR$/src/k/IDEPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Lex.java" afterPath="$PROJECT_DIR$/src/k/Lex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -45,8 +52,8 @@
       <file leaf-file-name="IDEPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/IDEPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="680">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="680">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,43 +61,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lex.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
+      <file leaf-file-name="Editor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2890">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="2771">
+              <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#511#518#0" expanded="true" />
-                <element signature="e#4226#4227#0" expanded="true" />
-                <element signature="e#4262#4263#0" expanded="true" />
-                <element signature="e#6173#6174#0" expanded="true" />
-                <element signature="e#6204#6205#0" expanded="true" />
+                <element signature="method#setLineNumbers#0;class#Editor#0" expanded="false" />
+                <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TokenType.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
+      <file leaf-file-name="ScrollableOutput.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/k/ScrollableOutput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2319688" vertical-offset="255" max-vertical-offset="1377">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1000" max-vertical-offset="1615">
+              <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2899#2900#0" expanded="true" />
+                <element signature="e#2932#2933#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ErrorPane.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ErrorPane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.6023392" vertical-offset="116" max-vertical-offset="629">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,12 +140,13 @@
         <option value="$PROJECT_DIR$/src/k/IDE.java" />
         <option value="$PROJECT_DIR$/src/k/Test.form" />
         <option value="$PROJECT_DIR$/src/k/Utils.java" />
-        <option value="$PROJECT_DIR$/src/k/Editor.java" />
-        <option value="$PROJECT_DIR$/src/k/IDEPanel.java" />
-        <option value="$PROJECT_DIR$/src/k/ErrorPane.java" />
         <option value="$PROJECT_DIR$/src/k/Token.java" />
-        <option value="$PROJECT_DIR$/src/k/Lex.java" />
         <option value="$PROJECT_DIR$/src/k/TokenType.java" />
+        <option value="$PROJECT_DIR$/src/k/Lex.java" />
+        <option value="$PROJECT_DIR$/src/k/Editor.java" />
+        <option value="$PROJECT_DIR$/src/k/ScrollableOutput.java" />
+        <option value="$PROJECT_DIR$/src/k/ErrorPane.java" />
+        <option value="$PROJECT_DIR$/src/k/IDEPanel.java" />
       </list>
     </option>
   </component>
@@ -583,7 +588,7 @@
       <workItem from="1422550188103" duration="82000" />
       <workItem from="1422550447975" duration="513000" />
       <workItem from="1422567619742" duration="39000" />
-      <workItem from="1422568937422" duration="11081000" />
+      <workItem from="1422568937422" duration="13637000" />
     </task>
     <task id="LOCAL-00001" summary="Editor">
       <created>1422075426640</created>
@@ -699,11 +704,17 @@
       <option name="project" value="LOCAL" />
       <updated>1422581551727</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added \t as whitespace">
+      <created>1422581748729</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1422581748729</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82172000" />
+    <option name="totallyTimeSpent" value="84728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1456" height="886" extended-state="6" />
@@ -731,7 +742,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20392749" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399361" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3984576" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -774,11 +785,12 @@
     <MESSAGE value="Token Class" />
     <MESSAGE value="Catch String exception" />
     <MESSAGE value="Test.kide" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test.kide" />
+    <MESSAGE value="Added \t as whitespace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added \t as whitespace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -787,13 +799,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1022">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/IDE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="560">
@@ -830,11 +835,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,11 +908,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -955,11 +960,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -995,11 +1000,11 @@
           <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1047,11 +1052,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1252,38 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="761" max-vertical-offset="3094">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setLineNumbers#0;class#Editor#0" expanded="false" />
-            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/IDEPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="680">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5302144" vertical-offset="0" max-vertical-offset="513">
@@ -1292,28 +1265,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
+    <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2890">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#511#518#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
-            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
+    <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2319688" vertical-offset="255" max-vertical-offset="1377">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state vertical-scroll-proportion="1.0604289" vertical-offset="0" max-vertical-offset="1802">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#357#364#0" expanded="true" />
+            <element signature="e#3913#3914#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#3988#3989#0" expanded="true" />
+            <element signature="e#4019#4020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="2771">
+          <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setLineNumbers#0;class#Editor#0" expanded="false" />
+            <element signature="method#drawLines#0;class#Editor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/ScrollableOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1000" max-vertical-offset="1615">
+          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2899#2900#0" expanded="true" />
+            <element signature="e#2932#2933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/IDEPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="680">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6023392" vertical-offset="116" max-vertical-offset="629">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

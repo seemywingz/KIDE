@@ -1,11 +1,6 @@
 package k;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
@@ -14,34 +9,28 @@ import java.util.ArrayList;
  * This will be the Lexical analyser and output
  *
  */
-public class Lex extends JPanel {
+public class Lex extends ScrollableOutput {
 
     private String errorMsg = "";
     private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
     private ArrayList<Token> tokens = new ArrayList<Token>();
-    private IDEPanel idePanel;
-    private JTextArea textArea;
-    private ActionMap actionMap;
-    private JScrollPane scrollPane;
     private String stringVal;
-    private boolean keyBuffer[] = new boolean[256], foundString;
-    private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
-    private int w,
-                h = 500;
 
     Lex(IDEPanel idePanel){
+        super(idePanel);
         this.idePanel = idePanel;
         w = Utils.graphicsDevice.getDisplayMode().getWidth() / 4;
+        h = 500;
         setSize(w,h);
-        setBackground(Color.lightGray);
 
-        initTextArea();
-        initScrollPane();
+        initTextArea("KIDE: Lexical Analysis...",35,w/12,false,
+                super.mkKeyAdapter(keyBuffer,actionMap));
+        initScrollPane(new Rectangle(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 + 5,2, w, h));
     }//..
 
     public void analyze(String s){
         errorMsg = "";
-        textArea.setText("KIDE: Lexical Analysis...");
+        textArea.setText(title);
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<Token>();
         String lineSplit[] = s.split("\\n+");
@@ -103,59 +92,6 @@ public class Lex extends JPanel {
 
     public ArrayList<Integer> getErrorLineNums() {
         return errorLineNums;
-    }//..
-
-    private void initTextArea(){
-        textArea = new JTextArea("KIDE: Lexical Analysis...");
-        textArea.setRows(35);
-        textArea.setColumns(w / 12);
-        textArea.setAlignmentX(50f);
-        textArea.setFocusable(true);
-        textArea.setBorder(border);
-        textArea.setEditable(false);
-        textArea.setCaretPosition(textArea.getSelectionStart());
-        textArea.addKeyListener(mkKeyAdapter());
-        add(textArea);
-
-        actionMap = textArea.getActionMap();
-    }//..
-
-    protected void initScrollPane(){
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        scrollPane.setBounds(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 + 5,2, w, h);
-        scrollPane.setBorder( border );
-        idePanel.add(scrollPane);
-    }//..
-
-    protected KeyAdapter mkKeyAdapter(){
-        return new KeyAdapter() {
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                super.keyPressed(e);
-                keyBuffer[e.getKeyCode()]=true;
-
-                if(keyBuffer[KeyEvent.VK_CONTROL]){// CTRL+
-                    if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('x')]){
-                        actionMap.get(DefaultEditorKit.cutAction);
-                    }
-                    if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('c')]){
-                        actionMap.get(DefaultEditorKit.copyAction);
-                    }
-                    if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('v')]){
-                        actionMap.get(DefaultEditorKit.pasteAction);
-                    }
-                }//
-
-            }//
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                super.keyReleased(e);
-                keyBuffer[e.getKeyCode()]=false;
-            }
-        };
     }//..
 
     public String getErrorMsg() {

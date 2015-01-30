@@ -1,7 +1,5 @@
 package k;
 
-import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 /**
@@ -11,60 +9,26 @@ import java.awt.*;
  *
  *
  */
-public class ErrorPane extends JPanel{
-
-
-    private IDEPanel idePanel;
-    private JTextArea textArea;
-    private ActionMap actionMap;
-    private JScrollPane scrollPane;
-    private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
-    private int w,
-            h = 500;
-
+public class ErrorPane extends ScrollableOutput{
 
     ErrorPane(final IDEPanel idePanel) {
-        this.idePanel = idePanel;
+        super(idePanel);
         w = Utils.ScreenWidth;
         h = Utils.ScreenHeight;
-//        setSize(w,h-(idePanel.editor.getHeight()));
-        setBackground(Color.lightGray);
 
-        initTextArea();
-        initScrollPane();
+        initTextArea("KIDE: Error Pane...",
+                100,w,false,
+                super.mkKeyAdapter(keyBuffer,actionMap));
+
+        initScrollPane(new Rectangle(2, idePanel.editor.getScrollPane().getHeight() + 5, w - 10, h = h - (idePanel.editor.getHeight() + 55)));
 
         Utils.startThreadLoop(new Logic() {
             @Override
             public void apply() throws Exception {
-                textArea.setText("KIDE: Error Pane...");
+                textArea.setText(title);
                 textArea.append(idePanel.lex.getErrorMsg());
             }
         }, 20);
-
     }//..
 
-    private void initTextArea(){
-        textArea = new JTextArea("KIDE: Error Pane...");
-        textArea.setRows(100);
-        textArea.setColumns(w);
-        textArea.setFocusable(true);
-        textArea.setBorder(border);
-        textArea.setEditable(false);
-        textArea.addKeyListener(idePanel.lex.mkKeyAdapter());
-        add(textArea);
-        actionMap = textArea.getActionMap();
-    }//..
-
-    protected void initScrollPane(){
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-
-        scrollPane.setBounds(2, idePanel.editor.getHeight() + 5, w - 10, h = h - (idePanel.editor.getHeight() + 55));
-        scrollPane.setBorder( border );
-        idePanel.add(scrollPane);
-    }//..
-
-    public JTextArea getTextArea() {
-        return textArea;
-    }//..
 }// ErrorPane

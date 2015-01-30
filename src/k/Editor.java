@@ -17,34 +17,23 @@ import java.util.ArrayList;
  * The textArea for the IDE
  *
  */
-public class Editor extends JPanel{
+public class Editor extends ScrollableOutput{
 
-    private JTextArea textArea;
-    private IDEPanel idePanel;
-    private ActionMap actionMap;
     private JTextArea lineNumbers;
-    private JScrollPane scrollPane;
     private String currentFile = "Untitled";
-    private Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
-    private boolean keyBuffer[] = new boolean[256],
-                    addedLine,
+    private boolean addedLine,
                     fileChanged,
                     analyzed;
-    private int w = 900,
-                h = 500,
-                rows = 35,
-                lines = 1,
+    private int lines = 1,
                 currentLine = 0;
 
     Editor(final IDEPanel idePanel){
-        this.idePanel = idePanel;
-        w = Utils.graphicsDevice.getDisplayMode().getWidth()/2;
-        setBackground(Color.lightGray);
-        setSize(w,h);
+        super(idePanel);
+        w = Utils.ScreenWidth/2;
 
         initLineNumbers();
-        initTextArea();
-        initScrollPane();
+        initTextArea(" ",35,w/11,true,mkKeyAdapter());
+        initScrollPane(new Rectangle(1,2, w, h));
 
         Utils.startThreadLoop(new Logic() {
             @Override
@@ -105,14 +94,6 @@ public class Editor extends JPanel{
         setLineNumbers();
     }//..
 
-    protected void initScrollPane(){
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        scrollPane.setBounds(1,2, w, h);
-        scrollPane.setBorder( border );
-        idePanel.add(scrollPane);
-    }//..
-
     protected void initTextArea(){
         textArea = new JTextArea();
 
@@ -133,7 +114,7 @@ public class Editor extends JPanel{
     protected void initLineNumbers(){
         lineNumbers = new JTextArea();
 
-        lineNumbers.setRows(rows);
+        lineNumbers.setRows(35);
         lineNumbers.setColumns(1);
         lineNumbers.setText("   1 ");
         lineNumbers.setEditable(false);
