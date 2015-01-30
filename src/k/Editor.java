@@ -94,23 +94,6 @@ public class Editor extends ScrollableOutput{
         setLineNumbers();
     }//..
 
-    protected void initTextArea(){
-        textArea = new JTextArea();
-
-        textArea.setRows(35);
-        textArea.setColumns(w / 11);
-        textArea.setAlignmentX(50f);
-        textArea.setFocusable(true);
-        textArea.requestFocus();
-        textArea.setBorder(border);
-        textArea.setCaretPosition(textArea.getSelectionStart());
-        textArea.addKeyListener(mkKeyAdapter());
-        textArea.addCaretListener(mkCaretListener());
-        add(textArea);
-
-        actionMap = textArea.getActionMap();
-    }//..
-
     protected void initLineNumbers(){
         lineNumbers = new JTextArea();
 
@@ -121,15 +104,6 @@ public class Editor extends ScrollableOutput{
         lineNumbers.setBorder(border);
         lineNumbers.setBackground(Color.lightGray);
         add(lineNumbers);
-    }//..
-
-    protected CaretListener mkCaretListener(){
-        return new CaretListener() {
-            @Override
-            public void caretUpdate(CaretEvent e) {
-
-            }
-        };
     }//..
 
     protected KeyAdapter mkKeyAdapter(){

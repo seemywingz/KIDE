@@ -27,8 +27,6 @@ public class IDEPanel extends JPanel{
         editor = new Editor(this);
         errorPane = new ErrorPane(this);
         ideMenuBar = new IDEMenuBar(this);
-
-
     }//..
 
 }// IDEPanel

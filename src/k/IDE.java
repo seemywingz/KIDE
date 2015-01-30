@@ -21,6 +21,7 @@ public class IDE extends JFrame{
         setLayout(null);
         setSize(800, 600);
         setTitle("KIDE");
+        setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
