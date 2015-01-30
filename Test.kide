@@ -1,0 +1,13 @@
+begin:
+int count ;
+count = 0 ;
+while ( count != 10 ) do 
+	print "counting" ;
+	print count ;
+	count = count + 1 ;
+
+	if ( count == 2 ) then
+		print "hello world" ;
+	endif ;
+endwhile ;
+end.
