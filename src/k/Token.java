@@ -7,9 +7,11 @@ public class Token {
 
     private TokenType type;
     String data;
+    private int lineNum;
 
-    Token(TokenType type, String data){
+    Token(TokenType type, String data,int lineNum){
         this.type = type;this.data=data;
+        this.lineNum = lineNum;
     }
 
 

@@ -15,6 +15,10 @@ public class Lex extends ScrollableOutput {
     private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
     private ArrayList<Token> tokens = new ArrayList<Token>();
     private String stringVal;
+    private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
+                                "|(?<=[+;=\"])|(?=[+;=\"])"+
+                                "|(?<=[(\\)])|(?=[(\\)])"+
+                                "|(?<=[{}])|(?=[{}])";
 
     Lex(IDEPanel idePanel){
         super(idePanel);
@@ -32,13 +36,10 @@ public class Lex extends ScrollableOutput {
         textArea.setText(title);
         errorLineNums = new ArrayList<Integer>();
         tokens = new ArrayList<Token>();
-        String lineSplit[] = s.split("\\n+");
+        String lineSplit[] = s.split("\\n");
         for(int i = 0; i < lineSplit.length;i++){
             TokenType tokenType;
-            String[] tokenSplit = lineSplit[i].split("(?<=[\\s+])|(?=[\\s+])"+
-                                                     "|(?<=[+;=\"])|(?=[+;=\"])"+
-                                                     "|(?<=[(\\)])|(?=[(\\)])"+
-                                                     "|(?<=[{}])|(?=[{}])");
+            String[] tokenSplit = lineSplit[i].split(delimiters);
             for (int j =0;j<tokenSplit.length;j++){
                 tokenType = TokenType.getByValue(tokenSplit[j]);
                 if(tokenType != null && tokenType != TokenType.UNSUPPORTED){
@@ -75,7 +76,7 @@ public class Lex extends ScrollableOutput {
                     }// endif not last tokenType
 
                     if(tokenType != TokenType.SPACE) {
-                        tokens.add(new Token(tokenType,tokenSplit[j]));
+                        tokens.add(new Token(tokenType,tokenSplit[j],i+1));
                         textArea.append("\nFound: <" + tokenType + "> " + tokenSplit[j]);
                     }
                 }else{// tokenType == null
