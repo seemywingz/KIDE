@@ -20,13 +20,15 @@ public class ErrorPane extends ScrollableOutput{
                 20, w/11, false,
                 super.mkKeyAdapter(keyBuffer, actionMap));
 
-        initScrollPane(new Rectangle(2, idePanel.editor.getScrollPane().getHeight() + 5, w - 10,(h/2)-140 ));
+        initScrollPane(new Rectangle(2, idePanel.editor.getScrollPane().getHeight(), w - 10,(h/2)-140 ));
 
         Utils.startThreadLoop(new Logic() {
             @Override
             public void apply() throws Exception {
-                textArea.setText(title);
-                textArea.append(idePanel.lex.getErrorMsg());
+                if(idePanel.editor.getFileChanged()) {
+                    textArea.setText(title);
+                    textArea.append(idePanel.lex.getErrorMsg());
+                }
             }
         }, 20);
     }//..

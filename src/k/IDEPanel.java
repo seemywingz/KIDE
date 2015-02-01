@@ -14,6 +14,7 @@ public class IDEPanel extends JPanel{
     IDE ide;
     Lex lex;
     Editor editor;
+    Parser parser;
     ErrorPane errorPane;
     IDEMenuBar ideMenuBar;
 
@@ -26,6 +27,7 @@ public class IDEPanel extends JPanel{
         lex = new Lex(this);
         editor = new Editor(this);
         errorPane = new ErrorPane(this);
+        parser = new Parser(this);
         ideMenuBar = new IDEMenuBar(this);
     }//..
 

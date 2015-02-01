@@ -18,14 +18,13 @@ public class Lex extends ScrollableOutput {
 
     Lex(IDEPanel idePanel){
         super(idePanel);
-        this.idePanel = idePanel;
-        w = Utils.graphicsDevice.getDisplayMode().getWidth() / 4;
+        w = (Utils.ScreenWidth / 6);
         h = 500;
         setSize(w,h);
 
         initTextArea("KIDE: Lexical Analysis...",35,w/12,false,
                 super.mkKeyAdapter(keyBuffer,actionMap));
-        initScrollPane(new Rectangle(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 + 5,2, w, h));
+        initScrollPane(new Rectangle(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 ,2, w, h));
     }//..
 
     public void analyze(String s){
