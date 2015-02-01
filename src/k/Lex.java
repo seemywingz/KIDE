@@ -11,8 +11,7 @@ import java.util.ArrayList;
  */
 public class Lex extends ScrollableOutput {
 
-    private String errorMsg = "";
-    private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
+    private String lexErrors = "";
     private ArrayList<Token> tokens = new ArrayList<Token>();
     private String stringVal;
     private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
@@ -32,9 +31,9 @@ public class Lex extends ScrollableOutput {
     }//..
 
     public void analyze(String s){
-        errorMsg = "";
+        lexErrors = "";
         textArea.setText(title);
-        errorLineNums = new ArrayList<Integer>();
+        idePanel.editor.resetErrorLineNumber();
         tokens = new ArrayList<Token>();
         String lineSplit[] = s.split("\\n");
         for(int i = 0; i < lineSplit.length;i++){
@@ -76,25 +75,24 @@ public class Lex extends ScrollableOutput {
                     }// endif not last tokenType
 
                     if(tokenType != TokenType.SPACE) {
-                        tokens.add(new Token(tokenType,tokenSplit[j],i+1));
+                        tokens.add(new Token(tokenType,tokenSplit[j],i));
                         textArea.append("\nFound: <" + tokenType + "> " + tokenSplit[j]);
                     }
                 }else{// tokenType == null
-                    errorLineNums.add(i);
-                    String error = "\nError on line " + (i + 1) + " " + tokenSplit[j] + " is not currently supported";
-                    errorMsg += error;
+                    idePanel.editor.addErrorLineNumber(i);
+                    String error = "\nLex Error on line " + (i + 1) + ": " + tokenSplit[j] + " is not currently supported";
+                    lexErrors += error;
                     textArea.append(error);
                 }
             }
         }
-        idePanel.editor.drawLines();
+        if(tokens.size()>0){
+            idePanel.parser.parse(tokens);
+        }
+
     }//..
 
-    public ArrayList<Integer> getErrorLineNums() {
-        return errorLineNums;
-    }//..
-
-    public String getErrorMsg() {
-        return errorMsg;
+    public String getLexErrors() {
+        return lexErrors;
     }//..
 }// Lex

@@ -14,5 +14,11 @@ public class Token {
         this.lineNum = lineNum;
     }
 
+    public TokenType getType() {
+        return type;
+    }//..
 
+    public int getLineNum() {
+        return lineNum;
+    }//..
 }// Token

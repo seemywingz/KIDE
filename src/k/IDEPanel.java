@@ -26,8 +26,8 @@ public class IDEPanel extends JPanel{
         setBackground(Color.black);
         lex = new Lex(this);
         editor = new Editor(this);
-        errorPane = new ErrorPane(this);
         parser = new Parser(this);
+        errorPane = new ErrorPane(this);
         ideMenuBar = new IDEMenuBar(this);
     }//..
 

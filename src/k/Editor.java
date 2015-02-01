@@ -24,6 +24,9 @@ public class Editor extends ScrollableOutput{
     private int lines = 1,
                 currentLine = 0;
 
+    private ArrayList<Integer> errorLineNums = new ArrayList<Integer>();
+
+
     Editor(final IDEPanel idePanel){
         super(idePanel);
         w = Utils.ScreenWidth/2;
@@ -65,7 +68,6 @@ public class Editor extends ScrollableOutput{
     protected void drawLines(){
         String lineNuberString = "";
         String error;
-        ArrayList<Integer> errorLineNums = idePanel.lex.getErrorLineNums();
         for (int i = 0; i <= lines-1; i++) {
             if(errorLineNums.contains((i)))
                 error = "*";
@@ -152,6 +154,16 @@ public class Editor extends ScrollableOutput{
                 keyBuffer[e.getKeyCode()]=false;
             }
         };
+    }//..
+
+    public void addErrorLineNumber(int i){
+        if(!errorLineNums.contains(i)){
+            errorLineNums.add(i);
+        }
+    }//..
+
+    public void resetErrorLineNumber(){
+        errorLineNums = new ArrayList<Integer>();
     }//..
 
     public JTextArea getTextArea() {

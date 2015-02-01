@@ -27,7 +27,8 @@ public class ErrorPane extends ScrollableOutput{
             public void apply() throws Exception {
                 if(idePanel.editor.getFileChanged()) {
                     textArea.setText(title);
-                    textArea.append(idePanel.lex.getErrorMsg());
+                    textArea.append(idePanel.lex.getLexErrors());
+                    textArea.append(idePanel.parser.getParseErrors());
                 }
             }
         }, 20);
