@@ -25,7 +25,14 @@ public class ScrollableOutput extends JPanel{
 
     ScrollableOutput(IDEPanel idePanel){
         this.idePanel= idePanel;
-        setBackground(Color.lightGray);
+        Utils.startThreadLoop(new Logic() {
+            @Override
+            public void apply() throws Exception {
+                setBackground(Options.backgroundColor);
+                if(textArea!=null)
+                textArea.setBackground(Options.textAreaColor);
+            }
+        }, 1);
     }//..
 
     protected void initTextArea(String title,int rows,int cols,boolean editable,KeyListener keyListener){

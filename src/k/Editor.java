@@ -101,7 +101,7 @@ public class Editor extends ScrollableOutput{
         lineNumbers.setText("   1 ");
         lineNumbers.setEditable(false);
         lineNumbers.setBorder(border);
-        lineNumbers.setBackground(Color.lightGray);
+        lineNumbers.setBackground(Options.backgroundColor);
         add(lineNumbers);
     }//..
 

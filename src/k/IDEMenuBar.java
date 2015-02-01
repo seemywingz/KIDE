@@ -3,6 +3,7 @@ package k;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,7 +24,8 @@ public class IDEMenuBar extends JMenuBar{
     IDEMenuBar(IDEPanel idePanel){
         this.idePanel = idePanel;
         createActions();
-        mkOptions();
+        initFileMenuOptions();
+        initEditMenuItems();
 
         idePanel.add(this);
     }//..
@@ -63,17 +65,70 @@ public class IDEMenuBar extends JMenuBar{
 
     }//..
 
-    protected void mkOptions(){
+    protected void initFileMenuOptions(){
         JMenu file = new JMenu("File");
-        JMenu edit = new JMenu("Edit");
 
-        add(file); add(edit);
+        add(file);
 
         file.add(open);
         file.add(save);
         file.add(saveAs);
         file.addSeparator();
         file.add(quit);
+
+    }//..
+
+    protected void initEditMenuItems(){
+
+        JMenu edit = new JMenu("Edit");
+        JMenu options = new JMenu("Options");
+
+        Options.colors.add(Color.black);
+        Options.colors.add(Color.red);
+        Options.colors.add(Color.green);
+        Options.colors.add(Color.blue);
+        Options.colors.add(Color.pink);
+        Options.colors.add(Color.gray);
+        Options.colors.add(Color.CYAN);
+        Options.colors.add(Color.MAGENTA);
+        Options.colors.add(Color.ORANGE);
+        Options.colors.add(Color.white);
+
+        JMenu colors = new JMenu("Colors");
+        JMenu borders = new JMenu("Borders");
+        for (Color c: Options.colors){
+            JMenuItem itm = new JMenuItem();
+            final Color col = c;
+            itm.setBackground(c);
+            itm.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Options.backgroundColor = col;
+                }
+            });
+            borders.add(itm);
+        }
+        JMenu textAreas = new JMenu("Text Areas");
+        for (Color c: Options.colors){
+            JMenuItem itm = new JMenuItem();
+            final Color col = c;
+            itm.setBackground(c);
+            itm.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Options.textAreaColor  = col;
+                }
+            });
+            textAreas.add(itm);
+        }
+
+
+        colors.add(textAreas);
+        colors.add(borders);
+        options.add(colors);
+
+        edit.add(options);
+        add(edit);
     }//..
 
     public void saveFile(String fileName) {
