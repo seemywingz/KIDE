@@ -64,8 +64,6 @@ public class Parser extends ScrollableOutput {
         try {
             if ((token = tokens.get(i + 1)).getType() == TokenType.ID) {
                 String data = token.getData();
-                System.out.println("parsing ID "+data);
-
                 if(inNewScope){
 
                 }else{
