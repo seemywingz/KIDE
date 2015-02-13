@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class Parser extends ScrollableOutput {
 
     protected String parseErrors, errorPrefix="\nParse Error on line ";
+    protected ArrayList<Token> tokens = null;
+    protected int tokenIndex = 0;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
@@ -18,16 +20,37 @@ public class Parser extends ScrollableOutput {
         initTextArea("KIDE: Parser...",35,w/11,false,
                      ScrollableOutput.mkKeyAdapter(keyBuffer,actionMap));
 
+        // create a new pane next to the lex output
         initScrollPane(new Rectangle(idePanel1.lex.getScrollPane().getX()+idePanel1.lex.getScrollPane().getWidth(),2,w,h));
     }//..
 
 
-   private void parseProgram(){
-
-
+   public void parseProgram(ArrayList<Token> tokens){
+       this.tokens = tokens;
+       parseBlock(tokens.get(0),0);
    }//..
 
-    private void parseBlock(){
+    private void parseBlock(Token token,int index){
+        switch (token.getType()){
+            case LEFTCURL:
+                parseStatement(tokens.get(index+1),index+1);
+                break;
+            case EOF:
+                break;
+            default:
+        }
+    }//..
+
+    protected void parseStatement(Token token,int index){
+
+        switch (token.getType()){
+            case LEFTCURL:
+                parseBlock(tokens.get(index+1),index+1);
+                break;
+            default:
+                break;
+        }
+
 
     }//..
 
