@@ -14,7 +14,7 @@ public enum TokenType {
 
     DIGIT("digit"),
     STRING("letters"),
-    ID("id"),
+//    ID("id"),
     INTOP("+"),
     QUOTE("\""),
     BOOLOP("boolop"),
@@ -32,7 +32,7 @@ public enum TokenType {
     SEMICOLON(";"),
     SPACE("\n"," ","","\t"),
     EOF("$"),
-    CHAR("a","b","c","d","e","f","g","h","i","j","k","l","m",
+    ID("a","b","c","d","e","f","g","h","i","j","k","l","m",
          "n","o","p","q","r","s","t","u","v","w","x","y","z"),
     UNSUPPORTED(",","<",">",":","-","%",
                  "@","#","^","&","-","/","*");
@@ -52,7 +52,7 @@ public enum TokenType {
                 return t;
             }
         }
-        return TokenType.ID;
+        return null;
     }//..
 
     public List<String> getPattern() {

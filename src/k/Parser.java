@@ -11,6 +11,7 @@ public class Parser extends ScrollableOutput {
 
     protected String parseErrors, errorPrefix="\nParse Error on line ";
     protected ArrayList<Token> tokens = null;
+    protected Token currentToken;
     protected int tokenIndex = 0;
 
     Parser(IDEPanel idePanel1) {
@@ -26,32 +27,101 @@ public class Parser extends ScrollableOutput {
 
 
    public void parseProgram(ArrayList<Token> tokens){
+       parseErrors = "";
        this.tokens = tokens;
-       parseBlock(tokens.get(0),0);
+       tokenIndex = 0;
+       getNextToken();
+       if(isExpectedToken(currentToken,TokenType.LEFTCURL)){
+           parseBlock();
+       }
    }//..
 
-    private void parseBlock(Token token,int index){
-        switch (token.getType()){
+    private boolean parseBlock(){
+
+        switch (currentToken.getType()){
             case LEFTCURL:
-                parseStatement(tokens.get(index+1),index+1);
-                break;
-            case EOF:
-                break;
+                getNextToken();
+                return parseStatement();
             default:
+                return isExpectedToken(currentToken,TokenType.RIGHTCURL);
         }
     }//..
 
-    protected void parseStatement(Token token,int index){
+    protected boolean parseStatement(){
+       switch (currentToken.getType()){
+           case TYPE:
+               getNextToken();
+               return parseVarDecl();
+           case ID:
+               getNextToken();
+               if(isExpectedToken(currentToken,TokenType.ASSIGNMENT)) {
+                   getNextToken();
+                   return parseExpr();
+               }return false;
+           default:
+               return parseBlock();
+       }
+    }//..
 
-        switch (token.getType()){
-            case LEFTCURL:
-                parseBlock(tokens.get(index+1),index+1);
-                break;
+
+    protected boolean parseExpr(){
+        switch (currentToken.getType()){
+            case ID:
+                return true;
+            case DIGIT:
+                return parseIntExpr();
             default:
-                break;
+                return false;
+
         }
 
+    }//..
 
+    protected boolean parseIntExpr(){
+                if(peekNextToken().getType() == TokenType.INTOP){
+                    getNextToken();
+                    isExpectedToken(currentToken,TokenType.DIGIT);
+                }else
+                    return isExpectedToken(currentToken,TokenType.DIGIT);
+        return false;
+    }//..
+
+    protected boolean parseVarDecl(){
+        if(isExpectedToken(currentToken,TokenType.ID)){
+            return true;
+        }
+        return false;
+    }//..
+
+    protected boolean isExpectedToken(Token token, TokenType expected){
+        if(token.getType() == expected)
+            return true;
+        else {
+            addParseError(token.getLineNum(),expected,token.getType());
+            return false;
+        }
+    }//..
+
+    protected Token peekNextToken(){
+        return tokens.get(tokenIndex+1);
+    }//..
+
+    protected void getNextToken(){
+
+        if(tokenIndex <= tokens.size()-1){
+            currentToken = tokens.get(tokenIndex);
+            if(tokenIndex == tokens.size()-1){
+                if(currentToken.getType()!=TokenType.EOF)
+                    eofWarning();
+            }
+            tokenIndex++;
+        }
+    }//..
+
+    protected void eofWarning(){
+        parseErrors +="\nWARNING: file needs to end with '$', token added";
+        tokens.add(new Token(TokenType.EOF,"$",tokens.get(tokens.size()-1).getLineNum()));
+        idePanel.editor.getTextArea().append("$");
     }//..
 
     protected void addParseError(int line,TokenType expected,TokenType found){
