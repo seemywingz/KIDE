@@ -71,6 +71,8 @@ public class Parser extends ScrollableOutput {
             case DIGIT:
                 return parseIntExpr();
             default:
+                parseErrors+=errorPrefix+(currentToken.getLineNum()+1)+": expected <ID> or <DIGIT> found <"+currentToken.getType()+">";
+                idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
                 return false;
 
         }
