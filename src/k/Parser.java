@@ -27,81 +27,123 @@ public class Parser extends ScrollableOutput {
 
 
    public void parseProgram(ArrayList<Token> tokens){
-       parseErrors = "";
        this.tokens = tokens;
+       boolean noParseErrors = false;
+       parseErrors = "";
+       textArea.setText("");
        tokenIndex = 0;
        getNextToken();
-       if(isExpectedToken(currentToken,TokenType.LEFTCURL)){
-           parseBlock();
+       if(isExpected(TokenType.LEFTCURL,currentToken)) {
+           noParseErrors = parseBlock();
+       }else {
+           addParseError(TokenType.LEFTCURL,currentToken);
        }
+       if(noParseErrors){
+           // do semantical analysis
+       }
+
    }//..
 
-    private boolean parseBlock(){
-
+    protected boolean parseBlock(){
         switch (currentToken.getType()){
             case LEFTCURL:
                 getNextToken();
                 return parseStatement();
+            case RIGHTCURL:
+                return true;
             default:
-                return isExpectedToken(currentToken,TokenType.RIGHTCURL);
+                addParseError("Block",currentToken);
+                return false;
         }
     }//..
 
     protected boolean parseStatement(){
-       switch (currentToken.getType()){
-           case TYPE:
-               getNextToken();
-               return parseVarDecl();
-           case ID:
-               getNextToken();
-               if(isExpectedToken(currentToken,TokenType.ASSIGNMENT)) {
-                   getNextToken();
-                   return parseExpr();
-               }return false;
-           default:
-               return parseBlock();
-       }
+        switch (currentToken.getType()){
+            case TYPE:
+                return parseVarDecl();
+            case ID:
+                return parseAssignmentStatement();
+            case RIGHTCURL:
+                return parseBlock();
+            default:
+                addParseError("Statement",currentToken);
+                return false;
+        }
     }//..
 
-
-    protected boolean parseExpr(){
+    protected boolean parseAssignmentStatement(){
         switch (currentToken.getType()){
             case ID:
+                getNextToken();// if next not assignment
+                if(!isExpected(TokenType.ASSIGNMENT,currentToken)){
+                    // incorrect assignment statement
+                    addParseError(TokenType.ASSIGNMENT,currentToken);
+                    return false;
+                }// we have assignment
+                getNextToken();// should have an expr next
+                return parseExper();
+            default:
+                addParseError(TokenType.ID,currentToken);
+                return isExpected(TokenType.ID,currentToken);
+        }
+    }//..
+
+    protected boolean parseExper(){
+        switch (currentToken.getType()){
+
+            case ID:
+                return true;
+            case STRING:
                 return true;
             case DIGIT:
                 return parseIntExpr();
             default:
-                parseErrors+=errorPrefix+(currentToken.getLineNum()+1)+": expected <ID> or <DIGIT> found <"+currentToken.getType()+">";
-                idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
+                addParseError("Expression",currentToken);
                 return false;
-
         }
-
     }//..
 
     protected boolean parseIntExpr(){
-                if(peekNextToken().getType() == TokenType.INTOP){
-                    getNextToken();
-                    isExpectedToken(currentToken,TokenType.DIGIT);
-                }else
-                    return isExpectedToken(currentToken,TokenType.DIGIT);
-        return false;
+        switch (currentToken.getType()){
+            case DIGIT:
+                getNextToken();// if next not intop
+                if(!isExpected(TokenType.INTOP,currentToken)){
+                    // we have digit
+                    return true;
+                }else {// we have intop
+                    getNextToken();// should have expression next
+                    return parseExper();
+                }
+            default:
+                addParseError(TokenType.DIGIT,currentToken);
+                return isExpected(TokenType.DIGIT,currentToken);
+        }
     }//..
 
     protected boolean parseVarDecl(){
-        if(isExpectedToken(currentToken,TokenType.ID)){
+        switch (currentToken.getType()){
+            case TYPE:
+                getNextToken();// if next not ID
+                if(!isExpected(TokenType.ID,currentToken)){
+                    addParseError(TokenType.ID,currentToken);
+                    return false;
+                }// we have ID
+                return true;
+            default:
+                addParseError(TokenType.TYPE, currentToken);
+                return isExpected(TokenType.TYPE,currentToken);
+        }
+    }//..
+
+    protected boolean isExpected(TokenType expected,Token token){
+
+        textArea.append("\nExpecting token <"+expected+">");
+        textArea.append("\n    Found token <"+token.getType()+">");
+
+        if(token.getType() == expected){
             return true;
         }
         return false;
-    }//..
-
-    protected boolean isExpectedToken(Token token, TokenType expected){
-        if(token.getType() == expected)
-            return true;
-        else {
-            addParseError(token.getLineNum(),expected,token.getType());
-            return false;
-        }
     }//..
 
     protected Token peekNextToken(){
@@ -111,12 +153,10 @@ public class Parser extends ScrollableOutput {
     protected void getNextToken(){
 
         if(tokenIndex <= tokens.size()-1){
-            currentToken = tokens.get(tokenIndex);
-            if(tokenIndex == tokens.size()-1){
-                if(currentToken.getType()!=TokenType.EOF)
-                    eofWarning();
-            }
-            tokenIndex++;
+            currentToken = tokens.get(tokenIndex++);
+        }
+        if(tokens.get(tokens.size()-1).getType() != TokenType.EOF){
+            eofWarning();
         }
     }//..
 
@@ -126,9 +166,18 @@ public class Parser extends ScrollableOutput {
         idePanel.editor.getTextArea().append("$");
     }//..
 
-    protected void addParseError(int line,TokenType expected,TokenType found){
-        parseErrors+=errorPrefix+(line+1)+": expected <"+expected+"> found <"+found+">";
-        idePanel.editor.addErrorLineNumber(line);
+    protected void addParseError(TokenType expected,Token found){
+        String newError = errorPrefix+(found.getLineNum()+1)+": expected <"+expected+"> found <"+found.getType()+">";
+        parseErrors+= newError;
+        textArea.append(newError);
+        idePanel.editor.addErrorLineNumber(found.getLineNum());
+    }//..
+
+    protected void addParseError(String expected,Token found){
+        String newError = errorPrefix+(found.getLineNum()+1)+": expected "+expected+" found <"+found.getType()+">";
+        parseErrors+= newError;
+        textArea.append(newError);
+        idePanel.editor.addErrorLineNumber(found.getLineNum());
     }//..
 
     public String getParseErrors() {
