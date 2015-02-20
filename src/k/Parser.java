@@ -71,11 +71,31 @@ public class Parser extends ScrollableOutput {
                  isExpected(TokenType.STRING);
                  break;
              case BOOLVAL:
-                 isExpected(TokenType.BOOLVAL);
+                 parseBooleanExpr();
+                 break;
+             case LEFTPAREN:
+                 parseBooleanExpr();
                  break;
              default:
                  addParseError("<ID>, <DIGIT>, <STRING>, <BOOLVAL>");
          }
+    }//..
+
+    private void parseBooleanExpr(){
+        switch (currentToken.getType()){
+            case BOOLVAL:
+                isExpected(TokenType.BOOLVAL);
+                break;
+            case LEFTPAREN:
+                isExpected(TokenType.LEFTPAREN);
+                parseExpr();
+                isExpected(TokenType.BOOLOP);
+                parseExpr();
+                isExpected(TokenType.RIGHTPAREN);
+                break;
+            default:
+                addParseError("<BOOLVAL>, <RIGHTPAREN>");
+        }
     }//..
 
     private void parseIntExpr(){
