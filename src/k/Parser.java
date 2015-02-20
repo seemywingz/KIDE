@@ -45,15 +45,48 @@ public class Parser extends ScrollableOutput {
     }//..
 
    protected void parseStatementList(){
-       switch (currentToken.getType()){
-           case ID:
-               parseAssignmentStatement();
-               break;
-           case TYPE:
-               parseVarDecl();
-               break;
-       }
+        parseStatement();
    }//..
+
+    private void parseStatement(){
+        switch (currentToken.getType()){
+            case ID:
+                parseAssignmentStatement();
+                parseStatement();
+                break;
+            case TYPE:
+                parseVarDecl();
+                parseStatement();
+                break;
+            case LEFTCURL:
+                parseBlock();
+                parseStatement();
+                break;
+            case PRINT:
+                parsePrintStatement();
+                parseStatement();
+                break;
+            case IF:
+                parseIfStatement();
+                parseStatement();
+                break;
+        }
+    }//..
+
+    private void parseIfStatement(){
+        if(isExpected(TokenType.IF)){
+            parseBooleanExpr();
+            parseBlock();
+        }
+    }//..
+
+    private void parsePrintStatement(){
+        if(isExpected(TokenType.PRINT)){
+            isExpected(TokenType.LEFTPAREN);
+            parseExpr();
+            isExpected(TokenType.RIGHTPAREN);
+        }
+    }//..
 
     private void parseAssignmentStatement(){
         if(isExpected(TokenType.ID)){
