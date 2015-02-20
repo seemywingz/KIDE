@@ -33,117 +33,89 @@ public class Parser extends ScrollableOutput {
        textArea.setText("");
        tokenIndex = 0;
        getNextToken();
-       if(isExpected(TokenType.LEFTCURL,currentToken)) {
-           noParseErrors = parseBlock();
-       }else {
-           addParseError(TokenType.LEFTCURL,currentToken);
-       }
-       if(noParseErrors){
-           // do semantical analysis
-       }
+       parseBlock();
 
    }//..
 
-    protected boolean parseBlock(){
+    protected void parseBlock(){
         switch (currentToken.getType()){
             case LEFTCURL:
+                isExpected(TokenType.LEFTCURL);
+                parseStatementList();
+                isExpected(TokenType.RIGHTCURL);
+            default:
+                isExpected(TokenType.LEFTCURL);
+        }
+    }//..
+
+   protected void parseStatementList(){
+       switch (currentToken.getType()){
+           case TYPE:
+               parseVarDecl();
+           case ID:
+               parseAssignment();
+           default:
+               getNextToken();
+       }
+   }//..
+
+    private void parseAssignment(){
+        switch (currentToken.getType()){
+            case ID:
                 getNextToken();
-                return parseStatement();
-            case RIGHTCURL:
-                return true;
-            default:
-                addParseError("Block",currentToken);
-                return false;
+                isExpected(TokenType.ASSIGNMENT);
+                parseExpr();
         }
     }//..
 
-    protected boolean parseStatement(){
-        switch (currentToken.getType()){
-            case TYPE:
-                return parseVarDecl();
-            case ID:
-                return parseAssignmentStatement();
-            case RIGHTCURL:
-                return parseBlock();
-            default:
-                addParseError("Statement",currentToken);
-                return false;
-        }
-    }//..
-
-    protected boolean parseAssignmentStatement(){
+    protected void parseExpr(){
         switch (currentToken.getType()){
             case ID:
-                getNextToken();// if next not assignment
-                if(!isExpected(TokenType.ASSIGNMENT,currentToken)){
-                    // incorrect assignment statement
-                    addParseError(TokenType.ASSIGNMENT,currentToken);
-                    return false;
-                }// we have assignment
-                getNextToken();// should have an expr next
-                return parseExper();
-            default:
-                addParseError(TokenType.ID,currentToken);
-                return isExpected(TokenType.ID,currentToken);
-        }
-    }//..
-
-    protected boolean parseExper(){
-        switch (currentToken.getType()){
-
-            case ID:
-                return true;
-            case STRING:
-                return true;
+                isExpected(TokenType.ID);
+                break;
             case DIGIT:
-                return parseIntExpr();
+                parseIntExpr();
             default:
-                addParseError("Expression",currentToken);
-                return false;
+                addParseError("<ID>, <DIGIT>",currentToken);
         }
     }//..
 
-    protected boolean parseIntExpr(){
+    private void parseIntExpr(){
         switch (currentToken.getType()){
             case DIGIT:
-                getNextToken();// if next not intop
-                if(!isExpected(TokenType.INTOP,currentToken)){
-                    // we have digit
-                    return true;
-                }else {// we have intop
-                    getNextToken();// should have expression next
-                    return parseExper();
+                isExpected(TokenType.DIGIT);
+                getNextToken();
+                if(currentToken.getType()!=TokenType.INTOP){
+                    getNextToken();
+                    parseIntExpr();
                 }
             default:
-                addParseError(TokenType.DIGIT,currentToken);
-                return isExpected(TokenType.DIGIT,currentToken);
+                isExpected(TokenType.DIGIT);
         }
     }//..
 
-    protected boolean parseVarDecl(){
+    private void parseVarDecl(){
         switch (currentToken.getType()){
             case TYPE:
-                getNextToken();// if next not ID
-                if(!isExpected(TokenType.ID,currentToken)){
-                    addParseError(TokenType.ID,currentToken);
-                    return false;
-                }// we have ID
-                return true;
+                getNextToken();
+                isExpected(TokenType.ID);
+                break;
             default:
-                addParseError(TokenType.TYPE, currentToken);
-                return isExpected(TokenType.TYPE,currentToken);
+                addParseError("<TYPE>",currentToken);
         }
     }//..
 
-    protected boolean isExpected(TokenType expected,Token token){
 
+    protected void isExpected(TokenType expected){
+
+        Token token = currentToken;
         textArea.append("\nExpecting token <"+expected+">");
         textArea.append("\n    Found token <"+token.getType()+">");
 
-        if(token.getType() == expected){
-            return true;
+        if(token.getType() != expected){
+            addParseError(expected,token);
         }
-        return false;
+        getNextToken();
     }//..
 
     protected Token peekNextToken(){
