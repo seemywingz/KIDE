@@ -86,9 +86,8 @@ public class Lex extends ScrollableOutput {
                 }
             }
         }
-        if(tokens.size()>0){
+        if(tokens.size() > 0)
             idePanel.parser.parseProgram(tokens);
-        }
 
     }//..
 
