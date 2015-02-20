@@ -15,9 +15,9 @@ public class Lex extends ScrollableOutput {
     private ArrayList<Token> tokens = new ArrayList<Token>();
     private String stringVal;
     private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
-                                "|(?<=[+;=\"])|(?=[+;=\"])"+
-                                "|(?<=[(\\)])|(?=[(\\)])"+
-                                "|(?<=[{}])|(?=[{}])";
+                               "|(?<=[+;=\"])|(?=[+;=\"])"+
+                               "|(?<=[(\\)])|(?=[(\\)])"+
+                               "|(?<=[{}])|(?=[{}])";
 
     Lex(IDEPanel idePanel){
         super(idePanel);

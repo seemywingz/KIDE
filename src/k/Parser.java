@@ -45,10 +45,13 @@ public class Parser extends ScrollableOutput {
     }//..
 
    protected void parseStatementList(){
-       if(currentToken.getType() == TokenType.TYPE){
-           parseVarDecl();
-       }else if(currentToken.getType() == TokenType.ID){
-           parseAssignmentStatement();
+       switch (currentToken.getType()){
+           case ID:
+               parseAssignmentStatement();
+               break;
+           case TYPE:
+               parseVarDecl();
+               break;
        }
    }//..
 
