@@ -1,4 +1,4 @@
-# KIDE
+# KIDE - IDE and Compiler for Allen++
 
 Build Instructions
 
