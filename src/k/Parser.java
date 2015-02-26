@@ -62,6 +62,7 @@ public class Parser extends ScrollableOutput {
                 break;
             case LEFTCURL:
                 parseBlock();
+                parseStatement();
                 break;
             case PRINT:
                 parsePrintStatement();
