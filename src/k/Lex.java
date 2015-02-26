@@ -36,9 +36,9 @@ public class Lex extends ScrollableOutput {
         idePanel.editor.resetErrorLineNumber();
         tokens = new ArrayList<Token>();
         String lineSplit[] = s.split("\\n");
-        for(int i = 0; i < lineSplit.length;i++){
+        for(int lineNUmber = 0; lineNUmber < lineSplit.length;lineNUmber++){
             TokenType tokenType;
-            String[] tokenSplit = lineSplit[i].split(delimiters);
+            String[] tokenSplit = lineSplit[lineNUmber].split(delimiters);
             for (int j =0;j<tokenSplit.length;j++){
                 tokenType = TokenType.getByValue(tokenSplit[j]);
                 if(tokenType != null && tokenType != TokenType.UNSUPPORTED){
@@ -59,6 +59,7 @@ public class Lex extends ScrollableOutput {
                         }
 
                         if(tokenType == TokenType.QUOTE ){
+                                tokens.add(new Token(TokenType.QUOTE,"\"",lineNUmber));
                                 stringVal="";
                                 int q = j+1;
                                 try {
@@ -68,6 +69,9 @@ public class Lex extends ScrollableOutput {
                                     j = q;
                                     tokenType = TokenType.STRING;
                                     tokenSplit[j] = stringVal;
+                                    tokens.add(new Token(tokenType,tokenSplit[j],lineNUmber));
+                                    tokens.add(new Token(TokenType.QUOTE,"\"",lineNUmber));
+                                    tokenType = TokenType.SPACE;
                                 }catch (ArrayIndexOutOfBoundsException ae){
                                 }
                         }
@@ -75,12 +79,12 @@ public class Lex extends ScrollableOutput {
                     }// endif not last tokenType
 
                     if(tokenType != TokenType.SPACE) {
-                        tokens.add(new Token(tokenType,tokenSplit[j],i));
+                        tokens.add(new Token(tokenType,tokenSplit[j],lineNUmber));
                         textArea.append("\nFound: <" + tokenType + "> " + tokenSplit[j]);
                     }
                 }else{// tokenType == null
-                    idePanel.editor.addErrorLineNumber(i);
-                    String error = "\nLex Error on line " + (i + 1) + ": " + tokenSplit[j] + " is not currently supported";
+                    idePanel.editor.addErrorLineNumber(lineNUmber);
+                    String error = "\nLex Error on line " + (lineNUmber + 1) + ": " + tokenSplit[j] + " is not currently supported";
                     lexErrors += error;
                     textArea.append(error);
                 }
@@ -90,6 +94,11 @@ public class Lex extends ScrollableOutput {
             idePanel.parser.parseProgram(tokens);
 
     }//..
+
+    public void addEOF(){
+        tokens.add(new Token(TokenType.EOF,"$",tokens.size()));
+        idePanel.editor.getTextArea().append("$");
+    }//*/
 
     public String getLexErrors() {
         return lexErrors;

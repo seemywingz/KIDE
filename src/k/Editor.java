@@ -43,6 +43,7 @@ public class Editor extends ScrollableOutput{
                     idePanel.lex.analyze(textArea.getText());
                     analyzed = true;
                 }
+                drawLines();
             }
         }, 20);
     }//..

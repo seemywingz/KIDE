@@ -1,6 +1,7 @@
 package k;
 
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -35,6 +36,7 @@ public class Parser extends ScrollableOutput {
        tokenIndex = 0;
        getNextToken();
        parseBlock();
+       noParseErrors = isExpected(TokenType.EOF);
    }//..
 
     protected void parseBlock(){
@@ -60,7 +62,6 @@ public class Parser extends ScrollableOutput {
                 break;
             case LEFTCURL:
                 parseBlock();
-                parseStatement();
                 break;
             case PRINT:
                 parsePrintStatement();
@@ -103,8 +104,8 @@ public class Parser extends ScrollableOutput {
              case DIGIT:
                  parseIntExpr();
                  break;
-             case STRING:
-                 isExpected(TokenType.STRING);
+             case QUOTE:
+                 parseStringExpr();
                  break;
              case BOOLVAL:
                  parseBooleanExpr();
@@ -115,6 +116,13 @@ public class Parser extends ScrollableOutput {
              default:
                  addParseError("<ID>, <DIGIT>, <STRING>, <BOOLVAL>");
          }
+    }//..
+
+    private void parseStringExpr(){
+        if(isExpected(TokenType.QUOTE)){
+            isExpected(TokenType.STRING);
+            isExpected(TokenType.QUOTE);
+        }
     }//..
 
     private void parseBooleanExpr(){
@@ -174,6 +182,10 @@ public class Parser extends ScrollableOutput {
     protected void getNextToken(){
         if(tokenIndex <= tokens.size()-1){
             currentToken = tokens.get(tokenIndex++);
+        }else{
+            if(tokens.get(tokenIndex-1).getType() != TokenType.EOF){
+                idePanel.lex.addEOF();
+            }
         }
     }//..
 
@@ -190,6 +202,7 @@ public class Parser extends ScrollableOutput {
         parseErrors+= newError;
         textArea.append(newError);
         idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
+        idePanel.editor.drawLines();
         noParseErrors=false;
     }//..
 
@@ -198,46 +211,3 @@ public class Parser extends ScrollableOutput {
     }//..
 
 }// Parser
-
-
-/*
-*
-*   private void parseAssignment(){
-        switch (currentToken.getType()){
-            case ID:
-                getNextToken();
-                isExpected(TokenType.ASSIGNMENT);
-                parseExpr();
-                break;
-        }
-    }//..
-
-    protected void parseExpr(){
-        switch (currentToken.getType()){
-            case ID:
-                isExpected(TokenType.ID);
-                break;
-            case DIGIT:
-                parseIntExpr();
-                break;
-            default:
-                addParseError("<ID>, <DIGIT>",currentToken);
-                break;
-        }
-    }//..
-
-    private void parseIntExpr(){
-        switch (currentToken.getType()){
-            case DIGIT:
-                isExpected(TokenType.DIGIT);
-                getNextToken();
-                if(currentToken.getType()!=TokenType.INTOP){
-                    getNextToken();
-                    parseIntExpr();
-                }
-                break;
-            default:
-                isExpected(TokenType.DIGIT);
-                break;
-        }
-    }//..**/
