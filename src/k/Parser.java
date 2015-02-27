@@ -1,7 +1,6 @@
 package k;
 
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -10,7 +9,8 @@ import java.util.ArrayList;
  */
 public class Parser extends ScrollableOutput {
 
-    protected String parseErrors, errorPrefix="\nParse Error on line ";
+    protected String parseErrors;
+    protected final String errorPrefix="\nParse Error on line ";
     protected ArrayList<Token> tokens = null;
     protected Token currentToken;
     protected int tokenIndex = 0;
@@ -120,9 +120,11 @@ public class Parser extends ScrollableOutput {
     }//..
 
     private void parseStringExpr(){
-        if(isExpected(TokenType.QUOTE)){
-            isExpected(TokenType.STRING);
-            isExpected(TokenType.QUOTE);
+        if(isExpected(TokenType.QUOTE)) {
+           if (isExpected(TokenType.STRING)){
+               isExpected(TokenType.QUOTE);
+           }
+
         }
     }//..
 

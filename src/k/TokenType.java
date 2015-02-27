@@ -12,9 +12,9 @@ import java.util.List;
  */
 public enum TokenType {
 
-    DIGIT("digit"),
-    STRING("letters"),
-//    ID("id"),
+    DIGIT("d1g1t"),
+    STRING("letters!@#"),
+    CHAR("ch4r"),
     INTOP("+"),
     QUOTE("\""),
     BOOLOP("boolop"),
@@ -35,7 +35,7 @@ public enum TokenType {
     ID("a","b","c","d","e","f","g","h","i","j","k","l","m",
          "n","o","p","q","r","s","t","u","v","w","x","y","z"),
     UNSUPPORTED(",","<",">",":","-","%",
-                 "@","#","^","&","-","/","*");
+                 "@","#","^","&","-","/","*","[","]");
 
     public final List<String> pattern;
 
