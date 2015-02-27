@@ -5,18 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/k/img/sprites.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/k/LoadingDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDE.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Lex.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Lex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDE.java" afterPath="$PROJECT_DIR$/src/k/IDE.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Lex.java" afterPath="$PROJECT_DIR$/src/k/Lex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TokenType.java" afterPath="$PROJECT_DIR$/src/k/TokenType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Utils.java" afterPath="$PROJECT_DIR$/src/k/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -43,6 +31,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Lex.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.95634377" vertical-offset="1555" max-vertical-offset="3456">
+              <caret line="141" column="114" selection-start-line="141" selection-start-column="114" selection-end-line="141" selection-end-column="114" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IDE.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/IDE.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoadingDialog.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoadingDialog.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/LoadingDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.372442" vertical-offset="95" max-vertical-offset="1520">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1520">
               <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -594,7 +594,7 @@
       <workItem from="1424982864751" duration="9205000" />
       <workItem from="1424989920092" duration="215000" />
       <workItem from="1424990163631" duration="4144000" />
-      <workItem from="1424994337256" duration="11461000" />
+      <workItem from="1424994337256" duration="11764000" />
     </task>
     <task id="LOCAL-00001" summary="Editor">
       <created>1422075426640</created>
@@ -836,11 +836,17 @@
       <option name="project" value="LOCAL" />
       <updated>1425047577021</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="I Think we're good to grade">
+      <created>1425053589419</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1425053589419</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176325000" />
+    <option name="totallyTimeSpent" value="176628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -890,7 +896,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="TokenType" />
     <MESSAGE value="TokenType Validate Token through Lex and error indicator on line number" />
     <MESSAGE value="TokenType, Validate Token through Lex and error indicator on line number" />
     <MESSAGE value="Working Lex (- == boolop)" />
@@ -915,7 +920,8 @@
     <MESSAGE value="BooleanExpr" />
     <MESSAGE value="Pretty much done with Project 1 -- still needs some testing" />
     <MESSAGE value="Not Quite Ready for grading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Not Quite Ready for grading" />
+    <MESSAGE value="I Think we're good to grade" />
+    <option name="LAST_COMMIT_MESSAGE" value="I Think we're good to grade" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1264,22 +1270,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1333334" vertical-offset="0" max-vertical-offset="3456">
-          <caret line="141" column="114" selection-start-line="141" selection-start-column="114" selection-end-line="141" selection-end-column="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
           <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/img/ide.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/LoadingDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1520">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#321#332#0" expanded="true" />
+            <element signature="e#751#1060#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1292,20 +1306,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/img/ide.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/LoadingDialog.java">
+    <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.372442" vertical-offset="95" max-vertical-offset="1520">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.95634377" vertical-offset="1555" max-vertical-offset="3456">
+          <caret line="141" column="114" selection-start-line="141" selection-start-column="114" selection-end-line="141" selection-end-column="114" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#321#332#0" expanded="true" />
-            <element signature="e#751#1060#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
           </folding>
         </state>
       </provider>
