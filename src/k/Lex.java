@@ -66,6 +66,11 @@ public class Lex extends ScrollableOutput {
                     case '"':
                         lexString(lineSplit[lineNUmber],lineNUmber);
                         break;
+                    case '=':
+                        if(!lexKeyword("==", lineSplit[lineNUmber], lineNUmber)){
+                            addToken(""+c,lineNUmber);
+                        }
+                        break;
                     default:
                         if(TokenType.getByValue(""+c)!=TokenType.SPACE)
                             if(TokenType.getByValue(""+c)!=TokenType.UNSUPPORTED)
@@ -79,6 +84,10 @@ public class Lex extends ScrollableOutput {
         if(tokens.size() > 0)
             idePanel.parser.parseProgram(tokens);
     }//..
+
+//    protected void lexBoolop(String stringVal, int lineNumber){
+//        int testInde
+//    }//..
 
     protected boolean lexString(String stringVal, int lineNumber){
         String data = "";

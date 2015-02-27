@@ -17,7 +17,7 @@ public enum TokenType {
     CHAR("ch4r"),
     INTOP("+"),
     QUOTE("\""),
-    BOOLOP("boolop"),
+    BOOLOP("=="),
     BOOLVAL("true","false"),
     EXCLAMATION("!"),
     ASSIGNMENT("="),
