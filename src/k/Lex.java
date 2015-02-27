@@ -85,10 +85,6 @@ public class Lex extends ScrollableOutput {
             idePanel.parser.parseProgram(tokens);
     }//..
 
-//    protected void lexBoolop(String stringVal, int lineNumber){
-//        int testInde
-//    }//..
-
     protected boolean lexString(String stringVal, int lineNumber){
         String data = "";
         int testIndex = new Integer(index);

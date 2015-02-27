@@ -20,7 +20,7 @@ public class Editor extends ScrollableOutput{
     private String currentFile = "Untitled";
     private boolean addedLine,
                     fileChanged,
-                    analyzed;
+                    analyzed = true;
     private int lines = 1,
                 currentLine = 0;
 
@@ -40,6 +40,7 @@ public class Editor extends ScrollableOutput{
             public void apply() throws Exception {
                 setLineNumbers();
                 if(!analyzed){
+                    System.out.println("analyzing");
                     idePanel.lex.analyze(textArea.getText());
                     analyzed = true;
                 }
