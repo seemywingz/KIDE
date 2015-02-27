@@ -13,11 +13,6 @@ public class Lex extends ScrollableOutput {
 
     private String lexErrors = "";
     private ArrayList<Token> tokens = new ArrayList<Token>();
-    private String stringVal;
-    private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
-                               "|(?<=[+;=\"])|(?=[+;=\"])"+
-                               "|(?<=[(\\)])|(?=[(\\)])"+
-                               "|(?<=[{}])|(?=[{}])";
 
     private int index;
     Lex(IDEPanel idePanel){
@@ -73,7 +68,10 @@ public class Lex extends ScrollableOutput {
                         break;
                     default:
                         if(TokenType.getByValue(""+c)!=TokenType.SPACE)
+                            if(TokenType.getByValue(""+c)!=TokenType.UNSUPPORTED)
                             addToken(""+c,lineNUmber);
+                        else
+                            addLexError(""+c,lineNUmber);
                         break;
                 }
             }
@@ -97,7 +95,13 @@ public class Lex extends ScrollableOutput {
                         addToken("\"",lineNumber);
                         break;
                     default:
-                        data += stringVal.charAt(testIndex);
+                        if(TokenType.getByValue(""+stringVal.charAt(testIndex))!= TokenType.UNSUPPORTED) {
+                            data += stringVal.charAt(testIndex);
+                        }else {
+                            String error = "\nLex WARNING on line " + (lineNumber + 1) + ": " + stringVal.charAt(testIndex)
+                                    + " is not currently supported and will be removed from the string!";
+                            lexErrors += error;
+                        }
                 }
                 testIndex++;
             }
@@ -134,12 +138,28 @@ public class Lex extends ScrollableOutput {
         idePanel.editor.getTextArea().append("$");
     }//*/
 
+    protected void addLexError(String data, int lineNumber){
+        String error = "\nLex Error on line " + (lineNumber + 1) + ": " + data + " is not currently supported and removed from program!";
+        lexErrors += error;
+    }//..
+
     public String getLexErrors() {
         return lexErrors;
     }//..
 }// Lex
 
-/*TokenType tokenType;
+/*
+
+
+
+    private String stringVal;
+    private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
+                               "|(?<=[+;=\"])|(?=[+;=\"])"+
+                               "|(?<=[(\\)])|(?=[(\\)])"+
+                               "|(?<=[{}])|(?=[{}])";
+
+
+TokenType tokenType;
             String[] tokenSplit = lineSplit[lineNUmber].split(delimiters);
             for (int j =0;j<tokenSplit.length;j++){
                 tokenType = TokenType.getByValue(tokenSplit[j]);

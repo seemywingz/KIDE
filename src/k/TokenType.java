@@ -52,7 +52,7 @@ public enum TokenType {
                 return t;
             }
         }
-        return null;
+        return UNSUPPORTED;
     }//..
 
     public List<String> getPattern() {

@@ -13,20 +13,25 @@ import javax.swing.*;
 public class IDE extends JFrame{
 
 
+    LoadingDialog loadingDialog;
     static IDEPanel idePanel;
 
     IDE(){
         setLayout(null);
         setSize(1200, 800);
         setTitle("KIDE");
-        setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        loadingDialog = new LoadingDialog();
         setContentPane(idePanel = new IDEPanel(this));
         setJMenuBar(new IDEMenuBar(idePanel));
+        loadingDialog.dispose();
         setVisible(true);
     }//..
+
+
 
     public static void main(String[] args) {
         new IDE();

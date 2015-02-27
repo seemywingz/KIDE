@@ -1,14 +1,7 @@
 package k;
 
-import sun.audio.AudioPlayer;
-import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 
 
 interface Logic {
