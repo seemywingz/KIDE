@@ -1,6 +1,7 @@
 package k;
 
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -98,9 +99,15 @@ public class Parser extends ScrollableOutput {
     }//..
 
     private void parseExpr(){
+        Token next = null;
          switch (currentToken.getType()){
              case ID:
                  isExpected(TokenType.ID);
+                 next = peekNextToken();
+                 if(next!=null)
+                 if(next.getType()==TokenType.ASSIGNMENT){
+                     parseAssignmentStatement();
+                 }
                  break;
              case DIGIT:
                  parseIntExpr();

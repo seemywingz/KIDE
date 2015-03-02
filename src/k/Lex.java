@@ -17,13 +17,13 @@ public class Lex extends ScrollableOutput {
     private int index;
     Lex(IDEPanel idePanel){
         super(idePanel);
-        w = (Utils.ScreenWidth / 6);
+        w = (Utils.ScreenWidth / 3);
         h = 500;
         setSize(w,h);
 
         initTextArea("KIDE: Lexical Analysis...",35,w/12,false,
                 super.mkKeyAdapter(keyBuffer,actionMap));
-        initScrollPane(new Rectangle(Utils.graphicsDevice.getDisplayMode().getWidth() / 2 ,2, w, h));
+        initScrollPane(new Rectangle(idePanel.editor.getScrollPane().getWidth(),2, w, h));
     }//..
 
     public void analyze(String s){
@@ -60,6 +60,16 @@ public class Lex extends ScrollableOutput {
                         break;
                     case 'p':
                         if(!lexKeyword("print", lineSplit[lineNUmber], lineNUmber)){
+                            addToken(""+c,lineNUmber);
+                        }
+                        break;
+                    case 'f':
+                        if(!lexKeyword("false", lineSplit[lineNUmber], lineNUmber)){
+                            addToken(""+c,lineNUmber);
+                        }
+                        break;
+                    case 't':
+                        if(!lexKeyword("true", lineSplit[lineNUmber], lineNUmber)){
                             addToken(""+c,lineNUmber);
                         }
                         break;
@@ -153,66 +163,3 @@ public class Lex extends ScrollableOutput {
     }//..
 }// Lex
 
-/*
-
-
-
-    private String stringVal;
-    private String delimiters = "(?<=[\\s+])|(?=[\\s+])"+
-                               "|(?<=[+;=\"])|(?=[+;=\"])"+
-                               "|(?<=[(\\)])|(?=[(\\)])"+
-                               "|(?<=[{}])|(?=[{}])";
-
-
-TokenType tokenType;
-            String[] tokenSplit = lineSplit[lineNUmber].split(delimiters);
-            for (int j =0;j<tokenSplit.length;j++){
-                tokenType = TokenType.getByValue(tokenSplit[j]);
-                if(tokenType != null && tokenType != TokenType.UNSUPPORTED){
-                    if(j < tokenSplit.length-1) {// make sure not last tokenType
-                        if (tokenType == TokenType.ASSIGNMENT) {// boolop
-                            if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
-                                tokenType = TokenType.BOOLOP;
-                                j++;
-                                tokenSplit[j] = "==";
-                            }
-                        }
-                        if (tokenType == TokenType.EXCLAMATION) {
-                            if (TokenType.getByValue(tokenSplit[j + 1]) == TokenType.ASSIGNMENT) {
-                                tokenType = TokenType.BOOLOP;
-                                j++;
-                                tokenSplit[j] = "!=";
-                            }
-                        }
-
-                        if(tokenType == TokenType.QUOTE ){
-                                tokens.add(new Token(TokenType.QUOTE,"\"",lineNUmber));
-                                stringVal="";
-                                int q = j+1;
-                                try {
-                                    while (TokenType.getByValue(tokenSplit[q]) != TokenType.QUOTE) {
-                                        stringVal += tokenSplit[q++];
-                                    }
-                                    j = q;
-                                    tokenType = TokenType.STRING;
-                                    tokenSplit[j] = stringVal;
-                                    tokens.add(new Token(tokenType,tokenSplit[j],lineNUmber));
-                                    tokens.add(new Token(TokenType.QUOTE,"\"",lineNUmber));
-                                    tokenType = TokenType.SPACE;
-                                }catch (ArrayIndexOutOfBoundsException ae){
-                                }
-                        }
-
-                    }// endif not last tokenType
-
-                    if(tokenType != TokenType.SPACE) {
-                        tokens.add(new Token(tokenType,tokenSplit[j],lineNUmber));
-                        textArea.append("\nFound: <" + tokenType + "> " + tokenSplit[j]);
-                    }
-                }else{// tokenType == null
-                    idePanel.editor.addErrorLineNumber(lineNUmber);
-                    String error = "\nLex Error on line " + (lineNUmber + 1) + ": " + tokenSplit[j] + " is not currently supported";
-                    lexErrors += error;
-                    textArea.append(error);
-                }
-            }*/

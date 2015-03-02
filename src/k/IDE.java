@@ -17,6 +17,7 @@ public class IDE extends JFrame{
     static IDEPanel idePanel;
 
     IDE(){
+        loadingDialog = new LoadingDialog();
         setLayout(null);
         setSize(1200, 800);
         setTitle("KIDE");
@@ -24,7 +25,6 @@ public class IDE extends JFrame{
         setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-        loadingDialog = new LoadingDialog();
         setContentPane(idePanel = new IDEPanel(this));
         setJMenuBar(new IDEMenuBar(idePanel));
         loadingDialog.dispose();

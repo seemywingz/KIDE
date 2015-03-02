@@ -29,7 +29,7 @@ public class Editor extends ScrollableOutput{
 
     Editor(final IDEPanel idePanel){
         super(idePanel);
-        w = Utils.ScreenWidth/2;
+        w = Utils.ScreenWidth/3;
 
         initLineNumbers();
         initTextArea(" ",35,w/11,true,mkKeyAdapter());
