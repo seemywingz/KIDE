@@ -102,12 +102,12 @@ public class Parser extends ScrollableOutput {
         Token next = null;
          switch (currentToken.getType()){
              case ID:
-                 isExpected(TokenType.ID);
-                 next = peekNextToken();
-                 if(next!=null)
+                 if((next = peekNextToken())!=null)
                  if(next.getType()==TokenType.ASSIGNMENT){
                      parseAssignmentStatement();
+                     break;
                  }
+                 isExpected(TokenType.ID);
                  break;
              case DIGIT:
                  parseIntExpr();
@@ -124,6 +124,15 @@ public class Parser extends ScrollableOutput {
              default:
                  addParseError("<ID>, <DIGIT>, <STRING>, <BOOLVAL>");
          }
+    }//..
+
+    private void parseIntExpr(){
+        if(isExpected(TokenType.DIGIT)){
+                if(currentToken.getType()==TokenType.INTOP) {
+                    isExpected(TokenType.INTOP);
+                    parseExpr();
+                }
+        }
     }//..
 
     private void parseStringExpr(){
@@ -149,18 +158,6 @@ public class Parser extends ScrollableOutput {
                 break;
             default:
                 addParseError("<BOOLVAL>, <RIGHTPAREN>");
-        }
-    }//..
-
-    private void parseIntExpr(){
-        if(isExpected(TokenType.DIGIT)){
-            Token next =  peekNextToken();
-            if(next != null) {
-                if(next.getType() == TokenType.INTOP) {
-                    isExpected(TokenType.INTOP);
-                    parseExpr();
-                }
-            }
         }
     }//..
 
