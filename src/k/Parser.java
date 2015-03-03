@@ -37,6 +37,9 @@ public class Parser extends ScrollableOutput {
        getNextToken();
        parseBlock();
        noParseErrors = isExpected(TokenType.EOF);
+       if(tokenIndex<tokens.size()){
+           warnUnreachableCode();
+       }
    }//..
 
     protected void parseBlock(){
@@ -217,6 +220,15 @@ public class Parser extends ScrollableOutput {
         String newError = errorPrefix+(currentToken.getLineNum())+": expected "+expected+" found <"+currentToken.getType()+">";
         parseErrors+= newError;
         textArea.append(newError);
+        idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
+        idePanel.editor.drawLines();
+        noParseErrors=false;
+    }//..
+
+    protected void warnUnreachableCode(){
+        String warning = "\nWARNING! There is unreachable code after EOF symbol '$', code will not be compiled or executed";
+        parseErrors+= warning;
+        textArea.append(warning);
         idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
         idePanel.editor.drawLines();
         noParseErrors=false;

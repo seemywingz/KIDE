@@ -120,7 +120,7 @@ public class Lex extends ScrollableOutput {
                             data += stringVal.charAt(testIndex);
                         }else {
                             String error = "\nLex WARNING on line " + (lineNumber + 1) + ": Character" + stringVal.charAt(testIndex)
-                                    + " is not currently supported in Strings, and will be removed!";
+                                    + " is not currently supported in Strings, and will be removed from the string!";
                             lexErrors += error;
                         }
                 }
