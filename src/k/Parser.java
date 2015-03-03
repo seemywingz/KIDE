@@ -1,7 +1,6 @@
 package k;
 
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -140,7 +139,6 @@ public class Parser extends ScrollableOutput {
            if (isExpected(TokenType.STRING)){
                isExpected(TokenType.QUOTE);
            }
-
         }
     }//..
 

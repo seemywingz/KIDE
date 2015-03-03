@@ -81,6 +81,11 @@ public class Lex extends ScrollableOutput {
                             addToken(""+c,lineNUmber);
                         }
                         break;
+                    case '!':
+                        if(!lexKeyword("!=", lineSplit[lineNUmber], lineNUmber)){
+                            addToken(""+c,lineNUmber);
+                        }
+                        break;
                     default:
                         if(TokenType.getByValue(""+c)!=TokenType.SPACE)
                             if(TokenType.getByValue(""+c)!=TokenType.UNSUPPORTED)
@@ -104,11 +109,12 @@ public class Lex extends ScrollableOutput {
             while (testIndex < stringVal.length()){
                 switch (stringVal.charAt(testIndex)){
                     case '"':
+                        System.out.println(index);
                         tokens.add(new Token(TokenType.STRING,data,lineNumber));
                         textArea.append("\nFound: <STRING> " + data);
                         index=testIndex;
                         addToken("\"",lineNumber);
-                        break;
+                        return true;
                     default:
                         if(TokenType.getByValue(""+stringVal.charAt(testIndex))!= TokenType.UNSUPPORTED) {
                             data += stringVal.charAt(testIndex);
@@ -120,11 +126,11 @@ public class Lex extends ScrollableOutput {
                 }
                 testIndex++;
             }
-
-        }else
+        } else
             return false;
         return true;
     }//..
+
 
     protected void addToken(String data, int lineNumber){
         TokenType tokenType = TokenType.getByValue(data);
