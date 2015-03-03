@@ -85,6 +85,7 @@ public class IDEMenuBar extends JMenuBar{
         compile.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new LoadingDialog(500);
                 idePanel.editor.setDirty();
             }
         });

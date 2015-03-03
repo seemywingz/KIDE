@@ -16,10 +16,27 @@ public class LoadingDialog extends JDialog {
     ArrayList<ImageIcon> spinnerImgs = new ArrayList<ImageIcon>();
     JLabel spinner;
     int w=600,h=600,imgNum =0;
+    int stayAliveForMills = 0,aliveFor=0;
 
-
+    LoadingDialog(final int stayAliveForMills){
+        this.stayAliveForMills = stayAliveForMills;
+        Utils.startThreadLoop(new Logic() {
+            @Override
+            public void apply() throws Exception {
+                if((aliveFor+=20)>stayAliveForMills){
+                    dispose();
+                }
+            }
+        },20);
+        init();
+    }
 
     LoadingDialog(){
+        init();
+    }//..
+
+    protected void init(){
+
         setLayout(null);
         setLocation(550,300);
 //        setLocationRelativeTo(null);
@@ -42,8 +59,7 @@ public class LoadingDialog extends JDialog {
 
             }
         },50);
-    }//..
-
+    }
 
     protected void addLoadingSprite(){
         BufferedImage i;

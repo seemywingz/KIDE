@@ -40,6 +40,7 @@ public class Parser extends ScrollableOutput {
        if(tokenIndex<tokens.size()){
            warnUnreachableCode();
        }
+//       idePanel.loadingDialog.dispose();
    }//..
 
     protected void parseBlock(){

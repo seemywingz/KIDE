@@ -17,6 +17,7 @@ public class IDEPanel extends JPanel{
     Parser parser;
     ErrorPane errorPane;
     IDEMenuBar ideMenuBar;
+    LoadingDialog loadingDialog = null;
 
     IDEPanel(IDE ide){
 
