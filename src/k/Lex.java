@@ -116,7 +116,8 @@ public class Lex extends ScrollableOutput {
                         addToken("\"",lineNumber);
                         return true;
                     default:
-                        if(TokenType.getByValue(""+stringVal.charAt(testIndex))== TokenType.ID) {
+                        if(TokenType.getByValue(""+stringVal.charAt(testIndex))== TokenType.ID
+                                || TokenType.getByValue(""+stringVal.charAt(testIndex))== TokenType.SPACE) {
                             data += stringVal.charAt(testIndex);
                         }else {
                             String error = "\nLex WARNING on line " + (lineNumber + 1) + ": Character" + stringVal.charAt(testIndex)
