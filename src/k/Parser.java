@@ -72,6 +72,17 @@ public class Parser extends ScrollableOutput {
                 parseIfStatement();
                 parseStatement();
                 break;
+            case WHILE:
+                parseWhileStatement();
+                parseStatement();
+                break;
+        }
+    }//..
+
+    private void parseWhileStatement(){
+        if(isExpected(TokenType.WHILE)){
+            parseBooleanExpr();
+            parseBlock();
         }
     }//..
 
