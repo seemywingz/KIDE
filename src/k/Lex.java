@@ -109,7 +109,7 @@ public class Lex extends ScrollableOutput {
             while (testIndex < stringVal.length()){
                 switch (stringVal.charAt(testIndex)){
                     case '"':
-                        System.out.println(index);
+//                        System.out.println(index);
                         tokens.add(new Token(TokenType.STRING,data,lineNumber));
                         textArea.append("\nFound: <STRING> " + data);
                         index=testIndex;
