@@ -116,11 +116,11 @@ public class Lex extends ScrollableOutput {
                         addToken("\"",lineNumber);
                         return true;
                     default:
-                        if(TokenType.getByValue(""+stringVal.charAt(testIndex))!= TokenType.UNSUPPORTED) {
+                        if(TokenType.getByValue(""+stringVal.charAt(testIndex))== TokenType.ID) {
                             data += stringVal.charAt(testIndex);
                         }else {
-                            String error = "\nLex WARNING on line " + (lineNumber + 1) + ": " + stringVal.charAt(testIndex)
-                                    + " is not currently supported and will be removed from the string!";
+                            String error = "\nLex WARNING on line " + (lineNumber + 1) + ": Character" + stringVal.charAt(testIndex)
+                                    + " is not currently supported in Strings, and will be removed!";
                             lexErrors += error;
                         }
                 }

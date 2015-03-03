@@ -26,6 +26,7 @@ public class IDEMenuBar extends JMenuBar{
         createActions();
         initFileMenuOptions();
         initEditMenuItems();
+        initCompileButton();
 
         idePanel.add(this);
     }//..
@@ -76,6 +77,18 @@ public class IDEMenuBar extends JMenuBar{
         file.addSeparator();
         file.add(quit);
 
+    }//..
+
+    protected void initCompileButton(){
+        JMenuItem compile = new JMenuItem("Compile");
+
+        compile.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.editor.setDirty();
+            }
+        });
+        add(compile);
     }//..
 
     protected void initEditMenuItems(){

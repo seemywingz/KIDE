@@ -214,7 +214,7 @@ public class Parser extends ScrollableOutput {
     }//..
 
     protected void addParseError(String expected){
-        String newError = errorPrefix+(currentToken.getLineNum()+1)+": expected "+expected+" found <"+currentToken.getType()+">";
+        String newError = errorPrefix+(currentToken.getLineNum())+": expected "+expected+" found <"+currentToken.getType()+">";
         parseErrors+= newError;
         textArea.append(newError);
         idePanel.editor.addErrorLineNumber(currentToken.getLineNum());
