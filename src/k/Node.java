@@ -9,15 +9,19 @@ public class Node {
 
     Token token = null;
     Node parent = null;
-    ArrayList<Node> childres = new ArrayList<Node>();
+    ArrayList<Node> children = new ArrayList<Node>();
 
 
-    Node(Token token){
+    Node(Token token, Node parent){
         this.token = token;
+        this.parent = parent;
 
 
     }//..
 
+    public void addChild(Node child){
+        children.add(child);
+    }//..
 
 
 }// Node

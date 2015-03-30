@@ -9,14 +9,17 @@ public class Tree {
     protected Node currentNode = null;
 
     Tree(){
-        root = new Node(new Token(TokenType.ROOT,"ROOT",0));
         currentNode = root;
     }//..
 
     public void addBranchNode(Token token){
-        Node newNode = new Node(token);
 
-
+        if(root != null) {
+            Node newNode = new Node(token, currentNode);
+            currentNode.addChild(newNode);
+        }else{
+            root = new Node(token,root);
+        }
 
     }//..
 
