@@ -114,7 +114,9 @@ public class Parser extends ScrollableOutput {
     private void parseAssignmentStatement(){
         CST.addBranchNode(new Token(TokenType.ASSIGNMENT_STATEMENT,"ASSIGNMENT_STATEMENT",currentToken.getLineNum()));
         if(isExpected(TokenType.ID)){
+            CST.addBranchNode(currentToken);
             isExpected(TokenType.ASSIGNMENT);
+            CST.addBranchNode(currentToken);
             parseExpr();
         }
     }//..
@@ -168,7 +170,7 @@ public class Parser extends ScrollableOutput {
     private void parseBooleanExpr(){
         switch (currentToken.getType()){
             case BOOLVAL:
-                isExpected(TokenType.BOOLVAL);
+                isExpected(TokenType.BOOLVAL,true);
                 break;
             case LEFTPAREN:
                 isExpected(TokenType.LEFTPAREN);
@@ -183,12 +185,14 @@ public class Parser extends ScrollableOutput {
     }//..
 
     private void parseVarDecl(){
+        CST.addBranchNode(new Token(TokenType.VARDECL,"VARDECL",currentToken.getLineNum()));
         if(isExpected(TokenType.TYPE)){
+            CST.addBranchNode(currentToken);
             isExpected(TokenType.ID);
         }
     }//..
 
-    protected boolean isExpected(TokenType expected){
+    protected boolean isExpected(TokenType expected,int addBranchNode){
         boolean result = true;
         textArea.append("\nExpecting token <"+expected+">");
         textArea.append("\n    Found token <"+currentToken.getType()+">");
@@ -196,6 +200,13 @@ public class Parser extends ScrollableOutput {
             addParseError(expected);
             result=false;
         }
+        if(addBranchNode !=0)
+            switch (addBranchNode) {
+                case 1:
+                    CST.addBranchNode(currentToken);
+                    break;
+            }
+
         getNextToken();
         return result;
     }//..

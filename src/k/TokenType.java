@@ -40,6 +40,7 @@ public enum TokenType {
     STATEMENT("STATEMENT"),
     ASSIGNMENT_STATEMENT("ASSIGNMENT_STATEMENT"),
     EXPR("EXPR"),
+    VARDECL("VARDECL"),
     ROOT("ROOT");
 
     public final List<String> pattern;
