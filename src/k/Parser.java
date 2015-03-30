@@ -15,6 +15,7 @@ public class Parser extends ScrollableOutput {
     protected Token currentToken;
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
+    protected Tree CST;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
@@ -33,6 +34,10 @@ public class Parser extends ScrollableOutput {
        noParseErrors=true;
        parseErrors = "";
        textArea.setText("");
+
+       CST = new Tree();
+       CST.addBranchNode(new Token(TokenType.PROGRAM,"PROGRAM",0));
+
        tokenIndex = 0;
        getNextToken();
        parseBlock();

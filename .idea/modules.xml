@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/kide.iml" filepath="$PROJECT_DIR$/kide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KIDE.iml" filepath="$PROJECT_DIR$/KIDE.iml" />
     </modules>
   </component>
 </project>
+
