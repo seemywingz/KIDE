@@ -60,6 +60,7 @@ public class Parser extends ScrollableOutput {
    }//..
 
     private void parseStatement(){
+        CST.addBranchNode(new Token(TokenType.STATEMENT,"STATEMENT",currentToken.getLineNum()));
         switch (currentToken.getType()){
             case ID:
                 parseAssignmentStatement();
@@ -111,6 +112,7 @@ public class Parser extends ScrollableOutput {
     }//..
 
     private void parseAssignmentStatement(){
+        CST.addBranchNode(new Token(TokenType.ASSIGNMENT_STATEMENT,"ASSIGNMENT_STATEMENT",currentToken.getLineNum()));
         if(isExpected(TokenType.ID)){
             isExpected(TokenType.ASSIGNMENT);
             parseExpr();
@@ -118,6 +120,7 @@ public class Parser extends ScrollableOutput {
     }//..
 
     private void parseExpr(){
+        CST.addBranchNode(new Token(TokenType.EXPR,"EXPR",currentToken.getLineNum()));
         Token next = null;
          switch (currentToken.getType()){
              case ID:

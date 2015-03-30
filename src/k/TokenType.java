@@ -37,6 +37,9 @@ public enum TokenType {
     UNSUPPORTED(",","<",">",":","-","%",
                  "@","#","^","&","-","/","*","[","]"),
     PROGRAM("PROGRAM"),
+    STATEMENT("STATEMENT"),
+    ASSIGNMENT_STATEMENT("ASSIGNMENT_STATEMENT"),
+    EXPR("EXPR"),
     ROOT("ROOT");
 
     public final List<String> pattern;
