@@ -17,10 +17,27 @@ public class Tree {
         if(root != null) {
             Node newNode = new Node(token, currentNode);
             currentNode.addChild(newNode);
+            currentNode = newNode;
         }else{
             root = new Node(token,root);
+            currentNode = root;
         }
 
     }//..
+
+    public void addLeafNode(Token token){
+        if(root != null) {
+            Node newNode = new Node(token, currentNode);
+            currentNode.addChild(newNode);
+        }else{
+            root = new Node(token,root);
+            currentNode = root;
+        }
+    }//..
+
+    public void returnToParent(){
+        currentNode = currentNode.getParent();
+    }//..
+
 
 }// Tree

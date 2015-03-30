@@ -41,7 +41,8 @@ public class Parser extends ScrollableOutput {
        tokenIndex = 0;
        getNextToken();
        parseBlock();
-       noParseErrors = isExpected(TokenType.EOF);
+       noParseErrors = isExpected(TokenType.EOF,2);
+       CST.returnToParent();
        if(tokenIndex<tokens.size()){
            warnUnreachableCode();
        }
@@ -49,14 +50,18 @@ public class Parser extends ScrollableOutput {
    }//..
 
     protected void parseBlock(){
-       if(isExpected(TokenType.LEFTCURL)){
+        CST.addBranchNode(new Token(TokenType.BLOCK,"BLOCK",currentToken.getLineNum()));
+       if(isExpected(TokenType.LEFTCURL,2)){
            parseStatementList();
-           isExpected(TokenType.RIGHTCURL);
+           isExpected(TokenType.RIGHTCURL,2);
        }
+        CST.returnToParent();
     }//..
 
    protected void parseStatementList(){
+       CST.addBranchNode(new Token(TokenType.STATEMENTLIST,"STATEMENTLIST",currentToken.getLineNum()));
         parseStatement();
+       CST.returnToParent();
    }//..
 
     private void parseStatement(){
@@ -87,38 +92,44 @@ public class Parser extends ScrollableOutput {
                 parseStatement();
                 break;
         }
+        CST.returnToParent();
     }//..
 
     private void parseWhileStatement(){
-        if(isExpected(TokenType.WHILE)){
+        CST.addBranchNode(new Token(TokenType.WHILE_STATEMENT,"WHILE_STATEMENT",currentToken.getLineNum()));
+        if(isExpected(TokenType.WHILE,2)){
             parseBooleanExpr();
             parseBlock();
         }
+        CST.returnToParent();
     }//..
 
     private void parseIfStatement(){
-        if(isExpected(TokenType.IF)){
+        CST.addBranchNode(new Token(TokenType.IF_STATEMENT,"IF_STATEMENT",currentToken.getLineNum()));
+        if(isExpected(TokenType.IF,2)){
             parseBooleanExpr();
             parseBlock();
         }
+        CST.returnToParent();
     }//..
 
     private void parsePrintStatement(){
-        if(isExpected(TokenType.PRINT)){
-            isExpected(TokenType.LEFTPAREN);
+        CST.addBranchNode(new Token(TokenType.PRINT_STATEMENT,"PRINT_STATEMENT",currentToken.getLineNum()));
+        if(isExpected(TokenType.PRINT,2)){
+            isExpected(TokenType.LEFTPAREN,2);
             parseExpr();
-            isExpected(TokenType.RIGHTPAREN);
+            isExpected(TokenType.RIGHTPAREN,2);
         }
+        CST.returnToParent();
     }//..
 
     private void parseAssignmentStatement(){
         CST.addBranchNode(new Token(TokenType.ASSIGNMENT_STATEMENT,"ASSIGNMENT_STATEMENT",currentToken.getLineNum()));
-        if(isExpected(TokenType.ID)){
-            CST.addBranchNode(currentToken);
-            isExpected(TokenType.ASSIGNMENT);
-            CST.addBranchNode(currentToken);
+        if(isExpected(TokenType.ID,2)){
+            isExpected(TokenType.ASSIGNMENT,2);
             parseExpr();
         }
+        CST.returnToParent();
     }//..
 
     private void parseExpr(){
@@ -131,7 +142,7 @@ public class Parser extends ScrollableOutput {
                      parseAssignmentStatement();
                      break;
                  }
-                 isExpected(TokenType.ID);
+                 isExpected(TokenType.ID,2);
                  break;
              case DIGIT:
                  parseIntExpr();
@@ -148,48 +159,55 @@ public class Parser extends ScrollableOutput {
              default:
                  addParseError("<ID>, <DIGIT>, <STRING>, <BOOLVAL>");
          }
+        CST.returnToParent();
     }//..
 
     private void parseIntExpr(){
-        if(isExpected(TokenType.DIGIT)){
+        CST.addBranchNode(new Token(TokenType.INT_EXPR,"INT_EXPR",currentToken.getLineNum()));
+        if(isExpected(TokenType.DIGIT,2)){
                 if(currentToken.getType()==TokenType.INTOP) {
-                    isExpected(TokenType.INTOP);
+                    isExpected(TokenType.INTOP,2);
                     parseExpr();
                 }
         }
+        CST.returnToParent();
     }//..
 
     private void parseStringExpr(){
-        if(isExpected(TokenType.QUOTE)) {
-           if (isExpected(TokenType.STRING)){
-               isExpected(TokenType.QUOTE);
+        CST.addBranchNode(new Token(TokenType.STRING_EXPR,"STRING_EXPR",currentToken.getLineNum()));
+        if(isExpected(TokenType.QUOTE,2)) {
+           if (isExpected(TokenType.STRING,2)){
+               isExpected(TokenType.QUOTE,2);
            }
         }
+        CST.returnToParent();
     }//..
 
     private void parseBooleanExpr(){
+        CST.addBranchNode(new Token(TokenType.BOOLEAN_EXPR,"BOOLEAN_EXPR",currentToken.getLineNum()));
         switch (currentToken.getType()){
             case BOOLVAL:
-                isExpected(TokenType.BOOLVAL,true);
+                isExpected(TokenType.BOOLVAL,1);
                 break;
             case LEFTPAREN:
-                isExpected(TokenType.LEFTPAREN);
+                isExpected(TokenType.LEFTPAREN,2);
                 parseExpr();
-                isExpected(TokenType.BOOLOP);
+                isExpected(TokenType.BOOLOP,2);
                 parseExpr();
-                isExpected(TokenType.RIGHTPAREN);
+                isExpected(TokenType.RIGHTPAREN,2);
                 break;
             default:
                 addParseError("<BOOLVAL>, <RIGHTPAREN>");
         }
+        CST.returnToParent();
     }//..
 
     private void parseVarDecl(){
         CST.addBranchNode(new Token(TokenType.VARDECL,"VARDECL",currentToken.getLineNum()));
-        if(isExpected(TokenType.TYPE)){
-            CST.addBranchNode(currentToken);
-            isExpected(TokenType.ID);
+        if(isExpected(TokenType.TYPE,2)){
+            isExpected(TokenType.ID,2);
         }
+        CST.returnToParent();
     }//..
 
     protected boolean isExpected(TokenType expected,int addBranchNode){
@@ -204,6 +222,9 @@ public class Parser extends ScrollableOutput {
             switch (addBranchNode) {
                 case 1:
                     CST.addBranchNode(currentToken);
+                    break;
+                case 2:
+                    CST.addLeafNode(currentToken);
                     break;
             }
 

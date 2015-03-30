@@ -38,9 +38,17 @@ public enum TokenType {
                  "@","#","^","&","-","/","*","[","]"),
     PROGRAM("PROGRAM"),
     STATEMENT("STATEMENT"),
+    STATEMENTLIST("STATEMENTLIST"),
+    IF_STATEMENT("IF_STATEMENT"),
+    PRINT_STATEMENT("PRINT_STATEMENT"),
+    WHILE_STATEMENT("WHILE_STATEMENT"),
     ASSIGNMENT_STATEMENT("ASSIGNMENT_STATEMENT"),
     EXPR("EXPR"),
+    INT_EXPR("INT_EXPR"),
+    BOOLEAN_EXPR("BOOLEAN_EXPR"),
+    STRING_EXPR("STRING_EXPR"),
     VARDECL("VARDECL"),
+    BLOCK("BLOCK"),
     ROOT("ROOT");
 
     public final List<String> pattern;

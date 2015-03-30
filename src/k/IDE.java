@@ -5,7 +5,7 @@ import javax.swing.*;
 /**
  * Created by Kevin Jayne on 1/23/15.
  *
- * An IDE for Alen's language
+ * An IDE for Aanguage
  *
  *
  */
