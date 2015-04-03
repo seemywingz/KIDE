@@ -60,7 +60,16 @@ public class Parser extends ScrollableOutput {
 
    protected void parseStatementList(){
        CST.addBranchNode(new Token(TokenType.STATEMENTLIST,"STATEMENTLIST",currentToken.getLineNum()));
-        parseStatement();
+       switch (currentToken.getType()){
+           case ID:
+           case TYPE:
+           case LEFTCURL:
+           case PRINT:
+           case IF:
+           case WHILE:
+               parseStatement();
+               parseStatementList();
+       }
        CST.returnToParent();
    }//..
 
@@ -69,27 +78,21 @@ public class Parser extends ScrollableOutput {
         switch (currentToken.getType()){
             case ID:
                 parseAssignmentStatement();
-                parseStatement();
                 break;
             case TYPE:
                 parseVarDecl();
-                parseStatement();
                 break;
             case LEFTCURL:
                 parseBlock();
-                parseStatement();
                 break;
             case PRINT:
                 parsePrintStatement();
-                parseStatement();
                 break;
             case IF:
                 parseIfStatement();
-                parseStatement();
                 break;
             case WHILE:
                 parseWhileStatement();
-                parseStatement();
                 break;
         }
         CST.returnToParent();
