@@ -1,5 +1,7 @@
 package k;
 
+import javax.swing.tree.DefaultMutableTreeNode;
+
 /**
  * Created by Marist User on 3/30/2015.
  */
@@ -37,6 +39,10 @@ public class Tree {
 
     public void returnToParent(){
         currentNode = currentNode.getParent();
+    }//..
+
+    public void buildTreeView(DefaultMutableTreeNode node){
+
     }//..
 
 

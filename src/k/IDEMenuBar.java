@@ -100,9 +100,7 @@ public class IDEMenuBar extends JMenuBar{
         viewTree.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(idePanel.parser.getCST() != null){
-
-                }
+                    new TreeView(idePanel,idePanel.parser.getCST());
             }
         });
         add(viewTree);
