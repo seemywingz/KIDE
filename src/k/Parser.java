@@ -137,7 +137,7 @@ public class Parser extends ScrollableOutput {
 
     private void parseExpr(){
         CST.addBranchNode(new Token(TokenType.EXPR,"EXPR",currentToken.getLineNum()));
-        Token next = null;
+        Token next;
          switch (currentToken.getType()){
              case ID:
                  if((next = peekNextToken())!=null)
@@ -282,4 +282,7 @@ public class Parser extends ScrollableOutput {
         return parseErrors;
     }//..
 
+    public Tree getCST() {
+        return CST;
+    };
 }// Parser

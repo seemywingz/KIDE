@@ -27,6 +27,7 @@ public class IDEMenuBar extends JMenuBar{
         initFileMenuOptions();
         initEditMenuItems();
         initCompileButton();
+        initViewTreeButton();
 
         idePanel.add(this);
     }//..
@@ -92,6 +93,20 @@ public class IDEMenuBar extends JMenuBar{
         add(compile);
     }//..
 
+
+    protected void initViewTreeButton(){
+        JMenuItem viewTree = new JMenuItem("View CST");
+
+        viewTree.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(idePanel.parser.getCST() != null){
+
+                }
+            }
+        });
+        add(viewTree);
+    }//..
     protected void initEditMenuItems(){
 
         JMenu edit = new JMenu("Edit");
