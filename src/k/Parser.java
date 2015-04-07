@@ -1,6 +1,7 @@
 package k;
 
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class Parser extends ScrollableOutput {
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
     protected Tree CST;
+    protected DefaultMutableTreeNode displayTree;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);

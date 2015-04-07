@@ -29,12 +29,24 @@ public class Node {
 
     public TokenType getType(){return token.getType();}//..
 
-    public void bouildTreeView(DefaultMutableTreeNode treeRoot){
-        if(treeRoot == null){
-            treeRoot = new DefaultMutableTreeNode(getType());
-        }else{
 
+    public DefaultMutableTreeNode buildTreeView(DefaultMutableTreeNode root){
+
+        DefaultMutableTreeNode newNode = new DefaultMutableTreeNode("< "+token.getData()+" >");
+
+        if(root == null){
+            root = newNode;
+            for (Node n:children){
+                n.buildTreeView(root);
+            }
+        }else {
+            for (Node n:children){
+                n.buildTreeView(newNode);
+            }
+            root.add(newNode);
+            return root;
         }
+        return root;
     }//..
 
 }// Node

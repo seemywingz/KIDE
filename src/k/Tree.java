@@ -41,7 +41,9 @@ public class Tree {
         currentNode = currentNode.getParent();
     }//..
 
-    public void buildTreeView(DefaultMutableTreeNode node){
+    public DefaultMutableTreeNode buildTreeView(){
+        DefaultMutableTreeNode displayTreeRoot = null;
+        return root.buildTreeView(displayTreeRoot);
 
     }//..
 
