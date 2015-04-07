@@ -23,7 +23,7 @@ public class ScrollableOutput{
     protected boolean keyBuffer[] = new boolean[256];
     protected static Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
     protected boolean viable;
-    protected int w = 100,
+    protected int w = 300,
                   h = 500;
 
     ScrollableOutput(IDEPanel idePanel){

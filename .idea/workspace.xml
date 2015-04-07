@@ -5,20 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDE.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$3.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$4.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Lex.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Lex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Editor.java" afterPath="$PROJECT_DIR$/src/k/Editor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/ErrorPane.java" afterPath="$PROJECT_DIR$/src/k/ErrorPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDEMenuBar.java" afterPath="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Lex.java" afterPath="$PROJECT_DIR$/src/k/Lex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Parser.java" afterPath="$PROJECT_DIR$/src/k/Parser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/ScrollableOutput.java" afterPath="$PROJECT_DIR$/src/k/ScrollableOutput.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -49,7 +35,7 @@
       <file leaf-file-name="IDE.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/IDE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+            <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="720">
               <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
               <folding />
             </state>
@@ -59,7 +45,7 @@
       <file leaf-file-name="IDEPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/IDEPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="640">
+            <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="640">
               <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
               <folding />
             </state>
@@ -69,16 +55,9 @@
       <file leaf-file-name="IDEMenuBar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/IDEMenuBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="3488">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1760" max-vertical-offset="3552">
               <caret line="123" column="34" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
-              <folding>
-                <element signature="e#2656#2822#0" expanded="true" />
-                <element signature="e#2821#2822#0" expanded="true" />
-                <element signature="e#2939#3108#0" expanded="true" />
-                <element signature="e#3107#3108#0" expanded="true" />
-                <element signature="e#3227#3399#0" expanded="true" />
-                <element signature="e#3398#3399#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,12 +65,9 @@
       <file leaf-file-name="ScrollableOutput.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/ScrollableOutput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39183673" vertical-offset="0" max-vertical-offset="1712">
-              <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-              <folding>
-                <element signature="e#3526#3527#0" expanded="true" />
-                <element signature="e#3554#3555#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.41360545" vertical-offset="0" max-vertical-offset="1680">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,7 +136,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -199,6 +174,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,6 +291,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
@@ -502,12 +484,7 @@
       <workItem from="1428367801802" duration="187000" />
       <workItem from="1428368058544" duration="54000" />
       <workItem from="1428368236358" duration="3424000" />
-    </task>
-    <task id="LOCAL-00012" summary="TokenType, Validate Token through Lex and error indicator on line number">
-      <created>1422343252596</created>
-      <option name="number" value="00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1422343252596</updated>
+      <workItem from="1428371963479" duration="474000" />
     </task>
     <task id="LOCAL-00013" summary="Working Lex (boolop and id)">
       <created>1422385313860</created>
@@ -797,15 +774,21 @@
       <option name="project" value="LOCAL" />
       <updated>1428371130797</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Toggle Windows">
+      <created>1428372160279</created>
+      <option name="number" value="00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1428372160279</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202551000" />
+    <option name="totallyTimeSpent" value="203025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -821,7 +804,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15973742" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.4700521" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.4700521" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.52994794" order="3" side_tool="true" content_ui="tabs" />
@@ -1162,9 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6538025" vertical-offset="0" max-vertical-offset="881">
           <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1172,9 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5811578" vertical-offset="0" max-vertical-offset="881">
           <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,7 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.89251703" vertical-offset="0" max-vertical-offset="848">
           <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34621328" vertical-offset="0" max-vertical-offset="647">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,14 +1205,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="3488">
           <caret line="123" column="34" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
-          <folding>
-            <element signature="e#2656#2822#0" expanded="true" />
-            <element signature="e#2821#2822#0" expanded="true" />
-            <element signature="e#2939#3108#0" expanded="true" />
-            <element signature="e#3107#3108#0" expanded="true" />
-            <element signature="e#3227#3399#0" expanded="true" />
-            <element signature="e#3398#3399#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1259,12 +1227,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/ScrollableOutput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39183673" vertical-offset="0" max-vertical-offset="1712">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-          <folding>
-            <element signature="e#3526#3527#0" expanded="true" />
-            <element signature="e#3554#3555#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.41360545" vertical-offset="0" max-vertical-offset="1680">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
