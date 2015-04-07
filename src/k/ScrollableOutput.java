@@ -22,7 +22,7 @@ public class ScrollableOutput{
     protected JFrame frame = new JFrame();
     protected boolean keyBuffer[] = new boolean[256];
     protected static Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
-    protected boolean newFrame,viable;
+    protected boolean viable;
     protected int w = 100,
                   h = 500;
 
