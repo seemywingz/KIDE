@@ -15,7 +15,7 @@ public class TreeView extends JFrame{
     TreeView(IDEPanel idePanel,Tree tree){
         this.idePanel = idePanel;
         this.tree = tree;
-                setSize(600,400);
+                setSize(200,400);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.white);
 
@@ -34,9 +34,8 @@ public class TreeView extends JFrame{
         JPanel panel = new JPanel();
 
         displayTree = new JTree(tree.buildTreeView());
-        panel.add(displayTree);
 
-        scrollPane = new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane = new JScrollPane(displayTree);
         add(scrollPane);
     }//..
 
