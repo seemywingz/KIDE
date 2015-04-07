@@ -20,6 +20,7 @@ public class Lex extends ScrollableOutput {
         w = (Utils.ScreenWidth / 3);
         h = 500;
         panel.setSize(w,h);
+        frame.setTitle("KIDE: Lexical Analysis");
 
         initTextArea("KIDE: Lexical Analysis...",35,w/12,false,
                 super.mkKeyAdapter(keyBuffer,actionMap));

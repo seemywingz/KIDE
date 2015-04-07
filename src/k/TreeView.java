@@ -16,13 +16,15 @@ public class TreeView extends JFrame{
         this.idePanel = idePanel;
         this.tree = tree;
                 setSize(200,400);
+        setTitle("KIDE: Tree View");
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.white);
+        setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
 
         if(tree != null){
             genTree();
         }else {
-            add(new JLabel("\t\t\t   Compile Some Code to Generate a CST!"));
+            add(new JLabel("   Compile Some Code to Generate a Tree!"));
         }
 
         setVisible(true);

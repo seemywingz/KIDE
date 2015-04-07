@@ -31,6 +31,7 @@ public class ScrollableOutput{
 
         frame.setSize(w, h);
         frame.setLocationRelativeTo(null);
+        frame.setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
 
         Utils.startThreadLoop(new Logic() {
             @Override
