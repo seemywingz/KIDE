@@ -17,7 +17,7 @@ public class TreeView extends JFrame{
         this.tree = tree;
                 setSize(600,400);
         setLocationRelativeTo(null);
-        setBackground(Color.white);
+        getContentPane().setBackground(Color.white);
 
         if(tree != null){
             genTree();
