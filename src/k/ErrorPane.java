@@ -15,6 +15,7 @@ public class ErrorPane extends ScrollableOutput{
         super(idePanel);
         w = Utils.ScreenWidth;
         h = Utils.ScreenHeight;
+        frame.setTitle("KIDE: Error Pane");
 
         initTextArea("KIDE: Error Pane...",
                 20, w/11, false,

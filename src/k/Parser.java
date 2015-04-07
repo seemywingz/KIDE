@@ -44,7 +44,7 @@ public class Parser extends ScrollableOutput {
        tokenIndex = 0;
        getNextToken();
        parseBlock();
-       noParseErrors = isExpected(TokenType.EOF,2);
+       noParseErrors = isExpected(TokenType.EOF);
        CST.returnToParent();
        if(tokenIndex<tokens.size()){
            warnUnreachableCode();
@@ -54,9 +54,9 @@ public class Parser extends ScrollableOutput {
 
     protected void parseBlock(){
         CST.addBranchNode(new Token(TokenType.BLOCK,"BLOCK",currentToken.getLineNum()));
-       if(isExpected(TokenType.LEFTCURL,2)){
+       if(isExpected(TokenType.LEFTCURL)){
            parseStatementList();
-           isExpected(TokenType.RIGHTCURL,2);
+           isExpected(TokenType.RIGHTCURL);
        }
         CST.returnToParent();
     }//..
@@ -103,7 +103,7 @@ public class Parser extends ScrollableOutput {
 
     private void parseWhileStatement(){
         CST.addBranchNode(new Token(TokenType.WHILE_STATEMENT,"WHILE_STATEMENT",currentToken.getLineNum()));
-        if(isExpected(TokenType.WHILE,2)){
+        if(isExpected(TokenType.WHILE)){
             parseBooleanExpr();
             parseBlock();
         }
@@ -112,7 +112,7 @@ public class Parser extends ScrollableOutput {
 
     private void parseIfStatement(){
         CST.addBranchNode(new Token(TokenType.IF_STATEMENT,"IF_STATEMENT",currentToken.getLineNum()));
-        if(isExpected(TokenType.IF,2)){
+        if(isExpected(TokenType.IF)){
             parseBooleanExpr();
             parseBlock();
         }
@@ -121,18 +121,18 @@ public class Parser extends ScrollableOutput {
 
     private void parsePrintStatement(){
         CST.addBranchNode(new Token(TokenType.PRINT_STATEMENT,"PRINT_STATEMENT",currentToken.getLineNum()));
-        if(isExpected(TokenType.PRINT,2)){
-            isExpected(TokenType.LEFTPAREN,2);
+        if(isExpected(TokenType.PRINT)){
+            isExpected(TokenType.LEFTPAREN);
             parseExpr();
-            isExpected(TokenType.RIGHTPAREN,2);
+            isExpected(TokenType.RIGHTPAREN);
         }
         CST.returnToParent();
     }//..
 
     private void parseAssignmentStatement(){
         CST.addBranchNode(new Token(TokenType.ASSIGNMENT_STATEMENT,"ASSIGNMENT_STATEMENT",currentToken.getLineNum()));
-        if(isExpected(TokenType.ID,2)){
-            isExpected(TokenType.ASSIGNMENT,2);
+        if(isExpected(TokenType.ID)){
+            isExpected(TokenType.ASSIGNMENT);
             parseExpr();
         }
         CST.returnToParent();
@@ -148,7 +148,7 @@ public class Parser extends ScrollableOutput {
                      parseAssignmentStatement();
                      break;
                  }
-                 isExpected(TokenType.ID,2);
+                 isExpected(TokenType.ID);
                  break;
              case DIGIT:
                  parseIntExpr();
@@ -170,9 +170,9 @@ public class Parser extends ScrollableOutput {
 
     private void parseIntExpr(){
         CST.addBranchNode(new Token(TokenType.INT_EXPR,"INT_EXPR",currentToken.getLineNum()));
-        if(isExpected(TokenType.DIGIT,2)){
+        if(isExpected(TokenType.DIGIT)){
                 if(currentToken.getType()==TokenType.INTOP) {
-                    isExpected(TokenType.INTOP,2);
+                    isExpected(TokenType.INTOP);
                     parseExpr();
                 }
         }
@@ -181,9 +181,9 @@ public class Parser extends ScrollableOutput {
 
     private void parseStringExpr(){
         CST.addBranchNode(new Token(TokenType.STRING_EXPR,"STRING_EXPR",currentToken.getLineNum()));
-        if(isExpected(TokenType.QUOTE,2)) {
-           if (isExpected(TokenType.STRING,2)){
-               isExpected(TokenType.QUOTE,2);
+        if(isExpected(TokenType.QUOTE)) {
+           if (isExpected(TokenType.STRING)){
+               isExpected(TokenType.QUOTE);
            }
         }
         CST.returnToParent();
@@ -193,14 +193,14 @@ public class Parser extends ScrollableOutput {
         CST.addBranchNode(new Token(TokenType.BOOLEAN_EXPR,"BOOLEAN_EXPR",currentToken.getLineNum()));
         switch (currentToken.getType()){
             case BOOLVAL:
-                isExpected(TokenType.BOOLVAL,1);
+                isExpected(TokenType.BOOLVAL);
                 break;
             case LEFTPAREN:
-                isExpected(TokenType.LEFTPAREN,2);
+                isExpected(TokenType.LEFTPAREN);
                 parseExpr();
-                isExpected(TokenType.BOOLOP,2);
+                isExpected(TokenType.BOOLOP);
                 parseExpr();
-                isExpected(TokenType.RIGHTPAREN,2);
+                isExpected(TokenType.RIGHTPAREN);
                 break;
             default:
                 addParseError("<BOOLVAL>, <RIGHTPAREN>");
@@ -210,13 +210,13 @@ public class Parser extends ScrollableOutput {
 
     private void parseVarDecl(){
         CST.addBranchNode(new Token(TokenType.VARDECL,"VARDECL",currentToken.getLineNum()));
-        if(isExpected(TokenType.TYPE,2)){
-            isExpected(TokenType.ID,2);
+        if(isExpected(TokenType.TYPE)){
+            isExpected(TokenType.ID);
         }
         CST.returnToParent();
     }//..
 
-    protected boolean isExpected(TokenType expected,int addBranchNode){
+    protected boolean isExpected(TokenType expected){
         boolean result = true;
         textArea.append("\nExpecting token <"+expected+">");
         textArea.append("\n    Found token <"+currentToken.getType()+">");
@@ -224,16 +224,8 @@ public class Parser extends ScrollableOutput {
             addParseError(expected);
             result=false;
         }
-        if(addBranchNode !=0)
-            switch (addBranchNode) {
-                case 1:
-                    CST.addBranchNode(currentToken);
-                    break;
-                case 2:
-                    CST.addLeafNode(currentToken);
-                    break;
-            }
 
+        CST.addLeafNode(currentToken);
         getNextToken();
         return result;
     }//..
