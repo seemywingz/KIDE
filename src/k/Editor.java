@@ -167,6 +167,8 @@ public class Editor extends ScrollableOutput{
 
     public void setDirty(){analyzed=false;}
 
+    public boolean isDirty(){return !analyzed;}//..
+
     public void resetErrorLineNumber(){
         errorLineNums = new ArrayList<Integer>();
     }//..

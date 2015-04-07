@@ -12,7 +12,7 @@ public class TreeView extends JFrame{
     Tree tree;
     JTree displayTree;
 
-    TreeView(IDEPanel idePanel,Tree tree){
+    TreeView(final IDEPanel idePanel,Tree tree){
         this.idePanel = idePanel;
         this.tree = tree;
                 setSize(200,400);
@@ -22,7 +22,6 @@ public class TreeView extends JFrame{
         if(tree != null){
             genTree();
         }else {
-//            genTree();
             add(new JLabel("\t\t\t   Compile Some Code to Generate a CST!"));
         }
 
