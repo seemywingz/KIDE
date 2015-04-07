@@ -28,7 +28,7 @@ public class Editor extends ScrollableOutput{
 
 
     Editor(final IDEPanel idePanel){
-        super(idePanel);
+        super(idePanel,true);
         w = Utils.ScreenWidth/3;
 
         initLineNumbers();
@@ -105,7 +105,7 @@ public class Editor extends ScrollableOutput{
         lineNumbers.setEditable(false);
         lineNumbers.setBorder(border);
         lineNumbers.setBackground(Options.backgroundColor);
-        add(lineNumbers);
+        panel.add(lineNumbers);
     }//..
 
     protected KeyAdapter mkKeyAdapter(){

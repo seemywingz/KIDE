@@ -20,7 +20,7 @@ public class Parser extends ScrollableOutput {
     protected DefaultMutableTreeNode displayTree;
 
     Parser(IDEPanel idePanel1) {
-        super(idePanel1);
+        super(idePanel1,true);
         w = Utils.ScreenWidth/3;
 
         initTextArea("KIDE: Parser...",35,w/11,false,

@@ -19,13 +19,14 @@ public class IDE extends JFrame{
     IDE(){
         loadingDialog = new LoadingDialog();
         setLayout(null);
-        setSize(1200, 800);
+        setSize(600, 400);
         setTitle("KIDE");
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setContentPane(idePanel = new IDEPanel(this));
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        idePanel = new IDEPanel(this);
+        setContentPane(idePanel.editor.getScrollPane());
         setJMenuBar(new IDEMenuBar(idePanel));
         loadingDialog.dispose();
         setVisible(true);
