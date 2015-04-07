@@ -28,7 +28,7 @@ public class Editor extends ScrollableOutput{
 
 
     Editor(final IDEPanel idePanel){
-        super(idePanel,true);
+        super(idePanel);
         w = Utils.ScreenWidth/3;
 
         initLineNumbers();

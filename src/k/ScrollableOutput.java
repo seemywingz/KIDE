@@ -26,15 +26,11 @@ public class ScrollableOutput{
     protected int w = 100,
                   h = 500;
 
-    ScrollableOutput(IDEPanel idePanel,boolean newFrame){
+    ScrollableOutput(IDEPanel idePanel){
         this.idePanel= idePanel;
-        this.newFrame=newFrame;
 
-        if(newFrame) {
-            frame.setSize(200, 200);
-            frame.setLocationRelativeTo(null);
-//            frame.setVisible(true);
-        }
+        frame.setSize(w, h);
+        frame.setLocationRelativeTo(null);
 
         Utils.startThreadLoop(new Logic() {
             @Override
@@ -66,10 +62,7 @@ public class ScrollableOutput{
 
         scrollPane.setBounds(bounds);
         scrollPane.setBorder( border );
-        if(newFrame)
-            frame.add(scrollPane);
-        else
-            idePanel.add(scrollPane);
+        frame.add(scrollPane);
     }//..
 
     public static KeyAdapter mkKeyAdapter(final boolean keyBuffer[],final ActionMap actionMap){

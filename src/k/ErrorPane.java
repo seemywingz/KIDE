@@ -12,7 +12,7 @@ import java.awt.*;
 public class ErrorPane extends ScrollableOutput{
 
     ErrorPane(final IDEPanel idePanel) {
-        super(idePanel,true);
+        super(idePanel);
         w = Utils.ScreenWidth;
         h = Utils.ScreenHeight;
 

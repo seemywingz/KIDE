@@ -107,6 +107,24 @@ public class IDEMenuBar extends JMenuBar{
         });
         viewOptions.add(menuItem);
 
+        menuItem = new JMenuItem("Parse");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.parser.showHide();
+            }
+        });
+        viewOptions.add(menuItem);
+
+
+        menuItem = new JMenuItem("Errors");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.errorPane.showHide();
+            }
+        });
+        viewOptions.add(menuItem);
 
         menuItem = new JMenuItem("CST");
         menuItem.addActionListener(new AbstractAction() {

@@ -16,7 +16,7 @@ public class Lex extends ScrollableOutput {
 
     private int index;
     Lex(IDEPanel idePanel){
-        super(idePanel,true);
+        super(idePanel);
         w = (Utils.ScreenWidth / 3);
         h = 500;
         panel.setSize(w,h);
