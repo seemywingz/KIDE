@@ -26,10 +26,9 @@ public class IDEMenuBar extends JMenuBar{
         createActions();
         initFileMenuOptions();
         initEditMenuItems();
+        initViewOptions();
         initCompileButton();
-        initViewTreeButton();
 
-        idePanel.add(this);
     }//..
 
     protected void createActions(){
@@ -94,16 +93,52 @@ public class IDEMenuBar extends JMenuBar{
     }//..
 
 
-    protected void initViewTreeButton(){
-        JMenuItem viewTree = new JMenuItem("View CST");
+    protected void initViewOptions(){
+        JMenu viewOptions = new JMenu("View");
+        JMenuItem menuItem;
 
-        viewTree.addActionListener(new AbstractAction() {
+
+        menuItem = new JMenuItem("Lex");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.lex.showHide();
+            }
+        });
+        viewOptions.add(menuItem);
+
+        menuItem = new JMenuItem("Parse");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.parser.showHide();
+            }
+        });
+        viewOptions.add(menuItem);
+
+
+        menuItem = new JMenuItem("Errors");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                idePanel.errorPane.showHide();
+            }
+        });
+        viewOptions.add(menuItem);
+
+        menuItem = new JMenuItem("CST");
+        menuItem.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     new TreeView(idePanel,idePanel.parser.getCST());
             }
         });
-        add(viewTree);
+        viewOptions.add(menuItem);
+
+
+
+        add(viewOptions);
+
     }//..
     protected void initEditMenuItems(){
 

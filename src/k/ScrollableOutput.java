@@ -11,24 +11,31 @@ import java.awt.event.KeyListener;
 /**
  * Created by kevin.jayne1 on 1/29/2015.
  */
-public class ScrollableOutput extends JPanel{
+public class ScrollableOutput{
 
     protected String title;
     protected IDEPanel idePanel;
     protected JTextArea textArea;
     protected ActionMap actionMap;
     protected JScrollPane scrollPane;
+    protected JPanel panel = new JPanel();
+    protected JFrame frame = new JFrame();
     protected boolean keyBuffer[] = new boolean[256];
-    protected Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
+    protected static Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
+    protected boolean newFrame,viable;
     protected int w = 100,
                   h = 500;
 
     ScrollableOutput(IDEPanel idePanel){
         this.idePanel= idePanel;
+
+        frame.setSize(w, h);
+        frame.setLocationRelativeTo(null);
+
         Utils.startThreadLoop(new Logic() {
             @Override
             public void apply() throws Exception {
-                setBackground(Options.backgroundColor);
+                panel.setBackground(Options.backgroundColor);
                 if(textArea!=null)
                 textArea.setBackground(Options.textAreaColor);
             }
@@ -46,16 +53,16 @@ public class ScrollableOutput extends JPanel{
         textArea.setEditable(editable);
         textArea.setCaretPosition(textArea.getSelectionStart());
         textArea.addKeyListener(keyListener);
-        add(textArea);
+        panel.add(textArea);
         actionMap = textArea.getActionMap();
     }//..
 
     protected void initScrollPane(Rectangle bounds){
-        scrollPane = new JScrollPane(this,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane = new JScrollPane(panel,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         scrollPane.setBounds(bounds);
         scrollPane.setBorder( border );
-        idePanel.add(scrollPane);
+        frame.add(scrollPane);
     }//..
 
     public static KeyAdapter mkKeyAdapter(final boolean keyBuffer[],final ActionMap actionMap){
@@ -88,6 +95,11 @@ public class ScrollableOutput extends JPanel{
         };
     }//..
 
+    public void showHide(){
+        viable=!viable;
+        frame.setVisible(viable);
+    }//..
+
     public JTextArea getTextArea() {
         return textArea;
     }//..
@@ -95,4 +107,8 @@ public class ScrollableOutput extends JPanel{
     public JScrollPane getScrollPane() {
         return scrollPane;
     }//..
+
+    public JPanel getPanel() {
+        return panel;
+    }
 }// ScrollableOutput

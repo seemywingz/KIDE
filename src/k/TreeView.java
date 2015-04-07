@@ -31,8 +31,6 @@ public class TreeView extends JFrame{
 
     protected void genTree(){
         JScrollPane scrollPane;
-        JPanel panel = new JPanel();
-
         displayTree = new JTree(tree.buildTreeView());
 
         scrollPane = new JScrollPane(displayTree);
