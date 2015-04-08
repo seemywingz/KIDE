@@ -98,6 +98,7 @@ public class ScrollableOutput{
 
     public void showHide(){
         viable=!viable;
+        frame.setLocation(idePanel.ide.getLocation().x,idePanel.ide.getLocation().y+idePanel.ide.getHeight());
         frame.setVisible(viable);
     }//..
 

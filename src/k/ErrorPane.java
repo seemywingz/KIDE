@@ -16,9 +16,11 @@ public class ErrorPane extends ScrollableOutput{
         w = Utils.ScreenWidth;
         h = Utils.ScreenHeight;
         frame.setTitle("KIDE: Error Pane");
+        frame.setSize(idePanel.ide.getWidth(),200);
+
 
         initTextArea("KIDE: Error Pane...",
-                20, w/11, false,
+                20, w / 11, false,
                 super.mkKeyAdapter(keyBuffer, actionMap));
 
         initScrollPane(new Rectangle(2, idePanel.editor.getScrollPane().getHeight(), w - 10,(h/2)-140 ));
