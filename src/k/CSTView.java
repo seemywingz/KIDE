@@ -32,7 +32,7 @@ public class CSTView extends JFrame{
 
     protected void genCSTView(){
         JScrollPane scrollPane;
-        displayTree = new JTree(CST.buildTreeView());
+        displayTree = new JTree(CST.buildCSTTreeView());
 
         scrollPane = new JScrollPane(displayTree);
         add(scrollPane);

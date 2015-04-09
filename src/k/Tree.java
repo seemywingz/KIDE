@@ -41,10 +41,17 @@ public class Tree {
         currentNode = currentNode.getParent();
     }//..
 
-    public DefaultMutableTreeNode buildTreeView(){
+    public DefaultMutableTreeNode buildCSTTreeView(){
         DefaultMutableTreeNode displayTreeRoot = null;
         return root.buildTreeView(displayTreeRoot);
 
+    }//..
+
+    public DefaultMutableTreeNode buildAstTreeView(){
+        DefaultMutableTreeNode displayTreeRoot = null;
+
+
+        return displayTreeRoot;
     }//..
 
 

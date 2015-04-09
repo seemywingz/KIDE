@@ -1,6 +1,7 @@
 package k;
 
 import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 
 /**
@@ -33,6 +34,9 @@ public class ASTView extends JFrame{
     }//..
 
     protected void genAST(){
+
+        DefaultMutableTreeNode displayTreeRoot = CST.buildAstTreeView();
+
 
 
     }//..
