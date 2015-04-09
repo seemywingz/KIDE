@@ -1,7 +1,6 @@
 package k;
 
 
-import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -17,17 +16,13 @@ public class Parser extends ScrollableOutput {
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
     protected Tree CST;
-    protected DefaultMutableTreeNode displayTree;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
         w = Utils.ScreenWidth/3;
-        frame.setTitle("KIDE: Parser");
-        frame.setSize(350,400);
-        frame.setLocation(idePanel1.ide.getLocation().x+idePanel1.ide.getWidth(),idePanel1.ide.getLocation().y);
 
-        initTextArea("KIDE: Parser...",35,w/11,false,
-                     ScrollableOutput.mkKeyAdapter(keyBuffer,actionMap));
+        initTextArea("KIDE: Parser...", 35, w / 11, false,
+                ScrollableOutput.mkKeyAdapter(keyBuffer, actionMap));
 
         // create a new pane next to the lex output
         initScrollPane(new Rectangle(idePanel1.lex.getScrollPane().getX()+idePanel1.lex.getScrollPane().getWidth(),2,w,h));
@@ -282,4 +277,13 @@ public class Parser extends ScrollableOutput {
     public Tree getCST() {
         return CST;
     };
+
+    @Override
+    public void showHide() {
+
+        frame.setTitle("KIDE: Parser");
+        frame.setSize(350,400);
+        frame.setLocation(idePanel.ide.getLocation().x+idePanel.ide.getWidth(),idePanel.ide.getLocation().y);
+        super.showHide();
+    }
 }// Parser
