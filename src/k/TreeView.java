@@ -15,9 +15,9 @@ public class TreeView extends JFrame{
     TreeView(final IDEPanel idePanel,Tree tree){
         this.idePanel = idePanel;
         this.tree = tree;
-                setSize(200,400);
+                setSize(350,400);
         setTitle("KIDE: Tree View");
-        setLocationRelativeTo(null);
+        setLocation(idePanel.ide.getLocation().x-400,idePanel.ide.getLocation().y);
         getContentPane().setBackground(Color.white);
         setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
 

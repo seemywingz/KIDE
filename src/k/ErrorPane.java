@@ -37,4 +37,10 @@ public class ErrorPane extends ScrollableOutput{
         }, 20);
     }//..
 
+    @Override
+    public void showHide() {
+
+        frame.setLocation(idePanel.ide.getLocation().x,idePanel.ide.getLocation().y+idePanel.ide.getHeight());
+        super.showHide();
+    }
 }// ErrorPane

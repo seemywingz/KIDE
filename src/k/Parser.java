@@ -23,6 +23,8 @@ public class Parser extends ScrollableOutput {
         super(idePanel1);
         w = Utils.ScreenWidth/3;
         frame.setTitle("KIDE: Parser");
+        frame.setSize(350,400);
+        frame.setLocation(idePanel1.ide.getLocation().x+idePanel1.ide.getWidth(),idePanel1.ide.getLocation().y);
 
         initTextArea("KIDE: Parser...",35,w/11,false,
                      ScrollableOutput.mkKeyAdapter(keyBuffer,actionMap));

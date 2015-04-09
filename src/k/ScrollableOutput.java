@@ -22,7 +22,6 @@ public class ScrollableOutput{
     protected JFrame frame = new JFrame();
     protected boolean keyBuffer[] = new boolean[256];
     protected static Border border = BorderFactory.createEmptyBorder( 0, 0, 0, 0 );
-    protected boolean viable;
     protected int w = 300,
                   h = 500;
 
@@ -30,7 +29,6 @@ public class ScrollableOutput{
         this.idePanel= idePanel;
 
         frame.setSize(w, h);
-        frame.setLocationRelativeTo(null);
         frame.setIconImage(new ImageIcon(getClass().getResource("/k/img/ide.png")).getImage());
 
         Utils.startThreadLoop(new Logic() {
@@ -97,9 +95,7 @@ public class ScrollableOutput{
     }//..
 
     public void showHide(){
-        viable=!viable;
-        frame.setLocation(idePanel.ide.getLocation().x,idePanel.ide.getLocation().y+idePanel.ide.getHeight());
-        frame.setVisible(viable);
+        frame.setVisible(!frame.isVisible());
     }//..
 
     public JTextArea getTextArea() {
