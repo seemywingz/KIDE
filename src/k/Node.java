@@ -4,15 +4,13 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.ArrayList;
 
 /**
- * Created by Marist User on 3/30/2015.
+ * Created by Kevin on 3/30/2015.
  */
 public class Node {
 
     protected Token token = null;
     protected Node parent = null;
     protected ArrayList<Node> children = null;
-    protected boolean shouldReturn=true;
-
 
 
     Node(Token token, Node parent){

@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TokenType.java" afterPath="$PROJECT_DIR$/src/k/TokenType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Tree.java" afterPath="$PROJECT_DIR$/src/k/Tree.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -53,11 +52,11 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67346936" vertical-offset="1329" max-vertical-offset="2208">
-              <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.39183673" vertical-offset="816" max-vertical-offset="2176">
+              <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
               <folding>
-                <element signature="e#2145#2146#0" expanded="true" />
-                <element signature="e#2184#2185#0" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#2136#2137#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -501,13 +500,7 @@
       <workItem from="1428413516695" duration="3217000" />
       <workItem from="1428504074267" duration="843000" />
       <workItem from="1428591973985" duration="6327000" />
-      <workItem from="1429026118843" duration="31854000" />
-    </task>
-    <task id="LOCAL-00025" summary="Begin and End parse --- parse errors">
-      <created>1422762515550</created>
-      <option name="number" value="00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1422762515550</updated>
+      <workItem from="1429026118843" duration="31995000" />
     </task>
     <task id="LOCAL-00026" summary="Options Class">
       <created>1422763722571</created>
@@ -797,11 +790,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429124433887</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="AST gen+ IF and WHILE working">
+      <created>1429129453611</created>
+      <option name="number" value="00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1429129453611</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245771000" />
+    <option name="totallyTimeSpent" value="245912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -851,7 +850,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="BooleanExpr" />
     <MESSAGE value="Pretty much done with Project 1 -- still needs some testing" />
     <MESSAGE value="Not Quite Ready for grading" />
     <MESSAGE value="I Think we're good to grade" />
@@ -876,7 +874,8 @@
     <MESSAGE value="AST gen+view" />
     <MESSAGE value="AST gen+view kinda woking" />
     <MESSAGE value="AST gen+view working on whilestmnt" />
-    <option name="LAST_COMMIT_MESSAGE" value="AST gen+view working on whilestmnt" />
+    <MESSAGE value="AST gen+ IF and WHILE working" />
+    <option name="LAST_COMMIT_MESSAGE" value="AST gen+ IF and WHILE working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1254,11 +1253,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67346936" vertical-offset="1329" max-vertical-offset="2208">
-          <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.39183673" vertical-offset="816" max-vertical-offset="2176">
+          <caret line="74" column="37" selection-start-line="74" selection-start-column="37" selection-end-line="74" selection-end-column="37" />
           <folding>
-            <element signature="e#2145#2146#0" expanded="true" />
-            <element signature="e#2184#2185#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
           </folding>
         </state>
       </provider>
