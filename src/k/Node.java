@@ -66,6 +66,9 @@ public class Node {
                 break;
             case PRINT_STATEMENT:
                 addASTSegment_PRINT_STATEMENT(AST);
+                break;
+            case WHILE_STATEMENT:
+                addASTSegment_WHILE_STATEMENT(AST);
             case RIGHTCURL:
                 AST.returnToParent();
                 break;
@@ -87,11 +90,19 @@ public class Node {
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(0));
         AST.addLeafNode(children.get(2).getLeafNode());
+        AST.returnToParent();
     }//..
 
     protected void addASTSegment_PRINT_STATEMENT(Tree AST){
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(2).getLeafNode());
+        AST.returnToParent();
+    }//..
+
+    protected void addASTSegment_WHILE_STATEMENT(Tree AST){
+        AST.addBranchNode(token);
+
+        AST.returnToParent();
     }//..
 
     protected Node getLeafNode(){

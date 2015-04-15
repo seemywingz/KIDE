@@ -61,8 +61,8 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.477551" vertical-offset="753" max-vertical-offset="1728">
-              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.67346936" vertical-offset="1137" max-vertical-offset="1904">
+              <caret line="111" column="30" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -495,13 +495,7 @@
       <workItem from="1428413516695" duration="3217000" />
       <workItem from="1428504074267" duration="843000" />
       <workItem from="1428591973985" duration="6327000" />
-      <workItem from="1429026118843" duration="22662000" />
-    </task>
-    <task id="LOCAL-00022" summary="Added Unsupported Chars">
-      <created>1422637764041</created>
-      <option name="number" value="00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1422637764041</updated>
+      <workItem from="1429026118843" duration="24257000" />
     </task>
     <task id="LOCAL-00023" summary="Parser Test area added">
       <created>1422754224839</created>
@@ -791,11 +785,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429078566795</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="AST gen+view kinda woking">
+      <created>1429080458025</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1429080458025</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236579000" />
+    <option name="totallyTimeSpent" value="238174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -1248,8 +1248,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.477551" vertical-offset="753" max-vertical-offset="1728">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.67346936" vertical-offset="1137" max-vertical-offset="1904">
+          <caret line="111" column="30" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="30" />
           <folding />
         </state>
       </provider>
