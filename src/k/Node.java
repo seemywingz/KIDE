@@ -11,7 +11,7 @@ public class Node {
     protected Token token = null;
     protected Node parent = null;
     protected ArrayList<Node> children = null;
-    protected boolean returnTwice = false;
+    protected boolean shouldReturn=true;
 
 
 
@@ -53,7 +53,7 @@ public class Node {
 
     public void buildAST(Tree AST){
 
-        System.out.println("building AST: "+getType());
+        System.out.println("building AST: " + getType());
 
         switch (getType()){
             case BLOCK:
@@ -70,12 +70,11 @@ public class Node {
                 break;
             case WHILE_STATEMENT:
                 addASTSegment_WHILE_STATEMENT(AST);
+                break;
+            case IF_STATEMENT:
+                addASTSegment_IF_STATEMENT(AST);
             case RIGHTCURL:
                 AST.returnToParent();
-                if(returnTwice){
-                    returnTwice=false;
-                    AST.returnToParent();
-                }
                 break;
         }
         for (Node c:children){
@@ -106,11 +105,21 @@ public class Node {
 
     protected void addASTSegment_WHILE_STATEMENT(Tree AST){
         AST.addBranchNode(token);
-        AST.addBranchNode(children.get(1).token);
-            AST.addLeafNode(children.get(1).children.get(1).children.get(0));
-            AST.addLeafNode(children.get(1).children.get(2));
-            AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
-//        AST.returnToParent();
+        AST.addBranchNode(new Token(TokenType.COMPARE,"COMPARE",0));
+        AST.addBranchNode(children.get(1).children.get(2).token);
+        AST.addLeafNode(children.get(1).children.get(1).children.get(0));
+        AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
+        AST.returnToParent();
+        AST.returnToParent();
+    }//..
+
+    protected void addASTSegment_IF_STATEMENT(Tree AST){
+        AST.addBranchNode(token);
+        AST.addBranchNode(new Token(TokenType.COMPARE,"COMPARE",0));
+        AST.addBranchNode(children.get(1).children.get(2).token);
+        AST.addLeafNode(children.get(1).children.get(1).children.get(0));
+        AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
+        AST.returnToParent();
     }//..
 
     protected Node getLeafNode(){

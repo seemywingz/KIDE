@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Parser.java" afterPath="$PROJECT_DIR$/src/k/Parser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TokenType.java" afterPath="$PROJECT_DIR$/src/k/TokenType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Tree.java" afterPath="$PROJECT_DIR$/src/k/Tree.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -52,9 +53,12 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4367347" vertical-offset="1151" max-vertical-offset="2032">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
-              <folding />
+            <state vertical-scroll-proportion="0.67346936" vertical-offset="1329" max-vertical-offset="2208">
+              <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+              <folding>
+                <element signature="e#2145#2146#0" expanded="true" />
+                <element signature="e#2184#2185#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,8 +66,8 @@
       <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="1200">
-              <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1296">
+              <caret line="65" column="73" selection-start-line="65" selection-start-column="73" selection-end-line="65" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -91,8 +95,9 @@
         <option value="$PROJECT_DIR$/src/k/CSTView.java" />
         <option value="$PROJECT_DIR$/src/k/TreeView.java" />
         <option value="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
-        <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
+        <option value="$PROJECT_DIR$/src/k/TokenType.java" />
+        <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/Node.java" />
       </list>
     </option>
@@ -496,13 +501,7 @@
       <workItem from="1428413516695" duration="3217000" />
       <workItem from="1428504074267" duration="843000" />
       <workItem from="1428591973985" duration="6327000" />
-      <workItem from="1429026118843" duration="26846000" />
-    </task>
-    <task id="LOCAL-00024" summary="Base Parse fnc">
-      <created>1422755471464</created>
-      <option name="number" value="00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1422755471464</updated>
+      <workItem from="1429026118843" duration="31854000" />
     </task>
     <task id="LOCAL-00025" summary="Begin and End parse --- parse errors">
       <created>1422762515550</created>
@@ -792,11 +791,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429121711371</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="AST gen+view working on whilestmnt">
+      <created>1429124433887</created>
+      <option name="number" value="00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1429124433887</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240763000" />
+    <option name="totallyTimeSpent" value="245771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -875,7 +880,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1155,14 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06530612" vertical-offset="192" max-vertical-offset="1216">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8707483" vertical-offset="0" max-vertical-offset="784">
@@ -1239,19 +1236,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8272109" vertical-offset="192" max-vertical-offset="1232">
+          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="1200">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1296">
+          <caret line="65" column="73" selection-start-line="65" selection-start-column="73" selection-end-line="65" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4367347" vertical-offset="1151" max-vertical-offset="2032">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
-          <folding />
+        <state vertical-scroll-proportion="0.67346936" vertical-offset="1329" max-vertical-offset="2208">
+          <caret line="121" column="29" selection-start-line="121" selection-start-column="29" selection-end-line="121" selection-end-column="29" />
+          <folding>
+            <element signature="e#2145#2146#0" expanded="true" />
+            <element signature="e#2184#2185#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

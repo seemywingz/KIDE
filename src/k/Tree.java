@@ -60,8 +60,14 @@ public class Tree {
     }//..
 
     public void returnToParent(){
-        if(currentNode.getParent()!=null)
+        if(currentNode.getParent()!=null) {
+         if(currentNode.getType()==TokenType.BLOCK &&
+                 (currentNode.parent.getType()==TokenType.WHILE_STATEMENT
+                  || currentNode.parent.getType()==TokenType.IF_STATEMENT)
+         )
             currentNode = currentNode.getParent();
+         currentNode = currentNode.getParent();
+        }
     }//..
 
     public DefaultMutableTreeNode buildTreeView(){

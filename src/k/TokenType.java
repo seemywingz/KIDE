@@ -49,6 +49,7 @@ public enum TokenType {
     STRING_EXPR("STRING_EXPR"),
     VARDECL("VARDECL"),
     BLOCK("BLOCK"),
+    COMPARE("COMPARE"),
     ROOT("ROOT");
 
     public final List<String> pattern;
