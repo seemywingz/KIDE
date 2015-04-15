@@ -47,9 +47,10 @@ public class Parser extends ScrollableOutput {
            warnUnreachableCode();
        }
 
-//       if(!idePanel.editor.hasErrors())
-       AST = new Tree();
-       CST.root.buildAST(AST);
+       if(!idePanel.editor.hasErrors()) {
+           AST = new Tree();
+           CST.root.buildAST(AST);
+       }
    }//..
 
     protected void parseBlock(){
