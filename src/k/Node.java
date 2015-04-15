@@ -13,6 +13,7 @@ public class Node {
     protected ArrayList<Node> children = null;
 
 
+
     Node(Token token, Node parent){
         this.token = token;
         this.parent = parent;
@@ -47,6 +48,41 @@ public class Node {
             return root;
         }
         return root;
+    }//..
+
+    public void buildAST(Tree AST){
+
+        System.out.println("building AST: "+getType());
+
+        switch (getType()){
+            case BLOCK:
+                 addASTSegment_BLOCK(AST);
+                break;
+            case VARDECL:
+                 addASTSegment_VARDECL(AST);
+                break;
+            case ASSIGNMENT_STATEMENT:
+                addASTSegment_ASSIGNMENT_STATEMENT(AST);
+            case RIGHTCURL:
+                AST.returnToParent();
+                break;
+        }
+        for (Node c:children){
+            c.buildAST(AST);
+        }
+    }//..
+
+    protected void addASTSegment_BLOCK(Tree AST){
+       AST.addBranchNode(token);
+    }//..
+
+    protected void addASTSegment_VARDECL(Tree AST) {
+        AST.addLeafNode(this);
+    }//..
+
+    protected void addASTSegment_ASSIGNMENT_STATEMENT(Tree AST){
+        AST.addBranchNode(token);
+
     }//..
 
 }// Node

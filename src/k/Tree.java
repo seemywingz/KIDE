@@ -27,6 +27,19 @@ public class Tree {
 
     }//..
 
+//
+//    public void addBranchNode(Node node){
+//
+//        if(root != null) {
+//            currentNode.addChild(node);
+//            currentNode = node;
+//        }else{
+//            root = node;
+//            currentNode = root;
+//        }
+//
+//    }//..
+
     public void addLeafNode(Token token){
         if(root != null) {
             Node newNode = new Node(token, currentNode);
@@ -37,22 +50,24 @@ public class Tree {
         }
     }//..
 
+    public void addLeafNode(Node node){
+        if(root != null) {
+            currentNode.addChild(node);
+        }else{
+            root = node;
+            currentNode = root;
+        }
+    }//..
+
     public void returnToParent(){
-        currentNode = currentNode.getParent();
+        if(currentNode.getParent()!=null)
+            currentNode = currentNode.getParent();
     }//..
 
-    public DefaultMutableTreeNode buildCSTTreeView(){
-        DefaultMutableTreeNode displayTreeRoot = null;
-        return root.buildTreeView(displayTreeRoot);
-
+    public DefaultMutableTreeNode buildTreeView(){
+        return root.buildTreeView(null);
     }//..
 
-    public DefaultMutableTreeNode buildAstTreeView(){
-        DefaultMutableTreeNode displayTreeRoot = null;
-
-
-        return displayTreeRoot;
-    }//..
 
 
 }// Tree

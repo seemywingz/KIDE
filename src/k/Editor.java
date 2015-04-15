@@ -190,4 +190,12 @@ public class Editor extends ScrollableOutput{
     public void setCurrentFile(String currentFile) {
         this.currentFile = currentFile;
     }
+
+    public boolean hasErrors(){
+        if(errorLineNums.size()>0){
+            return true;
+        }
+        return false;
+    }//..
+
 }// Editor

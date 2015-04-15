@@ -130,7 +130,7 @@ public class IDEMenuBar extends JMenuBar{
         menuItem.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    new CSTView(idePanel);
+                    new TreeView(idePanel,idePanel.parser.getCST());
             }
         });
         viewOptions.add(menuItem);
@@ -139,7 +139,7 @@ public class IDEMenuBar extends JMenuBar{
         menuItem.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ASTView(idePanel);
+                new TreeView(idePanel,idePanel.parser.getAST());
             }
         });
         viewOptions.add(menuItem);

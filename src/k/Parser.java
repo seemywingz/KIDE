@@ -15,7 +15,7 @@ public class Parser extends ScrollableOutput {
     protected Token currentToken;
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
-    protected Tree CST;
+    protected Tree CST,AST;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
@@ -46,7 +46,10 @@ public class Parser extends ScrollableOutput {
        if(tokenIndex<tokens.size()){
            warnUnreachableCode();
        }
-//       idePanel.loadingDialog.dispose();
+
+//       if(!idePanel.editor.hasErrors())
+       AST = new Tree();
+       CST.root.buildAST(AST);
    }//..
 
     protected void parseBlock(){
@@ -276,7 +279,11 @@ public class Parser extends ScrollableOutput {
 
     public Tree getCST() {
         return CST;
-    };
+    }
+
+    public Tree getAST() {
+        return AST;
+    }
 
     @Override
     public void showHide() {
