@@ -3,7 +3,7 @@ package k;
 import java.util.ArrayList;
 
 /**
- * Created by KevAdmin on 4/15/2015.
+ * Created by Kevin on 4/15/2015.
  */
 public class SemanticAnalyzer {
 
@@ -34,6 +34,13 @@ public class SemanticAnalyzer {
             case VARDECL:
                 analyze_VARDECL(root);
                 break;
+            case COMPARE:
+                analyze_COMPARE(root);
+                break;
+            case RIGHTCURL:
+                currentScope--;
+                currentScope = currentScope < 0?0:currentScope;
+                break;
         }
 
         for (Node c:root.children){
@@ -42,9 +49,16 @@ public class SemanticAnalyzer {
 
     }//..
 
+    private void analyze_COMPARE(Node root){
+        boolean undeclaired;
+        if(!scope.get(currentScope).symbolTable.contains(root.children.get(0).children.get(0))){
+
+        }
+    }//..
+
     private void analyze_VARDECL(Node root){
 
-        String symbolEntry = root.children.get(0).token.getData().toString()+" "+root.children.get(1).token.getData();
+        Symbol symbolEntry = new Symbol(root.children.get(1).token.getData().toString(),root.children.get(0).token);
 
         if(scope.get(currentScope).symbolTable.contains(symbolEntry)){
             addError("Variable  "+root.children.get(1).token.getData()+" is already defined in this scope",root);

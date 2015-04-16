@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Scope {
 
 
-    protected ArrayList<String> symbolTable = new ArrayList<String>();
+    protected ArrayList<Symbol> symbolTable = new ArrayList<Symbol>();
 
     Scope(){
 
