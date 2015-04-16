@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/k/Scope.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/ErrorPane.java" afterPath="$PROJECT_DIR$/src/k/ErrorPane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Parser.java" afterPath="$PROJECT_DIR$/src/k/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Tree.java" afterPath="$PROJECT_DIR$/src/k/Tree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -40,14 +36,14 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="4832">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4049" max-vertical-offset="4832">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="12" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8942#8943#0" expanded="true" />
-                <element signature="e#8968#8969#0" expanded="true" />
-                <element signature="e#8996#8997#0" expanded="true" />
-                <element signature="e#9022#9023#0" expanded="true" />
+                <element signature="e#8951#8952#0" expanded="true" />
+                <element signature="e#8977#8978#0" expanded="true" />
+                <element signature="e#9005#9006#0" expanded="true" />
+                <element signature="e#9031#9032#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -56,11 +52,21 @@
       <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52244896" vertical-offset="0" max-vertical-offset="735">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.56462586" vertical-offset="417" max-vertical-offset="1152">
+              <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
               <folding>
-                <element signature="e#196#203#0" expanded="true" />
+                <element signature="e#297#304#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ErrorPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="800">
+              <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,7 +86,7 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1457" max-vertical-offset="2192">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="2192">
               <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,11 +129,11 @@
         <option value="$PROJECT_DIR$/src/k/TreeView.java" />
         <option value="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
         <option value="$PROJECT_DIR$/src/k/TokenType.java" />
-        <option value="$PROJECT_DIR$/src/k/ErrorPane.java" />
         <option value="$PROJECT_DIR$/src/k/Node.java" />
-        <option value="$PROJECT_DIR$/src/k/Parser.java" />
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/Scope.java" />
+        <option value="$PROJECT_DIR$/src/k/Parser.java" />
+        <option value="$PROJECT_DIR$/src/k/ErrorPane.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
       </list>
     </option>
@@ -531,13 +537,7 @@
       <workItem from="1428413516695" duration="3217000" />
       <workItem from="1428504074267" duration="843000" />
       <workItem from="1428591973985" duration="6327000" />
-      <workItem from="1429026118843" duration="35077000" />
-    </task>
-    <task id="LOCAL-00027" summary="Color Options">
-      <created>1422766302894</created>
-      <option name="number" value="00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1422766302894</updated>
+      <workItem from="1429026118843" duration="37771000" />
     </task>
     <task id="LOCAL-00028" summary="Working on Parsing TYPE">
       <created>1422944052723</created>
@@ -827,11 +827,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429129587093</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Begin: Semantic Analysis">
+      <created>1429143714396</created>
+      <option name="number" value="00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1429143714396</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248994000" />
+    <option name="totallyTimeSpent" value="251688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -881,7 +887,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Pretty much done with Project 1 -- still needs some testing" />
     <MESSAGE value="Not Quite Ready for grading" />
     <MESSAGE value="I Think we're good to grade" />
     <MESSAGE value="Wait don't grade just yet..." />
@@ -906,7 +911,8 @@
     <MESSAGE value="AST gen+view kinda woking" />
     <MESSAGE value="AST gen+view working on whilestmnt" />
     <MESSAGE value="AST gen+ IF and WHILE working" />
-    <option name="LAST_COMMIT_MESSAGE" value="AST gen+ IF and WHILE working" />
+    <MESSAGE value="Begin: Semantic Analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begin: Semantic Analysis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1245,40 +1251,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6517007" vertical-offset="65" max-vertical-offset="800">
-          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1457" max-vertical-offset="2192">
-          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2097#2098#0" expanded="true" />
-            <element signature="e#2136#2137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="384" max-vertical-offset="4832">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8942#8943#0" expanded="true" />
-            <element signature="e#8968#8969#0" expanded="true" />
-            <element signature="e#8996#8997#0" expanded="true" />
-            <element signature="e#9022#9023#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="337" max-vertical-offset="1072">
@@ -1297,12 +1269,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1457" max-vertical-offset="2192">
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2136#2137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/ErrorPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="800">
+          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4832">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="12" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8951#8952#0" expanded="true" />
+            <element signature="e#8977#8978#0" expanded="true" />
+            <element signature="e#9005#9006#0" expanded="true" />
+            <element signature="e#9031#9032#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52244896" vertical-offset="0" max-vertical-offset="735">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.56462586" vertical-offset="417" max-vertical-offset="1152">
+          <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
           <folding>
-            <element signature="e#196#203#0" expanded="true" />
+            <element signature="e#297#304#0" expanded="true" />
           </folding>
         </state>
       </provider>
