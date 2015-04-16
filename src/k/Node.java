@@ -92,7 +92,23 @@ public class Node {
 
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(0));
-        AST.addLeafNode(children.get(2).getLeafNode());
+        if(children.get(2).children.get(0).children.size()>1){// if assigning int expression to variable
+            addASTSegment_INT_EXPR(AST,children.get(2).children.get(0));
+        }else {
+            AST.addLeafNode(children.get(2).children.get(0).children.get(0).token);
+        }
+        AST.returnToParent();
+    }//..
+
+    private void addASTSegment_INT_EXPR(Tree AST,Node root){
+        AST.addBranchNode(root.children.get(1).token);
+        AST.addLeafNode(root.children.get(0));
+        if(root.children.get(2).children.get(0).children.size()>1){
+            addASTSegment_INT_EXPR(AST,root.children.get(2).children.get(0));
+        }else {
+            AST.addLeafNode(root.children.get(2).children.get(0).children.get(0));
+        }
+
         AST.returnToParent();
     }//..
 
