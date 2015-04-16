@@ -89,6 +89,7 @@ public class Node {
     }//..
 
     protected void addASTSegment_ASSIGNMENT_STATEMENT(Tree AST){
+
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(0));
         AST.addLeafNode(children.get(2).getLeafNode());

@@ -47,7 +47,7 @@ public class SemanticAnalyzer {
         String symbolEntry = root.children.get(0).token.getData().toString()+" "+root.children.get(1).token.getData();
 
         if(scope.get(currentScope).symbolTable.contains(symbolEntry)){
-            addError("Variable  "+root.children.get(1).token.getData()+" is aleady defined in this scope",root);
+            addError("Variable  "+root.children.get(1).token.getData()+" is already defined in this scope",root);
         }else {
             scope.get(currentScope).symbolTable.add(symbolEntry);
             System.out.println(symbolEntry);
