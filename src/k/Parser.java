@@ -50,6 +50,7 @@ public class Parser extends ScrollableOutput {
        if(!idePanel.editor.hasErrors()) {
            AST = new Tree();
            CST.root.buildAST(AST);
+           new SemanticAnalyzer(AST);
        }
    }//..
 

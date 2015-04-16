@@ -27,19 +27,6 @@ public class Tree {
 
     }//..
 
-//
-//    public void addBranchNode(Node node){
-//
-//        if(root != null) {
-//            currentNode.addChild(node);
-//            currentNode = node;
-//        }else{
-//            root = node;
-//            currentNode = root;
-//        }
-//
-//    }//..
-
     public void addLeafNode(Token token){
         if(root != null) {
             Node newNode = new Node(token, currentNode);
@@ -73,7 +60,6 @@ public class Tree {
     public DefaultMutableTreeNode buildTreeView(){
         return root.buildTreeView(null);
     }//..
-
 
 
 }// Tree

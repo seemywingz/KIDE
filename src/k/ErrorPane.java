@@ -35,6 +35,7 @@ public class ErrorPane extends ScrollableOutput{
                 }
             }
         }, 20);
+        showHide();
     }//..
 
     @Override
