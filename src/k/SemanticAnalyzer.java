@@ -31,6 +31,9 @@ public class SemanticAnalyzer {
             case COMPARE:
                 analyze_COMPARE(root);
                 break;
+            case PRINT_STATEMENT:
+                analyze_PRINT_STATEMENT(root);
+                break;
         }
 
         for (Node c:root.children){
@@ -41,7 +44,14 @@ public class SemanticAnalyzer {
                 currentScope=currentScope.parentScope;
         }
 
+    }//..
 
+    private void analyze_PRINT_STATEMENT(Node root){
+        Node val1 = root.children.get(0);
+        if(currentScope.isDeclared(val1)==null){
+            addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
+
+        }
     }//..
 
     private void analyze_COMPARE(Node root){
@@ -62,6 +72,10 @@ public class SemanticAnalyzer {
             case DIGIT:
                 s1=new Symbol(new Token(TokenType.TYPE,"int",val1.token.getLineNum()),val1.getData().toString());
                 break;
+            case BOOLVAL:
+                System.out.println("HAVEBOOL");
+                s1 = new Symbol(new Token(TokenType.TYPE,"boolean",val1.token.getLineNum()),val1.getData().toString());
+                break;
         }
 
         switch (val2.getType()){
@@ -77,6 +91,10 @@ public class SemanticAnalyzer {
                 break;
             case DIGIT:
                 s2=new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
+                break;
+            case BOOLVAL:
+                System.out.println("HAVEBOOL");
+                s2 = new Symbol(new Token(TokenType.TYPE,"boolean",val2.token.getLineNum()),val2.getData().toString());
                 break;
         }
 
@@ -96,8 +114,6 @@ public class SemanticAnalyzer {
         }
         return mismatch;
     }//..
-
-
 
     private void analyze_VARDECL(Node root){
 
