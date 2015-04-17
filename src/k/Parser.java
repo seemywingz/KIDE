@@ -42,7 +42,7 @@ public class Parser extends ScrollableOutput {
        getNextToken();
        parseBlock();
        noParseErrors = isExpected(TokenType.EOF);
-       CST.returnToParent();
+       CST.returnToParent(false);
        if(tokenIndex<tokens.size()){
            warnUnreachableCode();
        }
@@ -60,7 +60,7 @@ public class Parser extends ScrollableOutput {
            parseStatementList();
            isExpected(TokenType.RIGHTCURL);
        }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
    protected void parseStatementList(){
@@ -75,7 +75,7 @@ public class Parser extends ScrollableOutput {
                parseStatement();
                parseStatementList();
        }
-       CST.returnToParent();
+       CST.returnToParent(false);
    }//..
 
     private void parseStatement(){
@@ -100,7 +100,7 @@ public class Parser extends ScrollableOutput {
                 parseWhileStatement();
                 break;
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseWhileStatement(){
@@ -109,7 +109,7 @@ public class Parser extends ScrollableOutput {
             parseBooleanExpr();
             parseBlock();
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseIfStatement(){
@@ -118,7 +118,7 @@ public class Parser extends ScrollableOutput {
             parseBooleanExpr();
             parseBlock();
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parsePrintStatement(){
@@ -128,7 +128,7 @@ public class Parser extends ScrollableOutput {
             parseExpr();
             isExpected(TokenType.RIGHTPAREN);
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseAssignmentStatement(){
@@ -137,7 +137,7 @@ public class Parser extends ScrollableOutput {
             isExpected(TokenType.ASSIGNMENT);
             parseExpr();
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseExpr(){
@@ -167,7 +167,7 @@ public class Parser extends ScrollableOutput {
              default:
                  addParseError("<ID>, <DIGIT>, <STRING>, <BOOLVAL>");
          }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseIntExpr(){
@@ -178,7 +178,7 @@ public class Parser extends ScrollableOutput {
                     parseExpr();
                 }
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseStringExpr(){
@@ -188,7 +188,7 @@ public class Parser extends ScrollableOutput {
                isExpected(TokenType.QUOTE);
            }
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseBooleanExpr(){
@@ -207,7 +207,7 @@ public class Parser extends ScrollableOutput {
             default:
                 addParseError("<BOOLVAL>, <RIGHTPAREN>");
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     private void parseVarDecl(){
@@ -215,7 +215,7 @@ public class Parser extends ScrollableOutput {
         if(isExpected(TokenType.TYPE)){
             isExpected(TokenType.ID);
         }
-        CST.returnToParent();
+        CST.returnToParent(false);
     }//..
 
     protected boolean isExpected(TokenType expected){

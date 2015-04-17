@@ -77,7 +77,7 @@ public class Node {
             case IF_STATEMENT:
                 addASTSegment_IF_STATEMENT(AST);
             case RIGHTCURL:
-                AST.returnToParent();
+                AST.returnToParent(true);
                 break;
         }
         for (Node c:children){
@@ -102,7 +102,7 @@ public class Node {
         }else {
             AST.addLeafNode(children.get(2).children.get(0).children.get(0).token);
         }
-        AST.returnToParent();
+        AST.returnToParent(true);
     }//..
 
     private void addASTSegment_INT_EXPR(Tree AST,Node root){
@@ -114,13 +114,13 @@ public class Node {
             AST.addLeafNode(root.children.get(2).children.get(0).children.get(0));
         }
 
-        AST.returnToParent();
+        AST.returnToParent(true);
     }//..
 
     protected void addASTSegment_PRINT_STATEMENT(Tree AST){
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(2).getLeafNode());
-        AST.returnToParent();
+        AST.returnToParent(true);
     }//..
 
     protected void addASTSegment_WHILE_STATEMENT(Tree AST){
@@ -133,8 +133,8 @@ public class Node {
         }else {
             AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
         }
-        AST.returnToParent();
-        AST.returnToParent();
+        AST.returnToParent(true);
+        AST.returnToParent(true);
     }//..
 
     protected void addASTSegment_IF_STATEMENT(Tree AST){
@@ -153,7 +153,7 @@ public class Node {
         }else {
             AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
         }
-        AST.returnToParent();
+        AST.returnToParent(true);
     }//..
 
     protected Node getLeafNode(){

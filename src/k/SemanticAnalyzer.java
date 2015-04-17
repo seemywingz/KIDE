@@ -9,8 +9,6 @@ public class SemanticAnalyzer {
     protected Tree AST;
     protected IDEPanel idePanel;
     protected final String errorPrefix="\nSemantic Error on line ";
-
-//    protected ArrayList<Scope> scope = new ArrayList<Scope>();
     protected Scope currentScope = null;
 
 
@@ -50,14 +48,34 @@ public class SemanticAnalyzer {
         Node val1 = root.children.get(0).children.get(0),val2 = root.children.get(0).children.get(1);
         Symbol s1=null,s2=null;
 
-        if(val1.getType()==TokenType.ID){
-            s1  = currentScope.isDeclared(val1);
-            if(s1==null){
-                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
-            }
-        }else if(val1.getType()==TokenType.INT_EXPR) {
-            System.out.println("HAVEDIGIT");
-            s1=new Symbol(new Token(TokenType.TYPE,"int",val1.children.get(0).token.getLineNum()),val1.children.get(0).getData().toString());
+//        if(val1.getType()==TokenType.ID){
+//            s1  = currentScope.isDeclared(val1);
+//            if(s1==null){
+//                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
+//            }
+//        }else if(val1.getType()==TokenType.INT_EXPR) {
+//            System.out.println("HAVEDIGIT");
+//            s1=new Symbol(new Token(TokenType.TYPE,"int",val1.children.get(0).token.getLineNum()),val1.children.get(0).getData().toString());
+//        }else if (val1.getType()==TokenType.DIGIT){
+//            s1=new Symbol(new Token(TokenType.TYPE,"int",val1.token.getLineNum()),val1.getData().toString());
+//        }else if(){
+//
+//        }
+
+        switch (val1.getType()){
+            case ID:
+                s1  = currentScope.isDeclared(val1);
+                if(s1==null){
+                    addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
+                }
+                break;
+            case INT_EXPR:
+                System.out.println("HAVEDIGIT");
+                s1=new Symbol(new Token(TokenType.TYPE,"int",val1.children.get(0).token.getLineNum()),val1.children.get(0).getData().toString());
+                break;
+            case DIGIT:
+                s1=new Symbol(new Token(TokenType.TYPE,"int",val1.token.getLineNum()),val1.getData().toString());
+                break;
         }
 
         if(val2.getType()==TokenType.ID){

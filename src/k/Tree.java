@@ -46,8 +46,9 @@ public class Tree {
         }
     }//..
 
-    public void returnToParent(){
+    public void returnToParent(boolean inAST){
         if(currentNode.getParent()!=null) {
+            if(inAST)
          if(currentNode.getType()==TokenType.BLOCK &&
                  (currentNode.parent.getType()==TokenType.WHILE_STATEMENT
                   || currentNode.parent.getType()==TokenType.IF_STATEMENT)
