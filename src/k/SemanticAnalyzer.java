@@ -19,7 +19,6 @@ public class SemanticAnalyzer {
         this.idePanel = idePanel;
 
         analyze(AST.root);
-
     }//..
 
     private void analyze(Node root){
@@ -65,6 +64,10 @@ public class SemanticAnalyzer {
             if(s.varName.equals(var.token.getData())){
                 declared=s;
             }
+        }
+
+        if(declared==null){
+            addError("Cannot resolve symbol " + var.token.getData() + ", variable is undefined", var);
         }
         return declared;
     }//..

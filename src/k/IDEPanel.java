@@ -17,7 +17,6 @@ public class IDEPanel extends JPanel{
     Parser parser;
     ErrorPane errorPane;
     IDEMenuBar ideMenuBar;
-    LoadingDialog loadingDialog = null;
 
     IDEPanel(IDE ide){
 
@@ -26,10 +25,15 @@ public class IDEPanel extends JPanel{
         setLayout(null);
         setBackground(Color.black);
         editor = new Editor(this);
+        System.out.println("***");
         lex = new Lex(this);
+        System.out.println("***");
         parser = new Parser(this);
+        System.out.println("***");
         errorPane = new ErrorPane(this);
+        System.out.println("***");
         ideMenuBar = new IDEMenuBar(this);
+        System.out.println("***");
     }//..
 
 }// IDEPanel

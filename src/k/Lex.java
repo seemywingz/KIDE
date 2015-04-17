@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Created by kevin on 1/24/15.
  *
- * This will be the Lexical analyser and output
+ * This is the Lexical analyzer and output
  *
  */
 public class Lex extends ScrollableOutput {
