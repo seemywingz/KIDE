@@ -51,7 +51,7 @@ public class Node {
 
     public void buildAST(Tree AST){
 
-        System.out.println("building AST: " + getType());
+//        System.out.println("building AST: " + getType());
 
         switch (getType()){
             case BLOCK:

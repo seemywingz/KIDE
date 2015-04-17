@@ -1,6 +1,5 @@
 package k;
 
-import java.util.ArrayList;
 
 /**
  * Created by Kevin on 4/15/2015.
@@ -11,8 +10,8 @@ public class SemanticAnalyzer {
     protected IDEPanel idePanel;
     protected final String errorPrefix="\nSemantic Error on line ";
 
-    protected ArrayList<Scope> scope = new ArrayList<Scope>();
-    protected int currentScope = 0;
+//    protected ArrayList<Scope> scope = new ArrayList<Scope>();
+    protected Scope currentScope = null;
 
 
     SemanticAnalyzer(IDEPanel idePanel,Tree AST){
@@ -27,9 +26,7 @@ public class SemanticAnalyzer {
 
         switch (root.getType()){
             case BLOCK:
-                if(scope.size()!=0)
-                    currentScope++;
-                scope.add(new Scope());
+                currentScope=new Scope(currentScope);
                 break;
             case VARDECL:
                 analyze_VARDECL(root);
@@ -43,18 +40,33 @@ public class SemanticAnalyzer {
             analyze(c);
         }
         if(root.getType()==TokenType.BLOCK){
-            currentScope--;
-            currentScope = currentScope < 0?0:currentScope;
+            if(currentScope.parentScope!=null)
+                currentScope=currentScope.parentScope;
         }
 
 
     }//..
 
     private void analyze_COMPARE(Node root){
-        boolean undeclaired;
-        if(!scope.get(currentScope).symbolTable.contains(root.children.get(0).children.get(0))){
+        boolean undeclaired = true,typeMismatch=false;
+        Node val1 = root.children.get(0).children.get(0),val2 = root.children.get(0).children.get(1);
+        if(val1.getType()==TokenType.ID){
+            if(isDeclared(val1)!=null){
 
+            }
         }
+
+    }//..
+
+    protected Symbol isDeclared(Node var){
+        Symbol declared = null;
+
+        for (Symbol s:currentScope.symbolTable){
+            if(s.varName.equals(var.token.getData())){
+                declared=s;
+            }
+        }
+        return declared;
     }//..
 
     private void analyze_VARDECL(Node root){
@@ -63,7 +75,7 @@ public class SemanticAnalyzer {
 
         boolean noError = true;
 
-        for (Symbol s:scope.get(currentScope).symbolTable){
+        for (Symbol s:currentScope.symbolTable){
             if(s.varName.equals(symbolEntry.varName)) {
                 noError=false;
                 addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root);
@@ -72,9 +84,8 @@ public class SemanticAnalyzer {
 
         if(noError){
             System.out.println(symbolEntry);
-            scope.get(currentScope).symbolTable.add(symbolEntry);
+            currentScope.symbolTable.add(symbolEntry);
         }
-
 
     }//..
 

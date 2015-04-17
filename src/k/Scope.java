@@ -8,11 +8,11 @@ import java.util.ArrayList;
 public class Scope {
 
 
+    protected Scope parentScope;
     protected ArrayList<Symbol> symbolTable = new ArrayList<Symbol>();
 
-    Scope(){
-
+    Scope(Scope parentScope){
+        this.parentScope=parentScope;
     }
-
 
 }//..
