@@ -37,15 +37,16 @@ public class SemanticAnalyzer {
             case COMPARE:
                 analyze_COMPARE(root);
                 break;
-            case RIGHTCURL:
-                currentScope--;
-                currentScope = currentScope < 0?0:currentScope;
-                break;
         }
 
         for (Node c:root.children){
             analyze(c);
         }
+        if(root.getType()==TokenType.BLOCK){
+            currentScope--;
+            currentScope = currentScope < 0?0:currentScope;
+        }
+
 
     }//..
 
@@ -60,12 +61,21 @@ public class SemanticAnalyzer {
 
         Symbol symbolEntry = new Symbol(root.children.get(1).token.getData().toString(),root.children.get(0).token);
 
-        if(scope.get(currentScope).symbolTable.contains(symbolEntry)){
-            addError("Variable  "+root.children.get(1).token.getData()+" is already defined in this scope",root);
-        }else {
-            scope.get(currentScope).symbolTable.add(symbolEntry);
-            System.out.println(symbolEntry);
+        boolean noError = true;
+
+        for (Symbol s:scope.get(currentScope).symbolTable){
+            if(s.varName.equals(symbolEntry.varName)) {
+                noError=false;
+                addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root);
+            }
         }
+
+        if(noError){
+            System.out.println(symbolEntry);
+            scope.get(currentScope).symbolTable.add(symbolEntry);
+        }
+
+
     }//..
 
     protected void addError(String error,Node root){
