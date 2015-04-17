@@ -1,6 +1,8 @@
  {
 	
      boolean a
+     string s
+
      while( a == true){
            a = false	
            if(a != true){
@@ -8,7 +10,7 @@
            }
      }
 
-     {}
+     {print(s)}
  
 }$
            

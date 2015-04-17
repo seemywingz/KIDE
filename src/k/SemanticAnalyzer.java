@@ -34,6 +34,9 @@ public class SemanticAnalyzer {
             case PRINT_STATEMENT:
                 analyze_PRINT_STATEMENT(root);
                 break;
+            case ASSIGNMENT_STATEMENT:
+                analyze_ASSIGNMENT_STATEMENT(root);
+                break;
         }
 
         for (Node c:root.children){
@@ -44,6 +47,25 @@ public class SemanticAnalyzer {
                 currentScope=currentScope.parentScope;
         }
 
+    }//..
+
+    private void analyze_ASSIGNMENT_STATEMENT(Node root){
+        Node val1 = root.children.get(0), val2 = root.children.get(1);
+        Symbol s1=currentScope.isDeclared(val1),s2=null;
+        if(s1==null){
+            addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
+        }
+
+        if(val1.children.size()==0){
+            switch (val1.getType()){
+                case ID:
+                    s2 = currentScope.isDeclared(val1);
+                    if(s2==null){
+                        addError("Cannot resolve symbol " + val2.token.getData() + ", variable is undefined", val2.token);
+                    }
+                    break;
+            }
+        }
     }//..
 
     private void analyze_PRINT_STATEMENT(Node root){
