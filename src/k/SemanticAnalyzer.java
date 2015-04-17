@@ -63,6 +63,9 @@ public class SemanticAnalyzer {
                         addError("Cannot resolve symbol " + val2.token.getData() + ", variable is undefined", val2.token);
                     }
                     break;
+                case DIGIT:
+                    s2 = new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
+                    break;
             }
         typeMismatch(s1,s2);
     }//..
