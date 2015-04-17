@@ -58,12 +58,13 @@ public class SemanticAnalyzer {
 
             switch (val2.getType()){
                 case ID:
-                    s2 = currentScope.isDeclared(val1);
+                    s2 = currentScope.isDeclared(val2);
                     if(s2==null){
                         addError("Cannot resolve symbol " + val2.token.getData() + ", variable is undefined", val2.token);
                     }
                     break;
             }
+        typeMismatch(s1,s2);
     }//..
 
     private void analyze_PRINT_STATEMENT(Node root){

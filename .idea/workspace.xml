@@ -45,8 +45,8 @@
       <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5761773" vertical-offset="624" max-vertical-offset="2624">
-              <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.29085872" vertical-offset="510" max-vertical-offset="2640">
+              <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -522,13 +522,7 @@
       <workItem from="1429244569650" duration="2340000" />
       <workItem from="1429247107570" duration="430000" />
       <workItem from="1429247566714" duration="73000" />
-      <workItem from="1429283015931" duration="11300000" />
-    </task>
-    <task id="LOCAL-00048" summary="Fixed parseWhileStatement">
-      <created>1425347696215</created>
-      <option name="number" value="00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1425347696215</updated>
+      <workItem from="1429283015931" duration="11475000" />
     </task>
     <task id="LOCAL-00049" summary="Almost ready for resubmission&#10;">
       <created>1425348712986</created>
@@ -818,11 +812,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429295173404</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="Assign Statement Semantic analysis: in progress">
+      <created>1429295749513</created>
+      <option name="number" value="00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1429295749513</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282051000" />
+    <option name="totallyTimeSpent" value="282226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -872,7 +872,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="CST View" />
     <MESSAGE value="View CST" />
     <MESSAGE value="Toggle Windows" />
     <MESSAGE value="Window Names" />
@@ -897,7 +896,8 @@
     <MESSAGE value="Print eval" />
     <MESSAGE value="Assign Statement Semantic analysis" />
     <MESSAGE value="Assign Statement Semantic analysis:&#10;&#10;     fixed AST gen for assignmentSTMNT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assign Statement Semantic analysis:&#10;&#10;     fixed AST gen for assignmentSTMNT" />
+    <MESSAGE value="Assign Statement Semantic analysis: in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assign Statement Semantic analysis: in progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1271,8 +1271,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5761773" vertical-offset="624" max-vertical-offset="2624">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.29085872" vertical-offset="510" max-vertical-offset="2640">
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
           <folding />
         </state>
       </provider>
