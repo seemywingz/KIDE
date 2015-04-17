@@ -48,19 +48,31 @@ public class SemanticAnalyzer {
 
     private void analyze_COMPARE(Node root){
         Node val1 = root.children.get(0).children.get(0),val2 = root.children.get(0).children.get(1);
-        Symbol s1,s2;
+        Symbol s1=null,s2=null;
+
         if(val1.getType()==TokenType.ID){
             s1  = currentScope.isDeclared(val1);
             if(s1==null){
                 addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
-            }else {
             }
         }else if(val1.getType()==TokenType.INT_EXPR) {
             System.out.println("HAVEDIGIT");
             s1=new Symbol(new Token(TokenType.TYPE,"int",val1.children.get(0).token.getLineNum()),val1.children.get(0).getData().toString());
         }
 
-//        typeMismatch(s1,s);
+        if(val2.getType()==TokenType.ID){
+            s2  = currentScope.isDeclared(val2);
+            if(s2==null){
+                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
+            }
+        }else if(val2.getType()==TokenType.INT_EXPR) {
+            System.out.println("HAVEDIGIT");
+            s2=new Symbol(new Token(TokenType.TYPE,"int",val2.children.get(0).token.getLineNum()),val2.children.get(0).getData().toString());
+        }else if (val2.getType()==TokenType.DIGIT){
+            s2=new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
+        }
+
+        typeMismatch(s1,s2);
     }//..
 
     protected boolean typeMismatch(Symbol s1, Symbol s2){
@@ -72,7 +84,7 @@ public class SemanticAnalyzer {
         if(s1.token.getData().equals(s2.token.getData())) {
             mismatch = false;
         }else {
-            addError("Incompatible types expected "+s1.token.getData()+" found "+s2.getData(),s2.token);
+            addError("Incompatible types: "+s1.token.getData()+" "+s1.varName+", "+s2.getData()+" "+s2.varName,s2.token);
         }
         return mismatch;
     }//..
