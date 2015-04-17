@@ -25,7 +25,7 @@ public class IDEMenuBar extends JMenuBar{
         this.idePanel = idePanel;
         createActions();
         initFileMenuOptions();
-        initEditMenuItems();
+//        initEditMenuItems();
         initViewOptions();
         initCompileButton();
 

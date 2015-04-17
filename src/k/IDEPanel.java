@@ -22,18 +22,13 @@ public class IDEPanel extends JPanel{
 
         this.ide = ide;
 
+        ideMenuBar = new IDEMenuBar(this);
         setLayout(null);
         setBackground(Color.black);
         editor = new Editor(this);
-        System.out.println("***");
         lex = new Lex(this);
-        System.out.println("***");
         parser = new Parser(this);
-        System.out.println("***");
         errorPane = new ErrorPane(this);
-        System.out.println("***");
-        ideMenuBar = new IDEMenuBar(this);
-        System.out.println("***");
     }//..
 
 }// IDEPanel
