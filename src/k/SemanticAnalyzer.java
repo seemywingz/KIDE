@@ -25,7 +25,7 @@ public class SemanticAnalyzer {
 
         switch (root.getType()){
             case BLOCK:
-                currentScope=new Scope(currentScope);
+                currentScope = new Scope(currentScope);
                 break;
             case VARDECL:
                 analyze_VARDECL(root);
@@ -47,34 +47,36 @@ public class SemanticAnalyzer {
     }//..
 
     private void analyze_COMPARE(Node root){
-        boolean undeclaired = true,typeMismatch=false;
         Node val1 = root.children.get(0).children.get(0),val2 = root.children.get(0).children.get(1);
         if(val1.getType()==TokenType.ID){
-            if(isDeclared(val1)!=null){
 
+            Symbol s = currentScope.isDeclared(val1);
+            if(s==null){
+                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1);
             }
         }
 
     }//..
 
-    protected Symbol isDeclared(Node var){
-        Symbol declared = null;
+    protected boolean typeMismatch(Symbol s, Node n){
+        if(s==null||n==null)
+            return true;
 
-        for (Symbol s:currentScope.symbolTable){
-            if(s.varName.equals(var.token.getData())){
-                declared=s;
-            }
-        }
+        boolean mismatch = true;
 
-        if(declared==null){
-            addError("Cannot resolve symbol " + var.token.getData() + ", variable is undefined", var);
+        if(s.getData() == n.token.getType()) {
+            mismatch = false;
+        }else {
+            addError("Incompatible types expected "+s.getType()+" found "+n.getType(),n);
         }
-        return declared;
+        return mismatch;
     }//..
+
+
 
     private void analyze_VARDECL(Node root){
 
-        Symbol symbolEntry = new Symbol(root.children.get(1).token.getData().toString(),root.children.get(0).token);
+        Symbol symbolEntry = new Symbol(root.children.get(0).token,root.children.get(1).token.getData().toString());
 
         boolean noError = true;
 

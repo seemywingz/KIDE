@@ -1,0 +1,17 @@
+ {
+	
+   boolean a
+   { int i   
+      i = 2+3+4+5
+      print(i)
+   }
+   if(a == true){
+       while(a!=true){
+            print("infinite loop") 
+       }
+   }
+
+     {int i}
+ 
+}$
+           

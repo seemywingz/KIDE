@@ -1,0 +1,14 @@
+ {
+	
+     boolean a
+     while( a == true){
+           a = false	
+           if(a != true){
+              print(a)
+           }
+     }
+
+     {}
+ 
+}$
+           

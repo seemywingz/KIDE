@@ -15,4 +15,18 @@ public class Scope {
         this.parentScope=parentScope;
     }
 
+    public Symbol isDeclared(Node var){
+        Symbol declared = null;
+
+        for (Symbol s:symbolTable){
+            if(s.varName.equals(var.token.getData())){
+                declared=s;
+            }
+        }
+
+        if(declared==null && parentScope!=null)
+           return parentScope.isDeclared(var);
+
+        return declared;
+    }//..
 }//..

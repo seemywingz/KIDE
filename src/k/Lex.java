@@ -28,6 +28,7 @@ public class Lex extends ScrollableOutput {
     }//..
 
     public void analyze(String s){
+        System.out.println("analyzing");
         lexErrors = "";
         textArea.setText(title);
         idePanel.editor.resetErrorLineNumber();
