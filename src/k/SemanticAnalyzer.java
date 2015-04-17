@@ -53,6 +53,8 @@ public class SemanticAnalyzer {
             Symbol s = currentScope.isDeclared(val1);
             if(s==null){
                 addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1);
+            }else {
+
             }
         }
 
@@ -76,19 +78,10 @@ public class SemanticAnalyzer {
 
     private void analyze_VARDECL(Node root){
 
-        Symbol symbolEntry = new Symbol(root.children.get(0).token,root.children.get(1).token.getData().toString());
-
-        boolean noError = true;
-
-        for (Symbol s:currentScope.symbolTable){
-            if(s.varName.equals(symbolEntry.varName)) {
-                noError=false;
-                addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root);
-            }
-        }
-
-        if(noError){
-            System.out.println(symbolEntry);
+        if(currentScope.isDeclaredLocally(root.children.get(1)) != null) {
+            addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root);
+        }else{
+            Symbol symbolEntry = new Symbol(root.children.get(0).token,root.children.get(1).token.getData().toString());
             currentScope.symbolTable.add(symbolEntry);
         }
 

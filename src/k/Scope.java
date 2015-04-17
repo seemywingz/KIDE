@@ -29,4 +29,15 @@ public class Scope {
 
         return declared;
     }//..
+
+    public Symbol isDeclaredLocally(Node var){
+        Symbol declared = null;
+
+        for (Symbol s:symbolTable){
+            if(s.varName.equals(var.token.getData())){
+                declared=s;
+            }
+        }
+        return declared;
+    }//..
 }//..
