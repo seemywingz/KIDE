@@ -9,8 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEPanel.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDEMenuBar.java" afterPath="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDEPanel.java" afterPath="$PROJECT_DIR$/src/k/IDEPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -520,13 +518,7 @@
       <workItem from="1428413516695" duration="3217000" />
       <workItem from="1428504074267" duration="843000" />
       <workItem from="1428591973985" duration="6327000" />
-      <workItem from="1429026118843" duration="52820000" />
-    </task>
-    <task id="LOCAL-00035" summary="BooleanExpr">
-      <created>1424402512801</created>
-      <option name="number" value="00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1424402512801</updated>
+      <workItem from="1429026118843" duration="52841000" />
     </task>
     <task id="LOCAL-00036" summary="BooleanExpr">
       <created>1424402742133</created>
@@ -816,11 +808,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429243052415</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Slow loading -- removed color options">
+      <created>1429243381647</created>
+      <option name="number" value="00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1429243381647</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266737000" />
+    <option name="totallyTimeSpent" value="266758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -870,7 +868,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed String Lex" />
     <MESSAGE value="Fixed parseWhileStatement" />
     <MESSAGE value="Almost ready for resubmission&#10;" />
     <MESSAGE value="Ready for extensive retesting" />
@@ -895,7 +892,8 @@
     <MESSAGE value="FIXING DUAL DECL" />
     <MESSAGE value="Fixed dual decl" />
     <MESSAGE value="Fixed Scope" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Scope" />
+    <MESSAGE value="Slow loading -- removed color options" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slow loading -- removed color options" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
