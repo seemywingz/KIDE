@@ -100,7 +100,14 @@ public class Node {
         if(children.get(2).children.get(0).children.size()>1){// if assigning int expression to variable
             addASTSegment_INT_EXPR(AST,children.get(2).children.get(0));
         }else {
-            AST.addLeafNode(children.get(2).children.get(0).children.get(0).token);
+            switch (children.get(2).children.get(0).getType()){
+                case ID:
+                    AST.addLeafNode(children.get(2).children.get(0));
+                    break;
+                case INT_EXPR:
+                    AST.addLeafNode(children.get(2).children.get(0).children.get(0).token);
+
+            }
         }
         AST.returnToParent(true);
     }//..
