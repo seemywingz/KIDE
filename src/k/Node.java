@@ -121,9 +121,13 @@ public class Node {
     protected void addASTSegment_WHILE_STATEMENT(Tree AST){
         AST.addBranchNode(token);
         AST.addBranchNode(new Token(TokenType.COMPARE,"COMPARE",0));
-        AST.addBranchNode(children.get(1).children.get(2).token);
+        AST.addBranchNode(children.get(1).children.get(2).token);// boolop
         AST.addLeafNode(children.get(1).children.get(1).children.get(0));
-        AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
+        if(children.get(1).children.get(3).children.get(0).children.size()>1){
+            addASTSegment_INT_EXPR(AST,children.get(1).children.get(3).children.get(0));
+        }else {
+            AST.addLeafNode(children.get(1).children.get(3).children.get(0).children.get(0));
+        }
         AST.returnToParent();
         AST.returnToParent();
     }//..

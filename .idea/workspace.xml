@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Scope.java" afterPath="$PROJECT_DIR$/src/k/Scope.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_IF1.kide" afterPath="$PROJECT_DIR$/Test_IF1.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -68,8 +65,8 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.4149659" vertical-offset="337" max-vertical-offset="2512">
-              <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.292517" vertical-offset="1689" max-vertical-offset="2576">
+              <caret line="126" column="86" selection-start-line="126" selection-start-column="86" selection-end-line="126" selection-end-column="86" />
               <folding>
                 <element signature="e#2099#2100#0" expanded="true" />
                 <element signature="e#2138#2139#0" expanded="true" />
@@ -538,13 +535,7 @@
       <workItem from="1429244569650" duration="2340000" />
       <workItem from="1429247107570" duration="430000" />
       <workItem from="1429247566714" duration="73000" />
-      <workItem from="1429283015931" duration="1429000" />
-    </task>
-    <task id="LOCAL-00039" summary="Pretty much done with Project 1 -- still needs some testing">
-      <created>1424983549567</created>
-      <option name="number" value="00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1424983549567</updated>
+      <workItem from="1429283015931" duration="1615000" />
     </task>
     <task id="LOCAL-00040" summary="Not Quite Ready for grading">
       <created>1425047577021</created>
@@ -834,11 +825,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429247622057</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Fixed IF AST Build">
+      <created>1429284463294</created>
+      <option name="number" value="00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1429284463294</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272180000" />
+    <option name="totallyTimeSpent" value="272366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -888,7 +885,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed parseWhileStatement" />
     <MESSAGE value="Almost ready for resubmission&#10;" />
     <MESSAGE value="Ready for extensive retesting" />
     <MESSAGE value="Added Compile Button, resized windows and added Super Amazing Better-Than-The-Cake loadingDialog" />
@@ -913,7 +909,8 @@
     <MESSAGE value="Fixed dual decl" />
     <MESSAGE value="Fixed Scope" />
     <MESSAGE value="Slow loading -- removed color options" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slow loading -- removed color options" />
+    <MESSAGE value="Fixed IF AST Build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed IF AST Build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,8 +1284,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.4149659" vertical-offset="337" max-vertical-offset="2512">
-          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.292517" vertical-offset="1689" max-vertical-offset="2576">
+          <caret line="126" column="86" selection-start-line="126" selection-start-column="86" selection-end-line="126" selection-end-column="86" />
           <folding>
             <element signature="e#2099#2100#0" expanded="true" />
             <element signature="e#2138#2139#0" expanded="true" />
