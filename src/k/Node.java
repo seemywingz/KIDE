@@ -29,6 +29,11 @@ public class Node {
 
     public TokenType getType(){return token.getType();}//..
 
+    public <ANY> ANY getData(){return token.getData();}//..
+
+    public Token getToken() {
+        return token;
+    }//..
 
     public DefaultMutableTreeNode buildTreeView(DefaultMutableTreeNode root){
 
@@ -136,7 +141,13 @@ public class Node {
         AST.addBranchNode(token);
         AST.addBranchNode(new Token(TokenType.COMPARE,"COMPARE",0));
         AST.addBranchNode(children.get(1).children.get(2).token);// boolop
-        AST.addLeafNode(children.get(1).children.get(1).children.get(0));
+
+        if(children.get(1).children.get(1).children.get(0).children.size()>1){
+            addASTSegment_INT_EXPR(AST,children.get(1).children.get(1).children.get(0));
+        }else {
+            AST.addLeafNode(children.get(1).children.get(1).children.get(0));
+        }
+
         if(children.get(1).children.get(3).children.get(0).children.size()>1){
             addASTSegment_INT_EXPR(AST,children.get(1).children.get(3).children.get(0));
         }else {

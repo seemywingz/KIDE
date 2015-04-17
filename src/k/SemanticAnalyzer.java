@@ -48,28 +48,31 @@ public class SemanticAnalyzer {
 
     private void analyze_COMPARE(Node root){
         Node val1 = root.children.get(0).children.get(0),val2 = root.children.get(0).children.get(1);
+        Symbol s1,s2;
         if(val1.getType()==TokenType.ID){
-
-            Symbol s = currentScope.isDeclared(val1);
-            if(s==null){
-                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1);
+            s1  = currentScope.isDeclared(val1);
+            if(s1==null){
+                addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
             }else {
-
             }
+        }else if(val1.getType()==TokenType.INT_EXPR) {
+            System.out.println("HAVEDIGIT");
+            s1=new Symbol(new Token(TokenType.TYPE,"int",val1.children.get(0).token.getLineNum()),val1.children.get(0).getData().toString());
         }
 
+//        typeMismatch(s1,s);
     }//..
 
-    protected boolean typeMismatch(Symbol s, Node n){
-        if(s==null||n==null)
+    protected boolean typeMismatch(Symbol s1, Symbol s2){
+        if(s1==null||s2==null)
             return true;
 
         boolean mismatch = true;
 
-        if(s.getData() == n.token.getType()) {
+        if(s1.token.getData().equals(s2.token.getData())) {
             mismatch = false;
         }else {
-            addError("Incompatible types expected "+s.getType()+" found "+n.getType(),n);
+            addError("Incompatible types expected "+s1.token.getData()+" found "+s2.getData(),s2.token);
         }
         return mismatch;
     }//..
@@ -79,7 +82,7 @@ public class SemanticAnalyzer {
     private void analyze_VARDECL(Node root){
 
         if(currentScope.isDeclaredLocally(root.children.get(1)) != null) {
-            addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root);
+            addError("Variable  " + root.children.get(1).token.getData() + " is already defined in this scope", root.token);
         }else{
             Symbol symbolEntry = new Symbol(root.children.get(0).token,root.children.get(1).token.getData().toString());
             currentScope.symbolTable.add(symbolEntry);
@@ -87,9 +90,9 @@ public class SemanticAnalyzer {
 
     }//..
 
-    protected void addError(String error,Node root){
-        String newError = errorPrefix+(root.token.getLineNum())+": "+error;
-        idePanel.editor.addErrorLineNumber(root.token.getLineNum());
+    protected void addError(String error,Token token){
+        String newError = errorPrefix+(token.getLineNum()+1)+": "+error;
+        idePanel.editor.addErrorLineNumber(token.getLineNum());
         idePanel.editor.drawLines();
         idePanel.errorPane.getTextArea().append(newError);
         idePanel.parser.parseErrors+=newError;
