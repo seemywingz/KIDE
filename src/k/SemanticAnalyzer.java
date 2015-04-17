@@ -56,8 +56,7 @@ public class SemanticAnalyzer {
             addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
         }
 
-        if(val1.children.size()==0){
-            switch (val1.getType()){
+            switch (val2.getType()){
                 case ID:
                     s2 = currentScope.isDeclared(val1);
                     if(s2==null){
@@ -65,7 +64,6 @@ public class SemanticAnalyzer {
                     }
                     break;
             }
-        }
     }//..
 
     private void analyze_PRINT_STATEMENT(Node root){
