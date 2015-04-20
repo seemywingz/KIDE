@@ -45,13 +45,23 @@ public class SemanticAnalyzer {
         if(root.getType()==TokenType.BLOCK){
             if(currentScope.parentScope!=null)
                 currentScope=currentScope.parentScope;
+            for (Symbol s:currentScope.symbolTable){
+                if(!s.used){
+                    String newError = "\nWARNING! on line "+(s.token.getLineNum()+1)+": Variable "+s.varName+" is never used";
+                    idePanel.editor.addErrorLineNumber(s.token.getLineNum());
+                    idePanel.errorPane.getTextArea().append(newError);
+                    idePanel.parser.parseErrors+=newError;
+                    idePanel.editor.drawLines();
+                    System.out.println(newError);
+                }
+            }
         }
-
     }//..
 
     private void analyze_ASSIGNMENT_STATEMENT(Node root){
         Node val1 = root.children.get(0), val2 = root.children.get(1);
         Symbol s1=currentScope.isDeclared(val1),s2=null;
+        s1.used=true;
         if(s1==null){
             addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
         }
@@ -158,6 +168,7 @@ public class SemanticAnalyzer {
             return true;
 
         boolean mismatch = true;
+        s1.used=true;s2.used=true;
 
         if(s1.token.getData().equals(s2.token.getData())) {
             mismatch = false;

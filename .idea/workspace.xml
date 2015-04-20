@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Symbol.java" afterPath="$PROJECT_DIR$/src/k/Symbol.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -54,8 +53,8 @@
       <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49078727" vertical-offset="1019" max-vertical-offset="3136">
-              <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.29480737" vertical-offset="816" max-vertical-offset="3312">
+              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -547,13 +546,7 @@
       <workItem from="1429247107570" duration="430000" />
       <workItem from="1429247566714" duration="73000" />
       <workItem from="1429283015931" duration="12813000" />
-      <workItem from="1429542126788" duration="3978000" />
-    </task>
-    <task id="LOCAL-00053" summary="Added Compile Button, resized windows and added Super Amazing Better-Than-The-Cake loadingDialog">
-      <created>1425350711454</created>
-      <option name="number" value="00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1425350711454</updated>
+      <workItem from="1429542126788" duration="4364000" />
     </task>
     <task id="LOCAL-00054" summary="Starting CST Implimentation +1">
       <created>1427739859483</created>
@@ -843,11 +836,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429544866818</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Fixes">
+      <created>1429546113404</created>
+      <option name="number" value="00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1429546113404</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287542000" />
+    <option name="totallyTimeSpent" value="287928000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -1302,8 +1301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49078727" vertical-offset="1019" max-vertical-offset="3136">
-          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.29480737" vertical-offset="816" max-vertical-offset="3312">
+          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
           <folding />
         </state>
       </provider>
