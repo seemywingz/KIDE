@@ -69,7 +69,32 @@ public class SemanticAnalyzer {
                 case STRING:
                     s2 = new Symbol(new Token(TokenType.STRING,"string",val2.token.getLineNum()),"\""+val2.getData().toString()+"\"");
                     break;
+                case INTOP:
+                    analyze_INT_EXPR(root);
             }
+        typeMismatch(s1,s2);
+    }//..
+
+    private void analyze_INT_EXPR(Node root){
+        Node val1 = root.children.get(0),val2 = root.children.get(1);
+        Symbol s1=new Symbol(new Token(TokenType.TYPE,"int",val1.token.getLineNum()),val1.getData().toString()),
+               s2=null;
+
+        System.out.println("int_expr");
+
+        switch (val2.getType()){
+            case DIGIT:
+                s2 = new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
+                break;
+            case INTOP:
+                analyze_INT_EXPR(val2);
+                break;
+            case STRING:
+                s2 = new Symbol(new Token(TokenType.STRING,"string",val2.token.getLineNum()),val2.getData().toString());
+                break;
+
+        }
+
         typeMismatch(s1,s2);
     }//..
 
