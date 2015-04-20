@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test_PRINT.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -51,21 +51,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93634844" vertical-offset="2001" max-vertical-offset="2736">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1851" max-vertical-offset="2736">
               <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1179" max-vertical-offset="2848">
-              <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.19520548" vertical-offset="1550" max-vertical-offset="2960">
+              <caret line="115" column="9" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -143,8 +143,8 @@
         <option value="$PROJECT_DIR$/src/k/Scope.java" />
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
-        <option value="$PROJECT_DIR$/src/k/Node.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/k/Node.java" />
       </list>
     </option>
   </component>
@@ -555,13 +555,7 @@
       <workItem from="1429247107570" duration="430000" />
       <workItem from="1429247566714" duration="73000" />
       <workItem from="1429283015931" duration="12813000" />
-      <workItem from="1429542126788" duration="1969000" />
-    </task>
-    <task id="LOCAL-00051" summary="Ready for extensive retesting">
-      <created>1425349763788</created>
-      <option name="number" value="00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1425349763788</updated>
+      <workItem from="1429542126788" duration="2731000" />
     </task>
     <task id="LOCAL-00052" summary="Added Compile Button, resized windows and added Super Amazing Better-Than-The-Cake loadingDialog">
       <created>1425350678298</created>
@@ -851,17 +845,23 @@
       <option name="project" value="LOCAL" />
       <updated>1429296252293</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Fixes">
+      <created>1429544114973</created>
+      <option name="number" value="00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1429544114973</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285533000" />
+    <option name="totallyTimeSpent" value="286295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2560175" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -905,7 +905,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="View CST" />
     <MESSAGE value="Toggle Windows" />
     <MESSAGE value="Window Names" />
     <MESSAGE value="cst addLeafnode optimization" />
@@ -930,7 +929,8 @@
     <MESSAGE value="Assign Statement Semantic analysis" />
     <MESSAGE value="Assign Statement Semantic analysis:&#10;&#10;     fixed AST gen for assignmentSTMNT" />
     <MESSAGE value="Assign Statement Semantic analysis: in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assign Statement Semantic analysis: in progress" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1308,18 +1308,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1179" max-vertical-offset="2848">
-          <caret line="113" column="9" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1851" max-vertical-offset="2736">
+          <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
+    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93634844" vertical-offset="2001" max-vertical-offset="2736">
-          <caret line="160" column="36" selection-start-line="160" selection-start-column="36" selection-end-line="160" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.19520548" vertical-offset="1550" max-vertical-offset="2960">
+          <caret line="115" column="9" selection-start-line="115" selection-start-column="9" selection-end-line="115" selection-end-column="9" />
           <folding />
         </state>
       </provider>

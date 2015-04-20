@@ -118,10 +118,17 @@ public class Node {
     private void addASTSegment_INT_EXPR(Tree AST,Node root){
         AST.addBranchNode(root.children.get(1).token);
         AST.addLeafNode(root.children.get(0));
-        if(root.children.get(2).children.get(0).children.size()>1){
+        if(root.children.get(2).children.get(0).getType() == TokenType.INT_EXPR &&root.children.get(2).children.get(0).children.size()>1){
             addASTSegment_INT_EXPR(AST,root.children.get(2).children.get(0));
         }else {
-            AST.addLeafNode(root.children.get(2).children.get(0).children.get(0));
+            switch (root.children.get(2).children.get(0).getType()) {
+                case INT_EXPR:
+                    AST.addLeafNode(root.children.get(2).children.get(0).children.get(0));
+                    break;
+                case STRING_EXPR:
+                    AST.addLeafNode(root.children.get(2).children.get(0).children.get(1));
+                    break;
+            }
         }
 
         AST.returnToParent(true);
