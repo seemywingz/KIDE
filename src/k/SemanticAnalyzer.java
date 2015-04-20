@@ -66,6 +66,9 @@ public class SemanticAnalyzer {
                 case DIGIT:
                     s2 = new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
                     break;
+                case STRING:
+                    s2 = new Symbol(new Token(TokenType.STRING,"string",val2.token.getLineNum()),"\""+val2.getData().toString()+"\"");
+                    break;
             }
         typeMismatch(s1,s2);
     }//..
@@ -153,9 +156,9 @@ public class SemanticAnalyzer {
     protected void addError(String error,Token token){
         String newError = errorPrefix+(token.getLineNum()+1)+": "+error;
         idePanel.editor.addErrorLineNumber(token.getLineNum());
-        idePanel.editor.drawLines();
         idePanel.errorPane.getTextArea().append(newError);
         idePanel.parser.parseErrors+=newError;
+        idePanel.editor.drawLines();
         System.out.println(newError);
     }//..
 

@@ -97,7 +97,7 @@ public class Node {
 
         AST.addBranchNode(token);
         AST.addLeafNode(children.get(0));
-        if(children.get(2).children.get(0).children.size()>1){// if assigning int expression to variable
+        if(children.get(2).children.get(0).getType()==TokenType.INT_EXPR && children.get(2).children.get(0).children.size()>1){// if assigning int expression to variable
             addASTSegment_INT_EXPR(AST,children.get(2).children.get(0));
         }else {
             switch (children.get(2).children.get(0).getType()){
@@ -106,6 +106,9 @@ public class Node {
                     break;
                 case INT_EXPR:
                     AST.addLeafNode(children.get(2).children.get(0).children.get(0).token);
+                    break;
+                case STRING_EXPR:
+                    AST.addLeafNode(children.get(2).children.get(0).children.get(1));
 
             }
         }
