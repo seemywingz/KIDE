@@ -109,6 +109,9 @@ public class Node {
                     break;
                 case STRING_EXPR:
                     AST.addLeafNode(children.get(2).children.get(0).children.get(1));
+                    break;
+                case BOOLEAN_EXPR:
+                    AST.addLeafNode(children.get(2).children.get(0).children.get(0));
 
             }
         }
@@ -128,6 +131,11 @@ public class Node {
                 case STRING_EXPR:
                     AST.addLeafNode(root.children.get(2).children.get(0).children.get(1));
                     break;
+                case ID:
+                    System.out.println("adding exp ");
+                    AST.addLeafNode(root.children.get(2).children.get(0));
+                    break;
+
             }
         }
 

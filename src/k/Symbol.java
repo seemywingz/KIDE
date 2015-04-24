@@ -7,7 +7,7 @@ public class Symbol {
 
     String varName;
     Token token;
-    boolean used;
+    boolean used = false;
 
     Symbol(Token token, String varName){
         this.varName = varName;

@@ -61,27 +61,27 @@ public class SemanticAnalyzer {
     private void analyze_ASSIGNMENT_STATEMENT(Node root){
         Node val1 = root.children.get(0), val2 = root.children.get(1);
         Symbol s1=currentScope.isDeclared(val1),s2=null;
-        s1.used=true;
         if(s1==null){
             addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
-        }
-
-            switch (val2.getType()){
+        }else {
+            s1.used=true;
+            switch (val2.getType()) {
                 case ID:
                     s2 = currentScope.isDeclared(val2);
-                    if(s2==null){
+                    if (s2 == null) {
                         addError("Cannot resolve symbol " + val2.token.getData() + ", variable is undefined", val2.token);
                     }
                     break;
                 case DIGIT:
-                    s2 = new Symbol(new Token(TokenType.TYPE,"int",val2.token.getLineNum()),val2.getData().toString());
+                    s2 = new Symbol(new Token(TokenType.TYPE, "int", val2.token.getLineNum()), val2.getData().toString());
                     break;
                 case STRING:
-                    s2 = new Symbol(new Token(TokenType.STRING,"string",val2.token.getLineNum()),"\""+val2.getData().toString()+"\"");
+                    s2 = new Symbol(new Token(TokenType.STRING, "string", val2.token.getLineNum()), "\"" + val2.getData().toString() + "\"");
                     break;
                 case INTOP:
                     analyze_INT_EXPR(root);
             }
+        }
         typeMismatch(s1,s2);
     }//..
 
