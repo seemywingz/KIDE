@@ -28,4 +28,8 @@ public class Token {
     public int getLineNum() {
         return lineNum;
     }//..
+
+    public void setData(String newData){
+        data=newData;
+    }
 }// Token

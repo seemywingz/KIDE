@@ -110,7 +110,8 @@ public class SemanticAnalyzer {
 
     private void analyze_PRINT_STATEMENT(Node root){
         Node val1 = root.children.get(0);
-        if(currentScope.isDeclared(val1)==null){
+
+        if(val1.getType()== TokenType.ID && currentScope.isDeclared(val1)==null){
             addError("Cannot resolve symbol " + val1.token.getData() + ", variable is undefined", val1.token);
 
         }
