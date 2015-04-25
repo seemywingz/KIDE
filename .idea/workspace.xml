@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Token.java" afterPath="$PROJECT_DIR$/src/k/Token.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -43,21 +42,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.0284758" vertical-offset="0" max-vertical-offset="3328">
-              <caret line="113" column="44" selection-start-line="113" selection-start-column="44" selection-end-line="113" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1577" max-vertical-offset="3328">
+              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="3088">
-              <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
+            <state vertical-scroll-proportion="2.2054794" vertical-offset="968" max-vertical-offset="3184">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,9 +134,9 @@
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
         <option value="$PROJECT_DIR$/src/k/Symbol.java" />
-        <option value="$PROJECT_DIR$/src/k/Node.java" />
         <option value="$PROJECT_DIR$/src/k/Token.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
+        <option value="$PROJECT_DIR$/src/k/Node.java" />
       </list>
     </option>
   </component>
@@ -562,13 +561,7 @@
       <workItem from="1429542126788" duration="4381000" />
       <workItem from="1429838828500" duration="3184000" />
       <workItem from="1429901591866" duration="1323000" />
-      <workItem from="1429976815412" duration="233000" />
-    </task>
-    <task id="LOCAL-00056" summary="CST View">
-      <created>1428333188555</created>
-      <option name="number" value="00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1428333188556</updated>
+      <workItem from="1429976815412" duration="1818000" />
     </task>
     <task id="LOCAL-00057" summary="View CST">
       <created>1428367357003</created>
@@ -858,11 +851,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429841986289</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Fixed print empty string">
+      <created>1429977074294</created>
+      <option name="number" value="00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1429977074295</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292685000" />
+    <option name="totallyTimeSpent" value="294270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -912,7 +911,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Window Names" />
     <MESSAGE value="cst addLeafnode optimization" />
     <MESSAGE value="GUI Tweaks" />
     <MESSAGE value="AST gen+view" />
@@ -937,7 +935,8 @@
     <MESSAGE value="Assign Statement Semantic analysis: in progress" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="More Fixes for booleans" />
-    <option name="LAST_COMMIT_MESSAGE" value="More Fixes for booleans" />
+    <MESSAGE value="Fixed print empty string" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed print empty string" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1286,14 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="3088">
-          <caret line="160" column="33" selection-start-line="160" selection-start-column="33" selection-end-line="160" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="592">
@@ -1307,8 +1298,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0284758" vertical-offset="0" max-vertical-offset="3328">
-          <caret line="113" column="44" selection-start-line="113" selection-start-column="44" selection-end-line="113" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1577" max-vertical-offset="3328">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2054794" vertical-offset="968" max-vertical-offset="3184">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>

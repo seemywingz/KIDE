@@ -144,7 +144,13 @@ public class Node {
 
     protected void addASTSegment_PRINT_STATEMENT(Tree AST){
         AST.addBranchNode(token);
-        AST.addLeafNode(children.get(2).getLeafNode());
+
+        if(children.get(2).children.get(0).getType() == TokenType.INT_EXPR){
+            addASTSegment_INT_EXPR(AST,children.get(2).children.get(0));
+        }else {
+            AST.addLeafNode(getLeafNode());
+        }
+
         AST.returnToParent(true);
     }//..
 
