@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -55,8 +54,8 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.2054794" vertical-offset="968" max-vertical-offset="3184">
-              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6164383" vertical-offset="968" max-vertical-offset="3184">
+              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -561,13 +560,7 @@
       <workItem from="1429542126788" duration="4381000" />
       <workItem from="1429838828500" duration="3184000" />
       <workItem from="1429901591866" duration="1323000" />
-      <workItem from="1429976815412" duration="1818000" />
-    </task>
-    <task id="LOCAL-00057" summary="View CST">
-      <created>1428367357003</created>
-      <option name="number" value="00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1428367357003</updated>
+      <workItem from="1429976815412" duration="2104000" />
     </task>
     <task id="LOCAL-00058" summary="View CST">
       <created>1428367556597</created>
@@ -857,11 +850,17 @@
       <option name="project" value="LOCAL" />
       <updated>1429977074295</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="Fixed test cases part deux">
+      <created>1429979753016</created>
+      <option name="number" value="00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1429979753016</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294270000" />
+    <option name="totallyTimeSpent" value="294556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -911,7 +910,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="cst addLeafnode optimization" />
     <MESSAGE value="GUI Tweaks" />
     <MESSAGE value="AST gen+view" />
     <MESSAGE value="AST gen+view kinda woking" />
@@ -936,7 +934,8 @@
     <MESSAGE value="Fixes" />
     <MESSAGE value="More Fixes for booleans" />
     <MESSAGE value="Fixed print empty string" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed print empty string" />
+    <MESSAGE value="Fixed test cases part deux" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed test cases part deux" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1306,8 +1305,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2054794" vertical-offset="968" max-vertical-offset="3184">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6164383" vertical-offset="968" max-vertical-offset="3184">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding />
         </state>
       </provider>
