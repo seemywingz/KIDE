@@ -17,6 +17,9 @@ public class SemanticAnalyzer {
         this.idePanel = idePanel;
 
         analyze(AST.root);
+        if(!idePanel.editor.hasErrors()){
+
+        }
     }//..
 
     private void analyze(Node root){
@@ -199,4 +202,7 @@ public class SemanticAnalyzer {
         System.out.println(newError);
     }//..
 
+    public Tree getAST() {
+        return AST;
+    }//..
 }//.. SemanticAnalyzer

@@ -144,6 +144,14 @@ public class IDEMenuBar extends JMenuBar{
         });
         viewOptions.add(menuItem);
 
+        menuItem = new JMenuItem("Code Gen");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CodeGenerator(idePanel);
+            }
+        });
+        viewOptions.add(menuItem);
 
 
         add(viewOptions);

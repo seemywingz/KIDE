@@ -15,7 +15,7 @@ public class Parser extends ScrollableOutput {
     protected Token currentToken;
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
-    protected Tree CST,AST;
+    protected Tree CST,AST=null;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
