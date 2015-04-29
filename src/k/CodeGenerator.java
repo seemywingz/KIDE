@@ -1,6 +1,9 @@
 package k;
 
+import javax.swing.text.DefaultEditorKit;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
@@ -16,15 +19,12 @@ public class CodeGenerator extends ScrollableOutput{
 
 
 
-    CodeGenerator (IDEPanel idePanel){
+    CodeGenerator (final IDEPanel idePanel){
         super(idePanel);
 
         frame.setLocation(400, 400);
         frame.setSize(600,400);w=800;
-
-
-        initTextArea("Generated 6502 OP Codes:\n", 35, w / 11, false,
-                ScrollableOutput.mkKeyAdapter(keyBuffer, actionMap));
+        initTextArea("Generated 6502a OP Codes:\n", 35, w / 11, false, mkKeyAdapter());
 
         // create a new pane next to the editor
         initScrollPane(new Rectangle(idePanel.editor.getScrollPane().getX()+idePanel.editor.getScrollPane().getWidth(),2,w,idePanel.editor.h));
@@ -36,13 +36,26 @@ public class CodeGenerator extends ScrollableOutput{
 
         genCode(AST.root);
 
-        padWithZeros();
-        for (int i=0;i<codeStream.length;i++){
-            if(i%8==0)
-                textArea.append("\n");
-            textArea.append(codeStream[i] + " ");
-        }
+        backPatch();
+        printCode();
         showHide();
+
+        Utils.startThreadLoop(new Logic() {
+            @Override
+            public void apply() throws Exception {
+                if(!idePanel.editor.analyzed()){
+                while (!idePanel.editor.analyzed())
+                    Utils.wait(10);
+                codeStream = new String[256];
+                AST = idePanel.parser.getAST();
+                tempVars = new ArrayList<TempVar>();
+                byteCnt = 0; tempNum=0;
+                genCode(AST.root);
+                textArea.setText("");
+                printCode();
+                }
+            }
+        },20);
     }//..
 
     protected void genCode(Node root){
@@ -73,11 +86,11 @@ public class CodeGenerator extends ScrollableOutput{
             case ID:
                 TempVar tempVar= haveTempFor(val);
                 codeStream[byteCnt++] = "AC";
-                codeStream[byteCnt++] = tempVar.temp;
-                codeStream[byteCnt++] = tempVar.addr;
+                codeStream[byteCnt++] = tempVar.temp1;
+                codeStream[byteCnt++] = tempVar.temp2;
                 codeStream[byteCnt++] = "A2";
                 codeStream[byteCnt++] = "01";
-                codeStream[byteCnt++] = "123";
+                codeStream[byteCnt++] = "FF";
                 break;
         }
 
@@ -94,8 +107,8 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "0" + val.getData();
             codeStream[byteCnt++] = "8D";
             TempVar tempVar = haveTempFor(var);
-            codeStream[byteCnt++] = tempVar.temp;
-            codeStream[byteCnt++] = tempVar.addr;
+            codeStream[byteCnt++] = tempVar.temp1;
+            codeStream[byteCnt++] = tempVar.temp2;
         }else if(val.getType() == TokenType.ID){
 
         }
@@ -113,8 +126,8 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "00";
             codeStream[byteCnt++] = "8D";
             TempVar tempVar = haveTempFor(var);
-            codeStream[byteCnt++] = tempVar.temp;
-            codeStream[byteCnt++] = tempVar.addr;
+            codeStream[byteCnt++] = tempVar.temp1;
+            codeStream[byteCnt++] = tempVar.temp2;
         }
 
     }//..
@@ -132,11 +145,57 @@ public class CodeGenerator extends ScrollableOutput{
     }//..
 
     protected void padWithZeros(){
-        for (int i=byteCnt-1;i<codeStream.length;i++){
+        for (int i=byteCnt;i<codeStream.length;i++){
             codeStream[i]="00";
         }
     }//..
 
+    protected void printCode(){
+        for (int i=0;i<codeStream.length;i++){
+            if(i%8==0)
+                textArea.append("\n");
+            textArea.append(codeStream[i] + " ");
+        }
+    }//..
+
+    protected void backPatch(){
+        padWithZeros();
+        byteCnt++;
+
+        for (TempVar t:tempVars){
+            t.addr = Integer.toHexString(byteCnt++);
+            for (int i=0;i<codeStream.length;i++){
+                if(codeStream[i].equals(t.temp1)){
+                    codeStream[i]=t.addr;
+                    codeStream[i+1]="00";
+                }
+            }
+        }
+    }//..
+
+    protected KeyAdapter mkKeyAdapter(){
+        return new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                keyBuffer[e.getKeyCode()]=true;
+
+                if(keyBuffer[KeyEvent.VK_CONTROL]){// CTRL+
+                    if(keyBuffer[KeyEvent.getExtendedKeyCodeForChar('c')]){
+                        actionMap.get(DefaultEditorKit.copyAction);
+                    }
+
+                }//
+
+            }//
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                super.keyReleased(e);
+                keyBuffer[e.getKeyCode()]=false;
+            }
+        };
+    }//..
 
 }// CodeGenerator
 

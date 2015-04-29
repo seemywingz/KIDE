@@ -5,23 +5,12 @@ package k;
  */
 public class TempVar {
 
-    String temp,variable,addr;
+    String temp1,temp2,variable,addr;
 
     TempVar(int num,String variable){
         this.variable = variable;
-        temp = "T"+num;
-        addr="XX";
-    }//..
-
-    public void finalize(String p1,String p2){
-        temp=p1;addr=p2;
-    }//..
-
-    public String[] getAddress(){
-        String [] fullAddress = new String[2];
-        fullAddress[0]=temp;
-        fullAddress[1]=addr;
-        return fullAddress;
+        temp1 = "T"+num;
+        temp2="XX";
     }//..
 
 }// TempVar

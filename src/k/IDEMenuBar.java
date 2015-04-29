@@ -149,8 +149,6 @@ public class IDEMenuBar extends JMenuBar{
             @Override
             public void actionPerformed(ActionEvent e) {
 //                idePanel.editor.setDirty();
-//                while (!idePanel.editor.analyzed())
-//                    Utils.wait(10);
                 new CodeGenerator(idePanel);
             }
         });
