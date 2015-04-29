@@ -12,7 +12,7 @@ public class CodeGenerator extends ScrollableOutput{
     Tree AST;
     String [] codeStream = new String[256];
     ArrayList<TempVar> tempVars = new ArrayList<TempVar>();
-    int byteCnt = 0;
+    int byteCnt = 0,tempNum=0;
 
 
 
@@ -35,8 +35,12 @@ public class CodeGenerator extends ScrollableOutput{
         }
 
         genCode(AST.root);
-        for (String s:codeStream){
-            textArea.append(s+" ");
+
+        padWithZeros();
+        for (int i=0;i<codeStream.length;i++){
+            if(i%8==0)
+                textArea.append("\n");
+            textArea.append(codeStream[i] + " ");
         }
         showHide();
     }//..
@@ -47,6 +51,9 @@ public class CodeGenerator extends ScrollableOutput{
             case VARDECL:
                 genVARDECL(root);
                 break;
+            case ASSIGNMENT_STATEMENT:
+                genASSIGNMENT(root);
+                break;
         }
 
         for (Node c: root.children){
@@ -55,6 +62,26 @@ public class CodeGenerator extends ScrollableOutput{
 
     }//..
 
+    protected void genASSIGNMENT(Node root){
+        Node val = root.children.get(1),var = root.children.get(0);
+
+
+        codeStream[byteCnt++] = "A9";
+        if(Integer.parseInt(val.getData().toString()) < 10){
+
+            codeStream[byteCnt++] = "0"+val.getData();
+        }else {
+            codeStream[byteCnt++] = val.getData();
+        }
+        codeStream[byteCnt++] = "8D";
+        TempVar tempVar = haveTempFor(var.getData().toString());
+        if(tempVar==null) {
+            tempVar = new TempVar(tempNum++, var.getData().toString());
+            tempVars.add(tempVar);
+        }
+        codeStream[byteCnt++] = tempVar.temp;
+        codeStream[byteCnt++] = tempVar.addr;
+    }
 
     protected void genVARDECL(Node root){
         Node type = root.children.get(0),var = root.children.get(1);
@@ -65,13 +92,30 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "A9";
             codeStream[byteCnt++] = "00";
             codeStream[byteCnt++] = "8D";
-            TempVar tempVar = new TempVar(tempVars.size(),var.getData().toString());
-            tempVars.add(tempVar);
+            TempVar tempVar = haveTempFor(var.getData().toString());
+            if(tempVar==null) {
+                tempVar = new TempVar(tempNum++, var.getData().toString());
+                tempVars.add(tempVar);
+            }
             codeStream[byteCnt++] = tempVar.temp;
             codeStream[byteCnt++] = tempVar.addr;
         }
 
     }//..
+
+    protected TempVar haveTempFor(String var){
+        for (TempVar t:tempVars){
+            if(t.variable.equals(var))
+                return t;
+        }
+        return null;
+    }//..
+
+    protected void padWithZeros(){
+        for (int i=byteCnt-1;i<codeStream.length;i++){
+            codeStream[i]="00";
+        }
+    }
 
 
 }// CodeGenerator

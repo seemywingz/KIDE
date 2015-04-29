@@ -5,7 +5,7 @@ package k;
  */
 public class TempVar {
 
-    String temp,val,variable,addr;
+    String temp,variable,addr;
 
     TempVar(int num,String variable){
         this.variable = variable;
