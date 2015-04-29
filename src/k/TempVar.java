@@ -10,7 +10,7 @@ public class TempVar {
     TempVar(int num,String variable){
         this.variable = variable;
         temp = "T"+num;
-        addr="00";
+        addr="XX";
     }//..
 
     public void finalize(String p1,String p2){

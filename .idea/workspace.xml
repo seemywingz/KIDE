@@ -7,7 +7,9 @@
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeGen1.kide" afterPath="$PROJECT_DIR$/CodeGen1.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Editor.java" afterPath="$PROJECT_DIR$/src/k/Editor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/IDEMenuBar.java" afterPath="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TempVar.java" afterPath="$PROJECT_DIR$/src/k/TempVar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -45,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,15 +55,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+      <file leaf-file-name="IDEMenuBar.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/k/IDEMenuBar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60469013">
-              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.42881072">
+              <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
               <folding>
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#488#489#0" expanded="true" />
+                <element signature="e#4135#4443#0" expanded="true" />
+                <element signature="e#4442#4443#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Editor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/src/k/TempVar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -110,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/k/ErrorPane.java" />
         <option value="$PROJECT_DIR$/src/k/SymbolTable.java" />
         <option value="$PROJECT_DIR$/src/k/IDEPanel.java" />
-        <option value="$PROJECT_DIR$/src/k/Editor.java" />
         <option value="$PROJECT_DIR$/src/k/Lex.java" />
         <option value="$PROJECT_DIR$/src/k/Scope.java" />
         <option value="$PROJECT_DIR$/src/k/Symbol.java" />
@@ -118,11 +129,12 @@
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
-        <option value="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
-        <option value="$PROJECT_DIR$/src/k/TempVar.java" />
         <option value="$PROJECT_DIR$/src/k/Utils.java" />
-        <option value="$PROJECT_DIR$/src/k/CodeGenerator.java" />
         <option value="$PROJECT_DIR$/src/k/Node.java" />
+        <option value="$PROJECT_DIR$/src/k/TempVar.java" />
+        <option value="$PROJECT_DIR$/src/k/CodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/k/Editor.java" />
+        <option value="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
       </list>
     </option>
   </component>
@@ -586,13 +598,7 @@
       <workItem from="1430256222439" duration="242000" />
       <workItem from="1430256482382" duration="4424000" />
       <workItem from="1430272543999" duration="1799000" />
-      <workItem from="1430319118462" duration="2207000" />
-    </task>
-    <task id="LOCAL-00062" summary="Toggle Windows">
-      <created>1428372446621</created>
-      <option name="number" value="00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1428372446621</updated>
+      <workItem from="1430319118462" duration="2987000" />
     </task>
     <task id="LOCAL-00063" summary="Toggle Windows">
       <created>1428373052115</created>
@@ -882,11 +888,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430320361549</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Code Gen: assignment">
+      <created>1430321340225</created>
+      <option name="number" value="00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1430321340225</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303970000" />
+    <option name="totallyTimeSpent" value="304750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -1219,13 +1231,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.036322363">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.6557822">
@@ -1284,31 +1289,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/IDEMenuBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0452261">
-          <caret line="150" column="44" selection-start-line="150" selection-start-column="44" selection-end-line="150" selection-end-column="44" />
-          <folding>
-            <element signature="e#2658#2824#0" expanded="true" />
-            <element signature="e#2823#2824#0" expanded="true" />
-            <element signature="e#4135#4305#0" expanded="true" />
-            <element signature="e#4304#4305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/ScrollableOutput.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2680067">
           <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/TempVar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1321,23 +1305,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/TempVar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/k/IDEMenuBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60469013">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.42881072">
+          <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="152" selection-end-column="37" />
           <folding>
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#4135#4443#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
           </folding>
         </state>
       </provider>

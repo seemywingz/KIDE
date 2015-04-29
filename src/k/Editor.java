@@ -92,6 +92,7 @@ public class Editor extends ScrollableOutput{
         textArea.setCaretPosition(len);
         addedLine=true;
         setLineNumbers();
+        setDirty();
     }//..
 
     protected void initLineNumbers(){
@@ -195,5 +196,7 @@ public class Editor extends ScrollableOutput{
         }
         return false;
     }//..
+
+    public  boolean analyzed(){return analyzed;}//..
 
 }// Editor

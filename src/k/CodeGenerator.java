@@ -72,6 +72,12 @@ public class CodeGenerator extends ScrollableOutput{
         switch (val.getType()){
             case ID:
                 TempVar tempVar= haveTempFor(val);
+                codeStream[byteCnt++] = "AC";
+                codeStream[byteCnt++] = tempVar.temp;
+                codeStream[byteCnt++] = tempVar.addr;
+                codeStream[byteCnt++] = "A2";
+                codeStream[byteCnt++] = "01";
+                codeStream[byteCnt++] = "123";
                 break;
         }
 
