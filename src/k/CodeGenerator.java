@@ -54,11 +54,28 @@ public class CodeGenerator extends ScrollableOutput{
             case ASSIGNMENT_STATEMENT:
                 genASSIGNMENT(root);
                 break;
+            case PRINT_STATEMENT:
+                genPRINT_STATEMENT(root);
+                break;
         }
 
         for (Node c: root.children){
             genCode(c);
         }
+
+    }//..
+
+    protected void genPRINT_STATEMENT(Node root){
+        Node val = root.children.get(0);
+        System.out.println("CodeGen PRINT_STATEMENT: "+val.getData());
+
+        switch (val.getType()){
+            case ID:
+                TempVar tempVar= haveTempFor(val);
+                break;
+        }
+
+
 
     }//..
 
@@ -70,11 +87,7 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "A9";
             codeStream[byteCnt++] = "0" + val.getData();
             codeStream[byteCnt++] = "8D";
-            TempVar tempVar = haveTempFor(var.getData().toString());
-            if (tempVar == null) {
-                tempVar = new TempVar(tempNum++, var.getData().toString());
-                tempVars.add(tempVar);
-            }
+            TempVar tempVar = haveTempFor(var);
             codeStream[byteCnt++] = tempVar.temp;
             codeStream[byteCnt++] = tempVar.addr;
         }else if(val.getType() == TokenType.ID){
@@ -93,24 +106,23 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "A9";
             codeStream[byteCnt++] = "00";
             codeStream[byteCnt++] = "8D";
-            TempVar tempVar = haveTempFor(var.getData().toString());
-            if(tempVar==null) {
-                System.out.println("   Creating Temp for var "+var.getData().toString()+": T"+tempNum);
-                tempVar = new TempVar(tempNum++, var.getData().toString());
-                tempVars.add(tempVar);
-            }
+            TempVar tempVar = haveTempFor(var);
             codeStream[byteCnt++] = tempVar.temp;
             codeStream[byteCnt++] = tempVar.addr;
         }
 
     }//..
 
-    protected TempVar haveTempFor(String var){
+    protected TempVar haveTempFor(Node var){
         for (TempVar t:tempVars){
-            if(t.variable.equals(var))
+            if(t.variable.equals(var.getData()))
                 return t;
         }
-        return null;
+
+        System.out.println("   Creating Temp for var "+var.getData().toString()+": T"+tempNum);
+        TempVar tempVar = new TempVar(tempNum++, var.getData().toString());
+        tempVars.add(tempVar);
+        return tempVar;
     }//..
 
     protected void padWithZeros(){

@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CodeGen1.kide" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIX_Case_2.kide" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIX_Case_3.kide" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeGen1.kide" afterPath="$PROJECT_DIR$/CodeGen1.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Utils.java" afterPath="$PROJECT_DIR$/src/k/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Node.java" afterPath="$PROJECT_DIR$/src/k/Node.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -43,13 +41,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3484087">
-              <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.60469013">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+              <folding>
+                <element signature="e#453#454#0" expanded="true" />
+                <element signature="e#488#489#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,7 +115,6 @@
         <option value="$PROJECT_DIR$/src/k/Scope.java" />
         <option value="$PROJECT_DIR$/src/k/Symbol.java" />
         <option value="$PROJECT_DIR$/src/k/Token.java" />
-        <option value="$PROJECT_DIR$/src/k/Node.java" />
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
@@ -112,6 +122,7 @@
         <option value="$PROJECT_DIR$/src/k/TempVar.java" />
         <option value="$PROJECT_DIR$/src/k/Utils.java" />
         <option value="$PROJECT_DIR$/src/k/CodeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/k/Node.java" />
       </list>
     </option>
   </component>
@@ -575,13 +586,7 @@
       <workItem from="1430256222439" duration="242000" />
       <workItem from="1430256482382" duration="4424000" />
       <workItem from="1430272543999" duration="1799000" />
-      <workItem from="1430319118462" duration="1230000" />
-    </task>
-    <task id="LOCAL-00061" summary="Toggle Windows">
-      <created>1428372160279</created>
-      <option name="number" value="00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1428372160279</updated>
+      <workItem from="1430319118462" duration="2207000" />
     </task>
     <task id="LOCAL-00062" summary="Toggle Windows">
       <created>1428372446621</created>
@@ -871,11 +876,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430274331377</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Code Gen: assignment">
+      <created>1430320361548</created>
+      <option name="number" value="00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1430320361549</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302993000" />
+    <option name="totallyTimeSpent" value="303970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -1229,17 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3632236">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0908059">
@@ -1323,10 +1323,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3484087">
-          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60469013">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding>
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
           </folding>
         </state>
       </provider>

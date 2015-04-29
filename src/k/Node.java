@@ -148,7 +148,7 @@ public class Node {
         if(children.get(2).children.get(0).getType() == TokenType.INT_EXPR){
             addASTSegment_INT_EXPR(AST,children.get(2).children.get(0));
         }else {
-            AST.addLeafNode(getLeafNode());
+            AST.addLeafNode(children.get(2).getLeafNode());
         }
 
         AST.returnToParent(true);
