@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Created by KevAdmin on 4/28/2015.
+ * Created by Kevin on 4/28/2015.
  */
 public class CodeGenerator extends ScrollableOutput{
 
@@ -64,24 +64,25 @@ public class CodeGenerator extends ScrollableOutput{
 
     protected void genASSIGNMENT(Node root){
         Node val = root.children.get(1),var = root.children.get(0);
+        System.out.println("CodeGen ASSIGNMENT: "+var.getData()+" = "+val.getData());
 
+        if(Utils.isInt(val.getData().toString())) {
+            codeStream[byteCnt++] = "A9";
+            codeStream[byteCnt++] = "0" + val.getData();
+            codeStream[byteCnt++] = "8D";
+            TempVar tempVar = haveTempFor(var.getData().toString());
+            if (tempVar == null) {
+                tempVar = new TempVar(tempNum++, var.getData().toString());
+                tempVars.add(tempVar);
+            }
+            codeStream[byteCnt++] = tempVar.temp;
+            codeStream[byteCnt++] = tempVar.addr;
+        }else if(val.getType() == TokenType.ID){
 
-        codeStream[byteCnt++] = "A9";
-        if(Integer.parseInt(val.getData().toString()) < 10){
-
-            codeStream[byteCnt++] = "0"+val.getData();
-        }else {
-            codeStream[byteCnt++] = val.getData();
         }
-        codeStream[byteCnt++] = "8D";
-        TempVar tempVar = haveTempFor(var.getData().toString());
-        if(tempVar==null) {
-            tempVar = new TempVar(tempNum++, var.getData().toString());
-            tempVars.add(tempVar);
-        }
-        codeStream[byteCnt++] = tempVar.temp;
-        codeStream[byteCnt++] = tempVar.addr;
-    }
+
+
+    }//..
 
     protected void genVARDECL(Node root){
         Node type = root.children.get(0),var = root.children.get(1);
@@ -94,6 +95,7 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = "8D";
             TempVar tempVar = haveTempFor(var.getData().toString());
             if(tempVar==null) {
+                System.out.println("   Creating Temp for var "+var.getData().toString()+": T"+tempNum);
                 tempVar = new TempVar(tempNum++, var.getData().toString());
                 tempVars.add(tempVar);
             }
@@ -115,7 +117,7 @@ public class CodeGenerator extends ScrollableOutput{
         for (int i=byteCnt-1;i<codeStream.length;i++){
             codeStream[i]="00";
         }
-    }
+    }//..
 
 
 }// CodeGenerator

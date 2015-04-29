@@ -22,7 +22,7 @@ public final class Utils {
         } catch(NumberFormatException e) {
             return false;
         }
-    }
+    }//..
 
     public static ImageIcon scaleImageIcon(ImageIcon icon, int w, int h){
         Image img = icon.getImage() ;

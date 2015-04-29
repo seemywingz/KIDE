@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CodeGen1.kide" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIX_Case_2.kide" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FIX_Case_3.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/TempVar.java" afterPath="$PROJECT_DIR$/src/k/TempVar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Utils.java" afterPath="$PROJECT_DIR$/src/k/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -43,8 +46,8 @@
       <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78559464">
-              <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.3484087">
+              <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/k/Parser.java" />
         <option value="$PROJECT_DIR$/src/k/IDEMenuBar.java" />
         <option value="$PROJECT_DIR$/src/k/TempVar.java" />
+        <option value="$PROJECT_DIR$/src/k/Utils.java" />
         <option value="$PROJECT_DIR$/src/k/CodeGenerator.java" />
       </list>
     </option>
@@ -157,6 +161,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -192,10 +197,31 @@
               <option name="myItemId" value="k" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utils.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KIDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KIDE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -548,13 +574,8 @@
       <workItem from="1430256122939" duration="65000" />
       <workItem from="1430256222439" duration="242000" />
       <workItem from="1430256482382" duration="4424000" />
-      <workItem from="1430272543999" duration="1752000" />
-    </task>
-    <task id="LOCAL-00060" summary="Toggle Windows">
-      <created>1428371130796</created>
-      <option name="number" value="00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1428371130797</updated>
+      <workItem from="1430272543999" duration="1799000" />
+      <workItem from="1430319118462" duration="1230000" />
     </task>
     <task id="LOCAL-00061" summary="Toggle Windows">
       <created>1428372160279</created>
@@ -844,11 +865,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430261171760</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Code Gen: assignment">
+      <created>1430274331376</created>
+      <option name="number" value="00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1430274331377</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301716000" />
+    <option name="totallyTimeSpent" value="302993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="25" width="1938" height="1064" extended-state="6" />
@@ -865,9 +892,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3107221" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.48412699" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.47777778" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.515873" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13101605" sideWeight="0.5222222" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20392749" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -895,7 +922,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AST gen+view kinda woking" />
     <MESSAGE value="AST gen+view working on whilestmnt" />
     <MESSAGE value="AST gen+ IF and WHILE working" />
     <MESSAGE value="Begin: Semantic Analysis" />
@@ -920,7 +946,8 @@
     <MESSAGE value="Fixed test cases part deux" />
     <MESSAGE value="Ready for grading" />
     <MESSAGE value="Started Code Gen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Code Gen" />
+    <MESSAGE value="Code Gen: assignment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code Gen: assignment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1195,13 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/TokenType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47891158">
@@ -1293,10 +1313,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29480737">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78559464">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.3484087">
+          <caret line="70" column="56" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
