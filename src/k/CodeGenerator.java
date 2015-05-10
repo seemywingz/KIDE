@@ -93,9 +93,6 @@ public class CodeGenerator extends ScrollableOutput{
                 codeStream[byteCnt++] = "FF";
                 break;
         }
-
-
-
     }//..
 
     protected void genASSIGNMENT(Node root){
@@ -112,8 +109,6 @@ public class CodeGenerator extends ScrollableOutput{
         }else if(val.getType() == TokenType.ID){
 
         }
-
-
     }//..
 
     protected void genVARDECL(Node root){
