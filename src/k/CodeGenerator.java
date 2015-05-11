@@ -15,9 +15,7 @@ public class CodeGenerator extends ScrollableOutput{
     Tree AST;
     String [] codeStream = new String[256];
     ArrayList<TempVar> tempVars = new ArrayList<TempVar>();
-    int byteCnt = 0,tempNum=0;
-
-
+    int byteCnt = 0,tempNum=0, heap = 256;
 
     CodeGenerator (final IDEPanel idePanel){
         super(idePanel);
@@ -51,6 +49,7 @@ public class CodeGenerator extends ScrollableOutput{
                 tempVars = new ArrayList<TempVar>();
                 byteCnt = 0; tempNum=0;
                 genCode(AST.root);
+                backPatch();
                 textArea.setText("");
                 printCode();
                 }
@@ -81,6 +80,7 @@ public class CodeGenerator extends ScrollableOutput{
     protected void genPRINT_STATEMENT(Node root){
         Node val = root.children.get(0);
         System.out.println("CodeGen PRINT_STATEMENT: "+val.getData());
+        System.out.println("Printing a "+val.getType()+": "+val.getData() );
 
         switch (val.getType()){
             case ID:
@@ -91,6 +91,8 @@ public class CodeGenerator extends ScrollableOutput{
                 codeStream[byteCnt++] = "A2";
                 codeStream[byteCnt++] = "01";
                 codeStream[byteCnt++] = "FF";
+                break;
+            case STRING:
                 break;
         }
     }//..
