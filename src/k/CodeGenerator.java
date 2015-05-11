@@ -22,7 +22,7 @@ public class CodeGenerator extends ScrollableOutput{
 
         frame.setLocation(400, 400);
         frame.setSize(600,400);w=800;
-        initTextArea("Generated 6502a OP Codes:\n", 35, w / 11, false, mkKeyAdapter());
+        initTextArea("", 35, w / 11, false, mkKeyAdapter());
 
         // create a new pane next to the editor
         initScrollPane(new Rectangle(idePanel.editor.getScrollPane().getX()+idePanel.editor.getScrollPane().getWidth(),2,w,idePanel.editor.h));
@@ -32,6 +32,7 @@ public class CodeGenerator extends ScrollableOutput{
             textArea.append("\n\n      Compile Error Free Code for OP codes");
         }
 
+        padWithZeros();
         genCode(AST.root);
 
         backPatch();
@@ -47,7 +48,8 @@ public class CodeGenerator extends ScrollableOutput{
                 codeStream = new String[256];
                 AST = idePanel.parser.getAST();
                 tempVars = new ArrayList<TempVar>();
-                byteCnt = 0; tempNum=0;
+                byteCnt = 0; tempNum=0;heap=256;
+                padWithZeros();
                 genCode(AST.root);
                 backPatch();
                 textArea.setText("");
@@ -80,7 +82,6 @@ public class CodeGenerator extends ScrollableOutput{
     protected void genPRINT_STATEMENT(Node root){
         Node val = root.children.get(0);
         System.out.println("CodeGen PRINT_STATEMENT: "+val.getData());
-        System.out.println("Printing a "+val.getType()+": "+val.getData() );
 
         switch (val.getType()){
             case ID:
@@ -93,8 +94,25 @@ public class CodeGenerator extends ScrollableOutput{
                 codeStream[byteCnt++] = "FF";
                 break;
             case STRING:
+                System.out.println("Printing a "+val.getType()+": "+val.getData() );
+                String string = val.getData();
+                int stringLen = string.length()+1;
+                heap -= stringLen;
+                System.out.println(heap+" "+stringLen);
+                for(int i=0;i<stringLen-1;i++){
+                    codeStream[heap+i]=charToHex(string.charAt(i));
+                }
+                codeStream[byteCnt++] = "A2";// load x with const
+                codeStream[byteCnt++] = "02";
+                codeStream[byteCnt++] = "A0";// load y with const
+                codeStream[byteCnt++] = Integer.toHexString(heap);
+                codeStream[byteCnt++] = "FF";// System call
                 break;
         }
+    }//..
+
+    public String charToHex(char c){
+       return Integer.toHexString((int)c);
     }//..
 
     protected void genASSIGNMENT(Node root){
@@ -156,7 +174,6 @@ public class CodeGenerator extends ScrollableOutput{
     }//..
 
     protected void backPatch(){
-        padWithZeros();
         byteCnt++;
 
         for (TempVar t:tempVars){

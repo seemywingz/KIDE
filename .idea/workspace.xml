@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrashTest_1.kide" afterPath="$PROJECT_DIR$/CrashTest_1.kide" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_PRINT.kide" afterPath="$PROJECT_DIR$/Test_PRINT.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -44,12 +46,14 @@
       <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14251782">
-              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.35629454">
+              <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1129#1712#0" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
+                <element signature="e#1126#1750#0" expanded="true" />
+                <element signature="e#1749#1750#0" expanded="true" />
+                <element signature="e#3616#3617#0" expanded="true" />
+                <element signature="e#3665#3666#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -612,13 +616,7 @@
       <workItem from="1431269239520" duration="47000" />
       <workItem from="1431271384499" duration="148000" />
       <workItem from="1431285149144" duration="1923000" />
-      <workItem from="1431310677044" duration="1299000" />
-    </task>
-    <task id="LOCAL-00064" summary="Window Names">
-      <created>1428415420212</created>
-      <option name="number" value="00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1428415420214</updated>
+      <workItem from="1431310677044" duration="3829000" />
     </task>
     <task id="LOCAL-00065" summary="cst addLeafnode optimization">
       <created>1428416762368</created>
@@ -908,11 +906,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430322133053</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="Getting print to print">
+      <created>1431312012997</created>
+      <option name="number" value="00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1431312012997</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313018000" />
+    <option name="totallyTimeSpent" value="315548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
@@ -959,7 +963,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AST gen+ IF and WHILE working" />
     <MESSAGE value="Begin: Semantic Analysis" />
     <MESSAGE value="Semantic Analysis: variable declaration" />
     <MESSAGE value="Semantic Analysis: variable declaration dual decl" />
@@ -984,7 +987,8 @@
     <MESSAGE value="Started Code Gen" />
     <MESSAGE value="Code Gen: assignment" />
     <MESSAGE value="Code Gen: assignment&#10;&#10;     compile on open file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code Gen: assignment&#10;&#10;     compile on open file" />
+    <MESSAGE value="Getting print to print" />
+    <option name="LAST_COMMIT_MESSAGE" value="Getting print to print" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1357,12 +1361,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14251782">
-          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.35629454">
+          <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1129#1712#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
+            <element signature="e#1126#1750#0" expanded="true" />
+            <element signature="e#1749#1750#0" expanded="true" />
+            <element signature="e#3616#3617#0" expanded="true" />
+            <element signature="e#3665#3666#0" expanded="true" />
           </folding>
         </state>
       </provider>
