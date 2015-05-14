@@ -46,19 +46,19 @@ public class CodeGenerator extends ScrollableOutput{
             @Override
             public void apply() throws Exception {
                 if(!idePanel.editor.analyzed()){
-                while (!idePanel.editor.analyzed())
-                    Utils.wait(10);
-                codeStream = new String[256];
-                AST = idePanel.parser.getAST();
-                symbolTable = idePanel.parser.getSemanticAnalyzer().getCurrentScope();
-                curentScope=symbolTable;
-                tempVars = new ArrayList<TempVar>();
-                byteCnt = 0; tempNum=0;heap=256;
-                padWithZeros();
-                genCode(AST.root);
-                backPatch();
-                textArea.setText("");
-                printCode();
+                    while (!idePanel.editor.analyzed())
+                        Utils.wait(10);
+                    codeStream = new String[256];
+                    AST = idePanel.parser.getAST();
+                    symbolTable = idePanel.parser.getSemanticAnalyzer().getCurrentScope();
+                    curentScope=symbolTable;
+                    tempVars = new ArrayList<TempVar>();
+                    byteCnt = 0; tempNum=0;heap=256;
+                    padWithZeros();
+                    genCode(AST.root);
+                    backPatch();
+                    textArea.setText("");
+                    printCode();
                 }
             }
         },20);
@@ -108,6 +108,7 @@ public class CodeGenerator extends ScrollableOutput{
                     codeStream[byteCnt++] = "A2";// load x with const
                     codeStream[byteCnt++] = "02";
                     codeStream[byteCnt++] = "FF";
+                }else if("boolean".equals(symbol.getData())){
 
                 }
                 System.out.println(symbol.getData());
@@ -134,10 +135,10 @@ public class CodeGenerator extends ScrollableOutput{
     }//..
 
     public String charToHex(char c){
-       return Integer.toHexString((int)c);
+        return Integer.toHexString((int)c);
     }//..
 
-    protected void genASSIGNMENT(Node root){
+    protected void   genASSIGNMENT(Node root){
         Node val = root.children.get(1),var = root.children.get(0);
         System.out.println("CodeGen ASSIGNMENT: "+var.getData()+" = "+val.getData());
 
@@ -162,26 +163,36 @@ public class CodeGenerator extends ScrollableOutput{
                     TempVar tempVar = haveTempFor(var);
                     codeStream[byteCnt++] = tempVar.temp1;
                     codeStream[byteCnt++] = tempVar.temp2;
-
                     break;
-                case DIGIT:
+                case ID:
+                    tempVar = haveTempFor(var);
+                    TempVar newVal = haveTempFor(val);
+                    codeStream[byteCnt++] = "AD";
+                    codeStream[byteCnt++] = newVal.temp1;
+                    codeStream[byteCnt++] = newVal.temp2;
+                    codeStream[byteCnt++] = "8D";
+                    codeStream[byteCnt++] = tempVar.temp1;
+                    codeStream[byteCnt++] = tempVar.temp2;
                     break;
             }
         }
     }//..
 
     protected void genVARDECL(Node root){
+
+        TempVar tempVar;
         Node type = root.children.get(0),var = root.children.get(1);
 
         System.out.println("CodeGen: "+root.getData()+" "+type.getData()+" "+var.getData());
 
         if(type.getData().equals("int")){
             codeStream[byteCnt++] = "A9";
-            codeStream[byteCnt++] = "00";
-            codeStream[byteCnt++] = "8D";
-            TempVar tempVar = haveTempFor(var);
+            codeStream[byteCnt++] =           codeStream[byteCnt++] = "8D";
+            tempVar = haveTempFor(var);
             codeStream[byteCnt++] = tempVar.temp1;
             codeStream[byteCnt++] = tempVar.temp2;
+        }else if(type.getData().equals("string")){
+            tempVar=haveTempFor(var);
         }
 
     }//..

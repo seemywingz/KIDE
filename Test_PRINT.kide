@@ -2,9 +2,11 @@
 	
      
      string s
+     string g
      s = "hello"
-     
+     g=s
      print(s)
+     print(g) 
  
 }$
            
