@@ -21,8 +21,8 @@ public class CodeGenerator extends ScrollableOutput{
     CodeGenerator (final IDEPanel idePanel){
         super(idePanel);
 
-        frame.setLocation(400, 400);
-        frame.setSize(600,400);w=800;
+        frame.setLocation(idePanel.editor.getScrollPane().getX()+idePanel.editor.getPanel().getWidth(), 400);
+        frame.setSize(300,600);w=800;
         initTextArea("", 35, w / 11, false, mkKeyAdapter());
 
         // create a new pane next to the editor
@@ -77,7 +77,6 @@ public class CodeGenerator extends ScrollableOutput{
                 genPRINT_STATEMENT(root);
                 break;
         }
-
         for (Node c: root.children){
             genCode(c);
         }
@@ -193,6 +192,8 @@ public class CodeGenerator extends ScrollableOutput{
             codeStream[byteCnt++] = tempVar.temp2;
         }else if(type.getData().equals("string")){
             tempVar=haveTempFor(var);
+        }else if(type.getData().equals("boolean")){
+            System.out.println("  boolean");
         }
 
     }//..
