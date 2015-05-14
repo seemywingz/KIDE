@@ -16,6 +16,7 @@ public class Parser extends ScrollableOutput {
     protected int tokenIndex = 0;
     protected boolean noParseErrors = true;
     protected Tree CST,AST=null;
+    protected SemanticAnalyzer semanticAnalyzer;
 
     Parser(IDEPanel idePanel1) {
         super(idePanel1);
@@ -50,7 +51,7 @@ public class Parser extends ScrollableOutput {
        if(!idePanel.editor.hasErrors()) {
            AST = new Tree();
            CST.root.buildAST(AST);
-           new SemanticAnalyzer(idePanel,AST);
+           semanticAnalyzer = new SemanticAnalyzer(idePanel,AST);
        }
    }//..
 
@@ -286,6 +287,10 @@ public class Parser extends ScrollableOutput {
     public Tree getAST() {
         return AST;
     }
+
+    public SemanticAnalyzer getSemanticAnalyzer() {
+        return semanticAnalyzer;
+    }//..
 
     @Override
     public void showHide() {

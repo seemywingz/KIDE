@@ -16,8 +16,7 @@ public class CodeGenerator extends ScrollableOutput{
     String [] codeStream = new String[256];
     ArrayList<TempVar> tempVars = new ArrayList<TempVar>();
     int byteCnt = 0,tempNum=0, heap = 256;
-    Scope currentScpe;
-    ArrayList<Scope> symbolTable = new ArrayList<Scope>();
+    Scope symbolTable,curentScope;
 
     CodeGenerator (final IDEPanel idePanel){
         super(idePanel);
@@ -34,6 +33,8 @@ public class CodeGenerator extends ScrollableOutput{
             textArea.append("\n\n      Compile Error Free Code for OP codes");
         }
 
+        symbolTable = idePanel.parser.getSemanticAnalyzer().getCurrentScope();
+        curentScope=symbolTable;
         padWithZeros();
         genCode(AST.root);
 
@@ -49,6 +50,8 @@ public class CodeGenerator extends ScrollableOutput{
                     Utils.wait(10);
                 codeStream = new String[256];
                 AST = idePanel.parser.getAST();
+                symbolTable = idePanel.parser.getSemanticAnalyzer().getCurrentScope();
+                curentScope=symbolTable;
                 tempVars = new ArrayList<TempVar>();
                 byteCnt = 0; tempNum=0;heap=256;
                 padWithZeros();
@@ -84,16 +87,30 @@ public class CodeGenerator extends ScrollableOutput{
     protected void genPRINT_STATEMENT(Node root){
         Node val = root.children.get(0);
         System.out.println("CodeGen PRINT_STATEMENT: "+val.getData());
+        TempVar  tempVar;
 
         switch (val.getType()){
             case ID:
-                TempVar tempVar= haveTempFor(val);
-                codeStream[byteCnt++] = "AC";
-                codeStream[byteCnt++] = tempVar.temp1;
-                codeStream[byteCnt++] = tempVar.temp2;
-                codeStream[byteCnt++] = "A2";
-                codeStream[byteCnt++] = "01";
-                codeStream[byteCnt++] = "FF";
+                Symbol symbol = curentScope.isDeclared(val);
+                if("int".equals(symbol.getData())){
+                    tempVar= haveTempFor(val);
+                    codeStream[byteCnt++] = "AC";
+                    codeStream[byteCnt++] = tempVar.temp1;
+                    codeStream[byteCnt++] = tempVar.temp2;
+                    codeStream[byteCnt++] = "A2";
+                    codeStream[byteCnt++] = "01";
+                    codeStream[byteCnt++] = "FF";
+                }else if("string".equals(symbol.getData())){
+                    tempVar= haveTempFor(val);
+                    codeStream[byteCnt++] = "AC";// load y from mem
+                    codeStream[byteCnt++] = tempVar.temp1;
+                    codeStream[byteCnt++] = tempVar.temp2;
+                    codeStream[byteCnt++] = "A2";// load x with const
+                    codeStream[byteCnt++] = "02";
+                    codeStream[byteCnt++] = "FF";
+
+                }
+                System.out.println(symbol.getData());
                 break;
             case STRING:
                 System.out.println("Printing a "+val.getType()+": "+val.getData() );

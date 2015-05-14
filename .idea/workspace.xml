@@ -5,63 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/k/SymbolTable.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Editor.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Editor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ErrorPane.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDE.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDE.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$10.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$11.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$12.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$13.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$3.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$4.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$5.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$6.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$7.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$8.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$9.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEMenuBar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/IDEPanel.class" afterPath="$PROJECT_DIR$/out/production/kide/k/IDEPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Lex.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Lex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog.class" afterPath="$PROJECT_DIR$/out/production/kide/k/LoadingDialog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Logic.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Logic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Node$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Node$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Node.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Options.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Options.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Parser$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Parser$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Parser.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Parser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Scope.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Scope.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput.class" afterPath="$PROJECT_DIR$/out/production/kide/k/ScrollableOutput.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer.class" afterPath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Symbol.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Symbol.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/SymbolTable.class" afterPath="$PROJECT_DIR$/out/production/kide/k/SymbolTable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TempVar.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TempVar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Token.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Token.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TokenType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Tree.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Tree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/TreeView.class" afterPath="$PROJECT_DIR$/out/production/kide/k/TreeView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Utils.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Utils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Scope.java" afterPath="$PROJECT_DIR$/src/k/Scope.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Parser.java" afterPath="$PROJECT_DIR$/src/k/Parser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_PRINT.kide" afterPath="$PROJECT_DIR$/Test_PRINT.kide" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -85,14 +31,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/k/Parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="292" column="9" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
+              <folding>
+                <element signature="e#9222#9223#0" expanded="true" />
+                <element signature="e#9261#9262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SemanticAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1171875">
-              <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
-                <element signature="e#7633#7634#0" expanded="true" />
-                <element signature="e#7659#7660#0" expanded="true" />
+                <element signature="e#7785#7786#0" expanded="true" />
+                <element signature="e#7811#7812#0" expanded="true" />
+                <element signature="e#7853#7854#0" expanded="true" />
+                <element signature="e#7888#7889#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7324219">
+              <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4610#4611#0" expanded="true" />
+                <element signature="e#4659#4660#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,21 +94,6 @@
                 <element signature="e#349#350#0" expanded="true" />
                 <element signature="e#997#998#0" expanded="true" />
                 <element signature="e#1032#1033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#497#504#0" expanded="true" />
-                <element signature="e#3721#3722#0" expanded="true" />
-                <element signature="e#3770#3771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,7 +136,6 @@
         <option value="$PROJECT_DIR$/src/k/Symbol.java" />
         <option value="$PROJECT_DIR$/src/k/Token.java" />
         <option value="$PROJECT_DIR$/src/k/Tree.java" />
-        <option value="$PROJECT_DIR$/src/k/Parser.java" />
         <option value="$PROJECT_DIR$/src/k/Utils.java" />
         <option value="$PROJECT_DIR$/src/k/Node.java" />
         <option value="$PROJECT_DIR$/src/k/Editor.java" />
@@ -184,6 +143,7 @@
         <option value="$PROJECT_DIR$/src/k/TempVar.java" />
         <option value="$PROJECT_DIR$/src/k/ScrollableOutput.java" />
         <option value="$PROJECT_DIR$/src/k/Scope.java" />
+        <option value="$PROJECT_DIR$/src/k/Parser.java" />
         <option value="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/k/CodeGenerator.java" />
       </list>
@@ -695,13 +655,7 @@
       <workItem from="1431486427955" duration="264000" />
       <workItem from="1431486760486" duration="40000" />
       <workItem from="1431489897735" duration="454000" />
-      <workItem from="1431562223619" duration="2684000" />
-    </task>
-    <task id="LOCAL-00065" summary="cst addLeafnode optimization">
-      <created>1428416762368</created>
-      <option name="number" value="00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1428416762368</updated>
+      <workItem from="1431562223619" duration="4921000" />
     </task>
     <task id="LOCAL-00066" summary="cst addLeafnode optimization">
       <created>1428504755171</created>
@@ -991,11 +945,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431312012997</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="Persistent Symbol Table">
+      <created>1431565565675</created>
+      <option name="number" value="00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1431565565676</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318990000" />
+    <option name="totallyTimeSpent" value="321227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -1008,7 +968,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15123095" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15049751" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973805" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20392749" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1042,7 +1002,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Begin: Semantic Analysis" />
     <MESSAGE value="Semantic Analysis: variable declaration" />
     <MESSAGE value="Semantic Analysis: variable declaration dual decl" />
     <MESSAGE value="Forgot to add int_expr to AST .. it is there now" />
@@ -1067,7 +1026,8 @@
     <MESSAGE value="Code Gen: assignment" />
     <MESSAGE value="Code Gen: assignment&#10;&#10;     compile on open file" />
     <MESSAGE value="Getting print to print" />
-    <option name="LAST_COMMIT_MESSAGE" value="Getting print to print" />
+    <MESSAGE value="Persistent Symbol Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Persistent Symbol Table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1403,20 +1363,10 @@
     <entry file="file://$PROJECT_DIR$/src/k/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+          <caret line="292" column="9" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#497#504#0" expanded="true" />
-            <element signature="e#3721#3722#0" expanded="true" />
-            <element signature="e#3770#3771#0" expanded="true" />
+            <element signature="e#9222#9223#0" expanded="true" />
+            <element signature="e#9261#9262#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1445,11 +1395,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/SemanticAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1171875">
-          <caret line="29" column="48" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
-            <element signature="e#7633#7634#0" expanded="true" />
-            <element signature="e#7659#7660#0" expanded="true" />
+            <element signature="e#7785#7786#0" expanded="true" />
+            <element signature="e#7811#7812#0" expanded="true" />
+            <element signature="e#7853#7854#0" expanded="true" />
+            <element signature="e#7888#7889#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7324219">
+          <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#4659#4660#0" expanded="true" />
           </folding>
         </state>
       </provider>

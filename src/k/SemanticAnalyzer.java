@@ -26,9 +26,13 @@ public class SemanticAnalyzer {
 
         switch (root.getType()){
             case BLOCK:
-                Scope newScope = new Scope(currentScope);
-                currentScope.addChild(newScope);
-                currentScope = newScope;
+                if(currentScope==null)
+                    currentScope = new Scope(currentScope);
+                else {
+                    Scope newScope = new Scope(currentScope);
+                    currentScope.addChild(newScope);
+                    currentScope = newScope;
+                }
                 break;
             case VARDECL:
                 analyze_VARDECL(root);
@@ -207,4 +211,9 @@ public class SemanticAnalyzer {
     public Tree getAST() {
         return AST;
     }//..
+
+    public Scope getCurrentScope() {
+        return currentScope;
+    }//..
+
 }//.. SemanticAnalyzer
