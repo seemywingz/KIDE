@@ -16,6 +16,8 @@ public class CodeGenerator extends ScrollableOutput{
     String [] codeStream = new String[256];
     ArrayList<TempVar> tempVars = new ArrayList<TempVar>();
     int byteCnt = 0,tempNum=0, heap = 256;
+    Scope currentScpe;
+    ArrayList<Scope> symbolTable = new ArrayList<Scope>();
 
     CodeGenerator (final IDEPanel idePanel){
         super(idePanel);
@@ -95,19 +97,22 @@ public class CodeGenerator extends ScrollableOutput{
                 break;
             case STRING:
                 System.out.println("Printing a "+val.getType()+": "+val.getData() );
-                String string = val.getData();
-                int stringLen = string.length()+1;
-                heap -= stringLen;
-                System.out.println(heap+" "+stringLen);
-                for(int i=0;i<stringLen-1;i++){
-                    codeStream[heap+i]=charToHex(string.charAt(i));
-                }
+                addStringToHeap(val.getData().toString());
                 codeStream[byteCnt++] = "A2";// load x with const
                 codeStream[byteCnt++] = "02";
                 codeStream[byteCnt++] = "A0";// load y with const
                 codeStream[byteCnt++] = Integer.toHexString(heap);
                 codeStream[byteCnt++] = "FF";// System call
                 break;
+        }
+    }//..
+
+    public void addStringToHeap(String string){
+        int stringLen = string.length()+1;
+        heap -= stringLen;
+        System.out.println(heap+" "+stringLen);
+        for(int i=0;i<stringLen-1;i++){
+            codeStream[heap+i]=charToHex(string.charAt(i));
         }
     }//..
 
@@ -120,14 +125,31 @@ public class CodeGenerator extends ScrollableOutput{
         System.out.println("CodeGen ASSIGNMENT: "+var.getData()+" = "+val.getData());
 
         if(Utils.isInt(val.getData().toString())) {
+            System.out.println("We have an int");
             codeStream[byteCnt++] = "A9";
             codeStream[byteCnt++] = "0" + val.getData();
             codeStream[byteCnt++] = "8D";
             TempVar tempVar = haveTempFor(var);
             codeStream[byteCnt++] = tempVar.temp1;
             codeStream[byteCnt++] = tempVar.temp2;
-        }else if(val.getType() == TokenType.ID){
 
+        }else if(var.getType() == TokenType.ID){
+            System.out.println("We have an id");
+            switch (val.getType()){
+                case STRING:
+                    System.out.println("assigning "+val.getData()+" to "+var.getData());
+                    addStringToHeap(val.getData().toString());
+                    codeStream[byteCnt++] = "A9";
+                    codeStream[byteCnt++] = Integer.toHexString(heap);
+                    codeStream[byteCnt++] = "8D";
+                    TempVar tempVar = haveTempFor(var);
+                    codeStream[byteCnt++] = tempVar.temp1;
+                    codeStream[byteCnt++] = tempVar.temp2;
+
+                    break;
+                case DIGIT:
+                    break;
+            }
         }
     }//..
 

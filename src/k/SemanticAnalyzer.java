@@ -26,7 +26,9 @@ public class SemanticAnalyzer {
 
         switch (root.getType()){
             case BLOCK:
-                currentScope = new Scope(currentScope);
+                Scope newScope = new Scope(currentScope);
+                currentScope.addChild(newScope);
+                currentScope = newScope;
                 break;
             case VARDECL:
                 analyze_VARDECL(root);

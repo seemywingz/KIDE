@@ -1,8 +1,10 @@
  {
-      int a
-      a = 2
-
-     print(a)
-     print("hello")
-
+	
+     
+     string s
+     s = "hello"
+     
+     print(s)
+ 
 }$
+           

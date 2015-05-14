@@ -10,6 +10,7 @@ public class Scope {
 
     protected Scope parentScope;
     protected ArrayList<Symbol> symbolTable = new ArrayList<Symbol>();
+    protected ArrayList<Scope> children = new ArrayList<Scope>();
 
     Scope(Scope parentScope){
         this.parentScope=parentScope;
@@ -39,5 +40,9 @@ public class Scope {
             }
         }
         return declared;
+    }//..
+
+    public void addChild(Scope child){
+        children.add(child);
     }//..
 }//..
