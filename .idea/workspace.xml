@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aec608ce-9065-4f4b-bfec-d4b5f4d8a0a6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" afterPath="$PROJECT_DIR$/out/production/kide/k/CodeGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Parser$1.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Parser$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Parser.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Parser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/Scope.class" afterPath="$PROJECT_DIR$/out/production/kide/k/Scope.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer.class" afterPath="$PROJECT_DIR$/out/production/kide/k/SemanticAnalyzer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/CodeGenerator.java" afterPath="$PROJECT_DIR$/src/k/CodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/Parser.java" afterPath="$PROJECT_DIR$/src/k/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" afterPath="$PROJECT_DIR$/src/k/SemanticAnalyzer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_PRINT.kide" afterPath="$PROJECT_DIR$/Test_PRINT.kide" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kide.iws" />
@@ -36,10 +43,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="292" column="9" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
-              <folding>
-                <element signature="e#9222#9223#0" expanded="true" />
-                <element signature="e#9261#9262#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,12 +53,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-              <folding>
-                <element signature="e#7785#7786#0" expanded="true" />
-                <element signature="e#7811#7812#0" expanded="true" />
-                <element signature="e#7853#7854#0" expanded="true" />
-                <element signature="e#7888#7889#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,13 +61,9 @@
       <file leaf-file-name="CodeGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7324219">
-              <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4610#4611#0" expanded="true" />
-                <element signature="e#4659#4660#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.09771987">
+              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,13 +83,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding>
-                <element signature="e#265#272#0" expanded="true" />
-                <element signature="e#305#306#0" expanded="true" />
-                <element signature="e#349#350#0" expanded="true" />
-                <element signature="e#997#998#0" expanded="true" />
-                <element signature="e#1032#1033#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -200,7 +189,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -215,32 +203,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="kide" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="KIDE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kide" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="k" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -656,12 +627,9 @@
       <workItem from="1431486760486" duration="40000" />
       <workItem from="1431489897735" duration="454000" />
       <workItem from="1431562223619" duration="4921000" />
-    </task>
-    <task id="LOCAL-00066" summary="cst addLeafnode optimization">
-      <created>1428504755171</created>
-      <option name="number" value="00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1428504755172</updated>
+      <workItem from="1431574071703" duration="235000" />
+      <workItem from="1431605387142" duration="1505000" />
+      <workItem from="1431609045014" duration="898000" />
     </task>
     <task id="LOCAL-00067" summary="GUI Tweaks">
       <created>1428593242146</created>
@@ -951,14 +919,20 @@
       <option name="project" value="LOCAL" />
       <updated>1431565565676</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="No where near done, but I.m doing more harm than good atm">
+      <created>1431574363704</created>
+      <option name="number" value="00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1431574363705</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321227000" />
+    <option name="totallyTimeSpent" value="323865000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -974,11 +948,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890856" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2560175" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12361111" sideWeight="0.5888889" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12361111" sideWeight="0.60436136" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12361111" sideWeight="0.41111112" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12361111" sideWeight="0.3956386" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20149253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1002,7 +976,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Semantic Analysis: variable declaration" />
     <MESSAGE value="Semantic Analysis: variable declaration dual decl" />
     <MESSAGE value="Forgot to add int_expr to AST .. it is there now" />
     <MESSAGE value="FIXING DUAL DECL" />
@@ -1027,7 +1000,8 @@
     <MESSAGE value="Code Gen: assignment&#10;&#10;     compile on open file" />
     <MESSAGE value="Getting print to print" />
     <MESSAGE value="Persistent Symbol Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Persistent Symbol Table" />
+    <MESSAGE value="No where near done, but I.m doing more harm than good atm" />
+    <option name="LAST_COMMIT_MESSAGE" value="No where near done, but I.m doing more harm than good atm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1040,11 +1014,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/k/Scope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/k/Lex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="138" column="57" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,7 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="138" column="57" selection-start-line="138" selection-start-column="57" selection-end-line="138" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,10 +1344,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="292" column="9" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
-          <folding>
-            <element signature="e#9222#9223#0" expanded="true" />
-            <element signature="e#9261#9262#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,13 +1360,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-          <folding>
-            <element signature="e#265#272#0" expanded="true" />
-            <element signature="e#305#306#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,24 +1368,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding>
-            <element signature="e#7785#7786#0" expanded="true" />
-            <element signature="e#7811#7812#0" expanded="true" />
-            <element signature="e#7853#7854#0" expanded="true" />
-            <element signature="e#7888#7889#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/k/CodeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7324219">
-          <caret line="109" column="49" selection-start-line="109" selection-start-column="49" selection-end-line="109" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4610#4611#0" expanded="true" />
-            <element signature="e#4659#4660#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.09771987">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

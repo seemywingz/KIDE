@@ -94,10 +94,10 @@ public class CodeGenerator extends ScrollableOutput{
                 Symbol symbol = curentScope.isDeclared(val);
                 if("int".equals(symbol.getData())){
                     tempVar= haveTempFor(val);
-                    codeStream[byteCnt++] = "AC";
+                    codeStream[byteCnt++] = "AC";// load y from mem
                     codeStream[byteCnt++] = tempVar.temp1;
                     codeStream[byteCnt++] = tempVar.temp2;
-                    codeStream[byteCnt++] = "A2";
+                    codeStream[byteCnt++] = "A2";// load x with const
                     codeStream[byteCnt++] = "01";
                     codeStream[byteCnt++] = "FF";
                 }else if("string".equals(symbol.getData())){

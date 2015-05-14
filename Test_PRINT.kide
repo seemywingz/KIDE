@@ -5,8 +5,9 @@
      string g
      s = "hello"
      g=s
-     print(s)
-     print(g) 
+     s = " world"
+     print(g)
+     print(s) 
  
 }$
            
